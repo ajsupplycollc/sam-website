@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strange Advanced Marketing — AI-Powered Business Intelligence Tools</title>
+    <meta name="description" content="Automated lead generation, competitor analysis, and business intelligence tools built by Strange Advanced Marketing. Google Maps scrapers, email finders, website analyzers.">
+    <meta property="og:title" content="Strange Advanced Marketing — AI Business Tools">
+    <meta property="og:description" content="Automated lead generation, competitor analysis, and business intelligence tools. Find leads, analyze competitors, verify emails.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.strangeonekenobi.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a { color: #00d4ff; text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #00ff88; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            border-bottom: 1px solid #222;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        .hero h1 span { color: #00d4ff; }
+        .hero p {
+            font-size: 1.2rem;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        .stat { text-align: center; }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #00d4ff;
+        }
+        .stat-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Products */
+        .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 48px;
+            font-size: 1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+        .product-card {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 32px 28px;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+        .product-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-4px);
+        }
+        .product-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+        }
+        .badge-lead-gen { background: #00d4ff22; color: #00d4ff; }
+        .badge-seo { background: #00ff8822; color: #00ff88; }
+        .badge-email { background: #ff6b0022; color: #ff6b00; }
+        .product-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .product-card p {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .product-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .product-features li {
+            padding: 4px 0;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        .product-features li::before {
+            content: "\2713";
+            color: #00d4ff;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        .product-cta {
+            display: inline-block;
+            background: #00d4ff;
+            color: #0a0a0a;
+            font-weight: 700;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .product-cta:hover { background: #00ff88; color: #0a0a0a; }
+
+        /* Stores */
+        .stores {
+            background: #111;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+        .store-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .store-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 28px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #fff;
+            transition: border-color 0.2s;
+        }
+        .store-link:hover { border-color: #00d4ff; color: #fff; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #555;
+            font-size: 0.85rem;
+            border-top: 1px solid #1a1a1a;
+        }
+        footer a { color: #666; }
+
+        /* About */
+        .about-text {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .hero { padding: 50px 16px 40px; }
+            .hero-stats { gap: 24px; }
+            .section { padding: 40px 16px; }
+            .products-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1><span>Strange</span> Advanced Marketing</h1>
+    <p>AI-powered business intelligence tools that find leads, analyze competitors, and grow your business on autopilot.</p>
+    <div class="hero-stats">
+        <div class="stat">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Live Products</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">AI Automated</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Proxies Needed</div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Our Tools</h2>
+    <p class="section-subtitle">Production-tested automation tools on the Apify Store. Pay per use, no subscriptions.</p>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+            <span class="product-badge badge-lead-gen">Lead Generation</span>
+            <h3>Google Maps Lead Generator</h3>
+            <p>Find business leads with email enrichment, social media discovery, and lead scoring. One search returns complete contact profiles.</p>
+            <ul class="product-features">
+                <li>Name, phone, address, rating, reviews</li>
+                <li>Email extraction from websites</li>
+                <li>Instagram, Facebook, TikTok, LinkedIn detection</li>
+                <li>Hot/Warm/Cold lead scoring</li>
+            </ul>
+            <a href="https://apify.com/strange-advanced-marketing/google-maps-lead-generator" class="product-cta">Try on Apify</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-badge badge-lead-gen">Lead Generation</span>
+            <h3>Google Maps Reviews Analyzer</h3>
+            <p>Scrape and analyze Google Maps reviews with AI sentiment analysis. Detect themes, flag red flags, compare competitors.</p>
+            <ul class="product-features">
+                <li>Full review text extraction</li>
+                <li>Sentiment scoring per review</li>
+                <li>Theme detection (pricing, service, quality)</li>
+                <li>Red flag identification</li>
+            </ul>
+            <a href="https://apify.com/strange-advanced-marketing/google-maps-reviews-analyzer" class="product-cta">Try on Apify</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-badge badge-lead-gen">Lead Generation</span>
+            <h3>Google Maps Competitor Analyzer</h3>
+            <p>Input a business, find every competitor in the area. Compare ratings, reviews, and digital presence. Spot opportunities instantly.</p>
+            <ul class="product-features">
+                <li>Automatic competitor discovery</li>
+                <li>Side-by-side comparison</li>
+                <li>Rating and review rankings</li>
+                <li>Opportunity flagging</li>
+            </ul>
+            <a href="https://apify.com/strange-advanced-marketing/google-maps-competitor-analyzer" class="product-cta">Try on Apify</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-badge badge-seo">SEO Tools</span>
+            <h3>Business Website Analyzer</h3>
+            <p>Instant SEO audit for any website. SSL, mobile, email, social links, analytics, schema markup. Get a grade and action items.</p>
+            <ul class="product-features">
+                <li>SSL, mobile, Core Web Vitals</li>
+                <li>Email and contact form detection</li>
+                <li>Social media link discovery</li>
+                <li>A-F grade with score</li>
+            </ul>
+            <a href="https://apify.com/strange-advanced-marketing/business-website-analyzer" class="product-cta">Try on Apify</a>
+        </div>
+
+        <div class="product-card">
+            <span class="product-badge badge-email">Email Tools</span>
+            <h3>Email Finder and Verifier</h3>
+            <p>Turn domain names into email addresses. Scrapes websites, generates patterns, checks MX records, detects email providers.</p>
+            <ul class="product-features">
+                <li>Website email scraping</li>
+                <li>Smart pattern generation</li>
+                <li>MX record validation</li>
+                <li>Email provider detection</li>
+            </ul>
+            <a href="https://apify.com/strange-advanced-marketing/email-finder-verifier" class="product-cta">Try on Apify</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="stores section">
+    <h2 class="section-title">Find Us</h2>
+    <p class="section-subtitle">Available on multiple platforms</p>
+    <div class="store-links">
+        <a href="https://apify.com/strange-advanced-marketing" class="store-link">Apify Store</a>
+        <a href="https://strangemarket.gumroad.com" class="store-link">Gumroad</a>
+        <a href="https://github.com/strangeadvancedmarketing" class="store-link">GitHub</a>
+        <a href="https://www.tiktok.com/@strangeadvancedmarketing" class="store-link">TikTok</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">About S.A.M.</h2>
+    <p class="about-text">
+        Strange Advanced Marketing builds AI-powered tools that automate business intelligence. Our products help agencies, freelancers, and businesses find leads, analyze competitors, and grow — without manual research or expensive subscriptions.
+        <br><br>
+        Every tool is tested, production-ready, and runs on Apify's cloud infrastructure. Pay only for what you use.
+        <br><br>
+        Built in Miami by Jereme Strange.
+    </p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Strange Advanced Marketing. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+        <a href="mailto:ajsupplycollc@gmail.com">Contact</a> &middot;
+        <a href="https://github.com/strangeadvancedmarketing">GitHub</a> &middot;
+        <a href="https://www.tiktok.com/@strangeadvancedmarketing">TikTok</a>
+    </p>
+</footer>
+
+</body>
+</html>
