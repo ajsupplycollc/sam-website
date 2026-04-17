@@ -583,6 +583,82 @@
         }
         .demo-caption strong { color: #00d4ff; }
 
+        /* How it works — 3 step strip */
+        .how {
+            background: #0d1117;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 56px 20px;
+        }
+        .how-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .how h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .how h2 span { color: #00d4ff; }
+        .how-sub {
+            text-align: center;
+            color: #888;
+            margin-bottom: 44px;
+            font-size: 1rem;
+        }
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+        .how-steps::before {
+            content: "";
+            position: absolute;
+            top: 34px;
+            left: 16.66%;
+            right: 16.66%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d4ff44, #00d4ff44, transparent);
+            z-index: 0;
+        }
+        .how-step {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+        .how-num {
+            width: 68px; height: 68px;
+            border-radius: 50%;
+            background: #0d1117;
+            border: 2px solid #00d4ff;
+            color: #00d4ff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 24px rgba(0, 212, 255, 0.15);
+        }
+        .how-step h3 {
+            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .how-step p {
+            color: #999;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .how-steps { grid-template-columns: 1fr; gap: 36px; }
+            .how-steps::before { display: none; }
+        }
+
         /* Proof strip */
         .proof-strip {
             max-width: 1100px;
@@ -746,12 +822,58 @@
     </div>
 </section>
 
+<section class="how">
+    <div class="how-wrap">
+        <h2>How it <span>actually</span> works</h2>
+        <p class="how-sub">No apps to learn. No dashboards. No code. Just voice notes.</p>
+        <div class="how-steps">
+            <div class="how-step">
+                <div class="how-num">1</div>
+                <h3>You tell us what's eating your time</h3>
+                <p>15-min discovery call. We map the bottleneck — quoting, scheduling, follow-ups, whatever's slowing you down.</p>
+            </div>
+            <div class="how-step">
+                <div class="how-num">2</div>
+                <h3>We build your AI system</h3>
+                <p>Custom agent wired to your tools — Gmail, calendar, Stripe, CRM. Set up in days, not months. You own the files.</p>
+            </div>
+            <div class="how-step">
+                <div class="how-num">3</div>
+                <h3>You run your business by talking</h3>
+                <p>Voice note what you need. AI quotes, schedules, invoices, follows up. No laptop. No typing. Under 5 min response.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="intake" id="get-started">
     <h2>Ready to see what AI can do for <span>your</span> business?</h2>
     <p class="intake-sub">Tell us what you do and what's eating your time. We'll research your business, your competitors, and your industry before we ever get on a call.</p>
     <div class="intake-form">
         <form action="https://formsubmit.co/strangeadvancedmarketing@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="New SAM Intake - Website"><input type="hidden" name="_next" value="https://strangeadvancedmarketing.com#submitted"><input type="email" name="email" placeholder="Your email address" required>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New SAM Intake - Website">
+            <input type="hidden" name="_next" value="https://strangeadvancedmarketing.com/?submitted=1#get-started">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_autoresponse" value="Thanks for reaching out to S.A.M — we got your submission.
+
+Jereme will personally review it within 24 hours and come back to you with:
+1. A quick breakdown of what we can automate in your business
+2. The rough shape of the system we'd build
+3. A link to schedule a 15-min call if you want to take it further
+
+No sales pitch. No pressure. We research your business before we ever talk.
+
+In the meantime, if you want to see what we're building in real time:
+- Live intel briefs: https://intel.strangeadvancedmarketing.com
+- Our tools: https://strangeadvancedmarketing.com
+- The Anthropic leak story: https://strangeintel.substack.com/p/how-i-built-what-anthropic-was-hiding
+
+Talk soon.
+— Jereme Strange
+Strange Advanced Marketing
+Miami, FL">
+            <input type="email" name="email" placeholder="Your email address" required>
             <textarea name="message" placeholder="What's your business and what's eating your time?" required></textarea>
             <button type="submit" class="intake-btn">Start the Conversation</button>
         </form>
@@ -957,6 +1079,10 @@
         <a href="#get-started">Contact</a>
     </p>
 </footer>
+
+<!-- Vercel Web Analytics + Speed Insights — free on Hobby plan, privacy-friendly, no cookies -->
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 
 <div class="mobile-cta" aria-hidden="true">
     <div class="mobile-cta-text">
