@@ -295,36 +295,313 @@
             font-size: 0.85rem;
         }
 
+        /* Hero demo — CSS-only animated Telegram transcript */
+        .hero-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 56px;
+            align-items: center;
+            text-align: left;
+        }
+        .hero-content { text-align: left; }
+        .hero-content .hero-stats { justify-content: flex-start; }
+        .hero-content img.logo {
+            display: block;
+            margin-bottom: 16px;
+        }
+        .hero-demo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .chat-card {
+            width: 100%;
+            max-width: 400px;
+            background: #0f1620;
+            border: 1px solid #1e2a3a;
+            border-radius: 20px;
+            padding: 20px 18px 22px;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.08), 0 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .chat-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            animation: scan 6s ease-in-out infinite;
+        }
+        @keyframes scan {
+            0%, 100% { opacity: 0; transform: translateX(-100%); }
+            50% { opacity: 1; transform: translateX(100%); }
+        }
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #1a2433;
+            margin-bottom: 14px;
+        }
+        .chat-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            display: flex; align-items: center; justify-content: center;
+            color: #0a0a0a; font-weight: 800; font-size: 0.9rem;
+        }
+        .chat-title { font-size: 0.85rem; color: #e0e0e0; font-weight: 600; }
+        .chat-status { font-size: 0.7rem; color: #00ff88; display: flex; align-items: center; gap: 4px; }
+        .chat-status::before {
+            content: "";
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #00ff88;
+            box-shadow: 0 0 6px #00ff88;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .msg {
+            opacity: 0;
+            margin-bottom: 10px;
+            max-width: 85%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .msg-user {
+            background: #00d4ff;
+            color: #0a0a0a;
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+            font-weight: 500;
+        }
+        .msg-bot {
+            background: #1a2433;
+            color: #e0e0e0;
+            border-bottom-left-radius: 4px;
+        }
+        .msg-action {
+            background: #0d2137;
+            border: 1px solid #00d4ff33;
+            color: #00d4ff;
+            font-family: 'Inter', monospace;
+            font-size: 0.78rem;
+            padding: 12px 14px;
+            max-width: 92%;
+        }
+        .msg-action div { padding: 2px 0; color: #00ff88; }
+        .msg-action div::before { content: "✓  "; color: #00ff88; font-weight: 700; }
+        .waveform {
+            display: inline-flex;
+            gap: 2px;
+            align-items: center;
+            margin-right: 6px;
+        }
+        .waveform span {
+            display: inline-block;
+            width: 2px;
+            background: #0a0a0a;
+            border-radius: 1px;
+            animation: wave 1s ease-in-out infinite;
+        }
+        .waveform span:nth-child(1) { height: 6px; animation-delay: 0s; }
+        .waveform span:nth-child(2) { height: 12px; animation-delay: 0.1s; }
+        .waveform span:nth-child(3) { height: 16px; animation-delay: 0.2s; }
+        .waveform span:nth-child(4) { height: 20px; animation-delay: 0.3s; }
+        .waveform span:nth-child(5) { height: 16px; animation-delay: 0.4s; }
+        .waveform span:nth-child(6) { height: 10px; animation-delay: 0.5s; }
+        .waveform span:nth-child(7) { height: 14px; animation-delay: 0.6s; }
+        .waveform span:nth-child(8) { height: 8px; animation-delay: 0.7s; }
+        @keyframes wave {
+            0%, 100% { transform: scaleY(0.6); }
+            50% { transform: scaleY(1); }
+        }
+        .typing {
+            display: inline-flex;
+            gap: 3px;
+            padding: 10px 14px;
+            background: #1a2433;
+            border-radius: 14px;
+            border-bottom-left-radius: 4px;
+            opacity: 0;
+            margin-bottom: 10px;
+        }
+        .typing span {
+            width: 6px; height: 6px;
+            background: #00d4ff;
+            border-radius: 50%;
+            animation: typing 1.2s ease-in-out infinite;
+        }
+        .typing span:nth-child(2) { animation-delay: 0.2s; }
+        .typing span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 100% { opacity: 0.3; transform: translateY(0); }
+            50% { opacity: 1; transform: translateY(-3px); }
+        }
+        /* Each element runs its own 12s loop — percentage-based keyframes */
+        .msg-1 { animation: msg1Cycle 12s ease-in-out infinite; }
+        .typing-1 { animation: typing1Cycle 12s ease-in-out infinite; }
+        .msg-2 { animation: msg2Cycle 12s ease-in-out infinite; }
+        .msg-3 { animation: msg3Cycle 12s ease-in-out infinite; }
+        @keyframes msg1Cycle {
+            0%     { opacity: 0; transform: translateY(8px); }
+            4%     { opacity: 1; transform: translateY(0); }
+            92%    { opacity: 1; transform: translateY(0); }
+            97%    { opacity: 0; transform: translateY(-4px); }
+            100%   { opacity: 0; }
+        }
+        @keyframes typing1Cycle {
+            0%, 18% { opacity: 0; }
+            22%     { opacity: 1; }
+            34%     { opacity: 1; }
+            38%     { opacity: 0; }
+            100%    { opacity: 0; }
+        }
+        @keyframes msg2Cycle {
+            0%, 36%  { opacity: 0; transform: translateY(8px); }
+            42%      { opacity: 1; transform: translateY(0); }
+            92%      { opacity: 1; transform: translateY(0); }
+            97%      { opacity: 0; transform: translateY(-4px); }
+            100%     { opacity: 0; }
+        }
+        @keyframes msg3Cycle {
+            0%, 58%  { opacity: 0; transform: translateY(8px); }
+            64%      { opacity: 1; transform: translateY(0); }
+            93%      { opacity: 1; transform: translateY(0); }
+            98%      { opacity: 0; transform: translateY(-4px); }
+            100%     { opacity: 0; }
+        }
+        .demo-caption {
+            margin-top: 18px;
+            color: #666;
+            font-size: 0.85rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .demo-caption strong { color: #00d4ff; }
+
+        /* Proof strip */
+        .proof-strip {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #999;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .proof-item strong { color: #fff; font-weight: 700; }
+        .proof-sep { color: #333; font-size: 0.7rem; }
+
+        @media (max-width: 900px) {
+            .hero-wrap { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+            .hero-content { text-align: center; }
+            .hero-content .hero-stats { justify-content: center; }
+            .hero-content img.logo { margin-left: auto; margin-right: auto; }
+            .chat-card { max-width: 360px; }
+        }
         @media (max-width: 600px) {
             .hero { padding: 50px 16px 40px; }
             .hero-stats { gap: 24px; }
             .section { padding: 40px 16px; }
             .products-grid { grid-template-columns: 1fr; }
+            .proof-strip { gap: 16px; padding: 16px; }
+            .proof-sep { display: none; }
         }
     </style>
 </head>
 <body>
 
 <section class="hero">
-    <img src="sam-circle.png" alt="Strange Advanced Marketing" style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 16px; border: 2px solid #222;">
-    <p style="font-size: 0.85rem; color: #666; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; font-weight: 500;">Strange Advanced Marketing</p>
-    <h1><span>S.A.M</span> builds AI systems<br>that run your business.</h1>
-    <p>You talk. AI executes. Quoting, scheduling, follow-ups, social media, invoicing — handled through voice notes. No apps. No coding. No laptop required.</p>
-    <div class="hero-stats">
-        <div class="stat">
-            <div class="stat-number">9</div>
-            <div class="stat-label">Live Products</div>
+    <div class="hero-wrap">
+        <div class="hero-content">
+            <img class="logo" src="sam-circle.png" alt="Strange Advanced Marketing" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #222;">
+            <p style="font-size: 0.8rem; color: #666; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; font-weight: 500;">Strange Advanced Marketing</p>
+            <h1><span>S.A.M</span> builds AI systems<br>that run your business.</h1>
+            <p>You talk. AI executes. Quoting, scheduling, follow-ups, social media, invoicing — handled through voice notes. No apps. No coding. No laptop required.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Live Products</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Voice → Execution</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">&lt;5 min</div>
+                    <div class="stat-label">Inbound Response</div>
+                </div>
+            </div>
+            <a href="#get-started" class="product-cta" style="margin-top: 28px; padding: 16px 48px; font-size: 1.1rem; display: inline-block;">Get Started</a>
         </div>
-        <div class="stat">
-            <div class="stat-number">100%</div>
-            <div class="stat-label">Voice-To-Execution</div>
-        </div>
-        <div class="stat">
-            <div class="stat-number">5 min</div>
-            <div class="stat-label">Avg Response</div>
+
+        <div class="hero-demo" aria-hidden="true">
+            <div class="chat-card">
+                <div class="chat-header">
+                    <div class="chat-avatar">S</div>
+                    <div>
+                        <div class="chat-title">S.A.M</div>
+                        <div class="chat-status">online · voice-ready</div>
+                    </div>
+                </div>
+                <div class="chat-body">
+                    <div class="msg msg-user msg-1">
+                        <span class="waveform">
+                            <span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span>
+                        </span>
+                        Voice note · 0:09
+                    </div>
+                    <div class="typing typing-1">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="msg msg-bot msg-2">
+                        Done. Quote sent to Marcus, calendar blocked, invoice drafted.
+                    </div>
+                    <div class="msg msg-action msg-3">
+                        <div>$12,400 quote emailed</div>
+                        <div>Tue 8am blocked on calendar</div>
+                        <div>Invoice drafted in Stripe</div>
+                        <div>Crew notified via SMS</div>
+                    </div>
+                </div>
+            </div>
+            <p class="demo-caption">Real workflow. <strong>No apps.</strong> No coding. No laptop.</p>
         </div>
     </div>
-    <a href="#get-started" class="product-cta" style="margin-top: 32px; padding: 16px 48px; font-size: 1.1rem; display: inline-block;">Get Started</a>
+
+    <div class="proof-strip">
+        <div class="proof-item"><strong>353+</strong> production sessions</div>
+        <span class="proof-sep">●</span>
+        <div class="proof-item"><strong>9</strong> live products</div>
+        <span class="proof-sep">●</span>
+        <div class="proof-item"><strong>MIT</strong> open source core</div>
+        <span class="proof-sep">●</span>
+        <div class="proof-item"><strong>Live</strong> in production</div>
+        <span class="proof-sep">●</span>
+        <div class="proof-item">Built in <strong>Miami</strong></div>
+    </div>
 </section>
 
 <section class="intake" id="get-started">
