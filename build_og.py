@@ -90,7 +90,7 @@ stats = [
     ("353+", "SESSIONS"),
     ("9", "LIVE PRODUCTS"),
     ("100%", "VOICE-TO-EXEC"),
-    ("<5 min", "RESPONSE"),
+    ("<60 sec", "RESPONSE"),
 ]
 col_w = (W - 2 * padding_x) / len(stats)
 for i, (num, lbl) in enumerate(stats):
