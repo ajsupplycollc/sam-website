@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="build-version" content="202604171332">
     <title>S.A.M — AI Systems That Run Your Business | Strange Advanced Marketing</title>
+    <script>
+    // Enterprise cache-bust: detect stale page and force reload (pattern used by Slack, Notion, Discord)
+    (function(){
+      try {
+        var current = document.querySelector('meta[name="build-version"]').content;
+        fetch('/version.json', { cache: 'no-store' })
+          .then(function(r){ return r.json(); })
+          .then(function(d){
+            if (d && d.version && d.version !== current) {
+              // Stale page detected — force fresh fetch
+              window.location.reload(true);
+            }
+          })
+          .catch(function(){});
+      } catch(e) {}
+    })();
+    </script>
     <meta name="description" content="S.A.M builds AI systems that run your business through voice notes on Telegram, WhatsApp, or Slack. Quoting, scheduling, follow-ups, invoicing — no apps, no coding, no laptop required. Built in Miami by Jereme Strange.">
     <meta name="keywords" content="AI systems for small business, voice to execution, AI architect, AI automation Miami, voice note business automation, AI for contractors, small business AI, Strange Advanced Marketing, satellite quoter, AI quoting, AI scheduling, Claude AI business">
     <meta name="author" content="Jereme Strange">
