@@ -126,11 +126,85 @@
         }
         a { color: #00d4ff; text-decoration: none; transition: color 0.2s; }
         a:hover { color: #00ff88; }
+        html { scroll-behavior: smooth; }
+
+        /* Top nav — sticky, blurred, sits above hero */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 10, 10, 0.82);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.12);
+        }
+        .nav-wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.05rem;
+            letter-spacing: -0.3px;
+        }
+        .nav-brand:hover { color: #00d4ff; }
+        .nav-brand img {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            border: 1px solid #222;
+        }
+        .nav-brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .nav-brand-text strong { font-size: 1rem; color: #fff; }
+        .nav-brand-text span {
+            font-size: 0.65rem;
+            color: #00d4ff;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        .nav-links a {
+            color: #ccc;
+            font-weight: 500;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #00d4ff; }
+        .nav-cta {
+            background: #00d4ff;
+            color: #0a0a0a !important;
+            padding: 9px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .nav-cta:hover { background: #00ff88 !important; transform: translateY(-1px); color: #0a0a0a !important; }
+        @media (max-width: 768px) {
+            .nav-wrap { padding: 10px 16px; }
+            .nav-links > a:not(.nav-cta) { display: none; }
+            .nav-brand img { width: 30px; height: 30px; }
+            .nav-brand-text strong { font-size: 0.9rem; }
+        }
 
         /* Hero */
         .hero {
             text-align: center;
-            padding: 80px 20px 60px;
+            padding: 48px 20px 60px;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
             border-bottom: 1px solid #222;
         }
@@ -799,11 +873,28 @@
 </head>
 <body>
 
+<nav class="nav" aria-label="Main navigation">
+    <div class="nav-wrap">
+        <a href="/" class="nav-brand" aria-label="Strange Advanced Marketing home">
+            <img src="sam-circle.png" alt="S.A.M logo">
+            <span class="nav-brand-text">
+                <strong>S.A.M</strong>
+                <span>Strange Advanced Marketing</span>
+            </span>
+        </a>
+        <div class="nav-links">
+            <a href="#how-it-works">How it Works</a>
+            <a href="#tools">Our Tools</a>
+            <a href="#about">About</a>
+            <a href="#get-started" class="nav-cta">Book a Call</a>
+        </div>
+    </div>
+</nav>
+
 <section class="hero">
     <div class="hero-wrap">
         <div class="hero-content">
-            <img class="logo" src="sam-circle.png" alt="Strange Advanced Marketing" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #222;">
-            <p style="font-size: 0.8rem; color: #666; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; font-weight: 500;">Strange Advanced Marketing</p>
+            <p style="font-size: 0.75rem; color: #00d4ff; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; font-weight: 700;">AI Systems. Voice-Driven. Built in Miami.</p>
             <h1><span>S.A.M</span> builds AI systems<br>that run your business.</h1>
             <p>You talk. AI executes. Quoting, scheduling, follow-ups, social media, invoicing — handled through voice notes. No apps. No coding. No laptop required.</p>
             <div class="hero-stats">
@@ -890,7 +981,7 @@
     </div>
 </section>
 
-<section class="how">
+<section class="how" id="how-it-works">
     <div class="how-wrap">
         <h2>How it <span>actually</span> works</h2>
         <p class="how-sub">No apps to learn. No dashboards. No code. Just voice notes.</p>
@@ -953,7 +1044,7 @@ Miami, FL">
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="tools">
     <h2 class="section-title">Our Tools</h2>
     <p class="section-subtitle">Production-proven tools deployed on GitHub, Apify, and Substack. Most are free. All are battle-tested.</p>
     <div class="products-grid">
@@ -1119,7 +1210,7 @@ Miami, FL">
     </div>
 </section>
 
-<section class="section">
+<section class="section" id="about">
     <h2 class="section-title">About S.A.M.</h2>
     <p class="about-text">
         S.A.M builds AI systems that run your business while you run your business. We work with contractors, service companies, e-commerce brands, and small businesses who are ready to stop doing everything manually.
