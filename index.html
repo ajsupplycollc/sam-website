@@ -4,12 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S.A.M — AI Systems That Run Your Business | Strange Advanced Marketing</title>
-    <meta name="description" content="S.A.M builds AI systems that run your business through voice notes. Quoting, scheduling, follow-ups, social media, invoicing — no apps, no coding, no laptop required.">
+    <meta name="description" content="S.A.M builds AI systems that run your business through voice notes. Quoting, scheduling, follow-ups, social media, invoicing — no apps, no coding, no laptop required. Built in Miami by Jereme Strange.">
+    <meta name="keywords" content="AI systems for small business, voice to execution, AI architect, AI automation Miami, voice note business automation, AI for contractors, small business AI, Strange Advanced Marketing, satellite quoter, AI quoting, AI scheduling, Claude AI business">
+    <meta name="author" content="Jereme Strange">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://strangeadvancedmarketing.com/">
+
+    <!-- Open Graph -->
     <meta property="og:title" content="S.A.M — AI Systems That Run Your Business">
-    <meta property="og:description" content="You talk. AI executes. S.A.M builds AI systems for small businesses — handled through voice notes. No apps. No coding. No laptop required.">
+    <meta property="og:description" content="You talk. AI executes. Quoting, scheduling, follow-ups, invoicing — handled through voice notes. No apps. No coding. No laptop required.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://strangeadvancedmarketing.com">
+    <meta property="og:url" content="https://strangeadvancedmarketing.com/">
+    <meta property="og:site_name" content="Strange Advanced Marketing">
+    <meta property="og:image" content="https://strangeadvancedmarketing.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="S.A.M builds AI systems that run your business. 353+ sessions, 9 live products, voice-to-execution.">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@StrangeAICorp">
+    <meta name="twitter:creator" content="@StrangeAICorp">
+    <meta name="twitter:title" content="S.A.M — AI Systems That Run Your Business">
+    <meta name="twitter:description" content="You talk. AI executes. Quoting, scheduling, follow-ups, invoicing — via voice note. Built in Miami.">
+    <meta name="twitter:image" content="https://strangeadvancedmarketing.com/og-image.png">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" type="image/png" href="/sam-circle.png">
+    <link rel="apple-touch-icon" href="/sam-circle.png">
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Strange Advanced Marketing",
+      "alternateName": "S.A.M",
+      "url": "https://strangeadvancedmarketing.com/",
+      "logo": "https://strangeadvancedmarketing.com/sam-circle.png",
+      "image": "https://strangeadvancedmarketing.com/og-image.png",
+      "description": "S.A.M builds AI systems that run small businesses through voice notes. Quoting, scheduling, follow-ups, invoicing — no apps, no coding, no laptop required.",
+      "founder": {
+        "@type": "Person",
+        "name": "Jereme Strange",
+        "jobTitle": "AI Architect"
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Miami, FL, USA"
+      },
+      "sameAs": [
+        "https://www.tiktok.com/@strangeadvancedmarketing",
+        "https://www.instagram.com/strangeturftools",
+        "https://www.linkedin.com/in/jeremestrange",
+        "https://x.com/StrangeAICorp",
+        "https://www.facebook.com/StrangeGames3DPrints",
+        "https://github.com/ajsupplycollc",
+        "https://strangeintel.substack.com"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "299",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "299",
+          "priceCurrency": "USD",
+          "unitText": "MONTH"
+        },
+        "description": "AI systems for small businesses, flat monthly rate"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Strange Advanced Marketing",
+      "url": "https://strangeadvancedmarketing.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://strangeadvancedmarketing.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -384,6 +468,16 @@
             border-bottom-right-radius: 4px;
             font-weight: 500;
         }
+        .msg-transcript {
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(10, 10, 10, 0.15);
+            font-size: 0.78rem;
+            font-weight: 500;
+            font-style: italic;
+            line-height: 1.35;
+            color: #0a1824;
+        }
         .msg-bot {
             background: #1a2433;
             color: #e0e0e0;
@@ -513,6 +607,47 @@
         .proof-item strong { color: #fff; font-weight: 700; }
         .proof-sep { color: #333; font-size: 0.7rem; }
 
+        /* Sticky mobile CTA — only shows on small screens */
+        .mobile-cta {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.96);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+                border-top: 1px solid #00d4ff33;
+                padding: 12px 16px;
+                z-index: 100;
+                gap: 12px;
+                align-items: center;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+            }
+            .mobile-cta-text {
+                flex: 1;
+                color: #e0e0e0;
+                font-size: 0.85rem;
+                line-height: 1.2;
+            }
+            .mobile-cta-text strong { color: #00ff88; display: block; font-size: 0.95rem; }
+            .mobile-cta-text span { color: #888; font-size: 0.75rem; }
+            .mobile-cta a {
+                background: #00d4ff;
+                color: #0a0a0a;
+                font-weight: 700;
+                padding: 11px 22px;
+                border-radius: 8px;
+                font-size: 0.95rem;
+                white-space: nowrap;
+            }
+            body { padding-bottom: 72px; }
+        }
+
         @media (max-width: 900px) {
             .hero-wrap { grid-template-columns: 1fr; gap: 36px; text-align: center; }
             .hero-content { text-align: center; }
@@ -553,7 +688,13 @@
                     <div class="stat-label">Inbound Response</div>
                 </div>
             </div>
-            <a href="#get-started" class="product-cta" style="margin-top: 28px; padding: 16px 48px; font-size: 1.1rem; display: inline-block;">Get Started</a>
+            <div style="margin-top: 28px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+                <a href="#get-started" class="product-cta" style="padding: 16px 40px; font-size: 1.1rem; display: inline-block;">Book a Discovery Call</a>
+                <div style="color: #999; font-size: 0.9rem;">
+                    <div style="color: #00ff88; font-weight: 600; font-size: 0.95rem;">From $299/mo · Free discovery</div>
+                    <div style="color: #666; font-size: 0.8rem;">Flat rate. No hourly. No lock-ins.</div>
+                </div>
+            </div>
         </div>
 
         <div class="hero-demo" aria-hidden="true">
@@ -572,6 +713,7 @@
                             <span></span><span></span><span></span><span></span>
                         </span>
                         Voice note · 0:09
+                        <div class="msg-transcript">"Quote Marcus — 2,400 sqft driveway, Tue 8am install, send invoice."</div>
                     </div>
                     <div class="typing typing-1">
                         <span></span><span></span><span></span>
@@ -815,6 +957,14 @@
         <a href="#get-started">Contact</a>
     </p>
 </footer>
+
+<div class="mobile-cta" aria-hidden="true">
+    <div class="mobile-cta-text">
+        <strong>From $299/mo</strong>
+        <span>Flat rate · No lock-ins</span>
+    </div>
+    <a href="#get-started">Book a call</a>
+</div>
 
 </body>
 </html>
