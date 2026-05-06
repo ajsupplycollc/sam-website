@@ -1,0 +1,40 @@
+# Strange Advanced Marketing (S.A.M)
+
+> S.A.M builds AI systems that run your business through voice notes. No apps, no code, no laptop required.
+
+## About
+- Founded by Jereme Strange, AI Architect, Miami FL
+- Remote deployment worldwide via Tailscale SSH
+- Custom AI stacks installed on client hardware — you own your system
+- Starting at $299/month flat rate, no lock-ins
+
+## Services
+- Voice-to-Execution AI Systems: Business automation through Telegram, WhatsApp, or Slack
+- AI Stack Deployment: Custom Claude/OpenAI systems installed on your own machine
+- Lead Generation: Google Maps scraping, competitor analysis, review mining
+- Business Intelligence: Strange Intel geopolitical and market briefs
+
+## Products
+- Google Maps Lead Generator (Apify)
+- Google Maps Reviews Analyzer (Apify)
+- Google Maps Competitor Analyzer (Apify)
+- Business Website Analyzer (Apify)
+- Email Finder and Verifier (Apify)
+- Satellite Quoter: AI-powered property measurement for contractors
+- Strange Intel: Daily geopolitical and energy intelligence briefs
+- Adam Framework: Open-source AI memory system (MIT licensed)
+- Claude Buddy: Real-time AI tool call monitoring (MIT licensed)
+
+## Links
+- Website: https://strangeadvancedmarketing.com
+- Intelligence Dashboard: https://intel.strangeadvancedmarketing.com
+- Newsletter: https://strangeintel.substack.com
+- GitHub: https://github.com/ajsupplycollc
+- TikTok: https://www.tiktok.com/@strangeadvancedmarketing
+- LinkedIn: https://www.linkedin.com/in/jeremestrange
+- X/Twitter: https://x.com/StrangeAICorp
+- Discord: https://discord.gg/V2eEfHzq
+
+## Contact
+- Book a discovery call: https://calendly.com/strangeadvancedmarketing
+- Email: strangeadvancedmarketing@gmail.com
