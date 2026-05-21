@@ -31,7 +31,7 @@ Programmatic video via Remotion, AI video via Runway (browser automation), TikTo
 - Business Website Analyzer (Apify Store)
 - Google Maps Competitor Analyzer (Apify Store)
 - Adam Framework — open-source AI memory architecture (github.com/strangeadvancedmarketing/Adam)
-- Claude Buddy — desktop robot companion for Claude Code (github.com/ajsupplycollc/claude-buddy)
+- Claude Buddy — desktop robot companion for Claude Code (github.com/strangeadvancedmarketing/claude-buddy)
 
 ## Proven Results
 
