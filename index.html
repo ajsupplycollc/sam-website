@@ -6,8 +6,8 @@
     <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <meta name="build-version" content="202605052130">
-    <title>S.A.M — AI Systems That Run Your Business | Strange Advanced Marketing</title>
+    <meta name="build-version" content="202605221910">
+    <title>Just Ask SAM — Whatever Your Business Needs | Strange Advanced Marketing</title>
     <script>
     // Enterprise cache-bust: detect stale page and force reload (pattern used by Slack, Notion, Discord)
     (function(){
@@ -25,15 +25,15 @@
       } catch(e) {}
     })();
     </script>
-    <meta name="description" content="S.A.M builds AI systems that run your business through voice notes on Telegram, WhatsApp, or Slack. Quoting, scheduling, follow-ups, invoicing — no apps, no coding, no laptop required. Built in Miami by Jereme Strange.">
+    <meta name="description" content="Whatever your business needs — just ask SAM. Lead generation, websites, email outreach, social media, SEO, invoicing, scheduling, content creation — all through voice notes. No apps, no coding, no laptop. Built in Miami by Jereme Strange.">
     <meta name="keywords" content="AI systems for small business, voice to execution, AI architect, AI automation Miami, voice note business automation, AI for contractors, small business AI, Strange Advanced Marketing, satellite quoter, AI quoting, AI scheduling, Claude AI business">
     <meta name="author" content="Jereme Strange">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://strangeadvancedmarketing.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="S.A.M — AI Systems That Run Your Business">
-    <meta property="og:description" content="You talk. AI executes. Runs on Telegram, WhatsApp, or Slack — the apps you already use. No apps to download. No coding. No laptop required.">
+    <meta property="og:title" content="Just Ask SAM — Whatever Your Business Needs">
+    <meta property="og:description" content="Lead gen, websites, email, social media, SEO, invoicing, scheduling — just ask SAM. Voice notes in, execution out. No apps. No coding. No laptop.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://strangeadvancedmarketing.com/">
     <meta property="og:site_name" content="Strange Advanced Marketing">
@@ -47,8 +47,8 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@StrangeAICorp">
     <meta name="twitter:creator" content="@StrangeAICorp">
-    <meta name="twitter:title" content="S.A.M — AI Systems That Run Your Business">
-    <meta name="twitter:description" content="You talk. AI executes. Runs on Telegram, WhatsApp, or Slack — no new apps. Built in Miami.">
+    <meta name="twitter:title" content="Just Ask SAM — Whatever Your Business Needs">
+    <meta name="twitter:description" content="Lead gen, websites, email, social, SEO, invoicing — just ask SAM. Voice in, execution out. Built in Miami.">
     <meta name="twitter:image" content="https://strangeadvancedmarketing.com/og-image.png">
 
     <!-- Theme -->
@@ -762,38 +762,66 @@
             0%, 100% { opacity: 0.3; transform: translateY(0); }
             50% { opacity: 1; transform: translateY(-3px); }
         }
-        /* Each element runs its own 12s loop — percentage-based keyframes */
-        .msg-1 { animation: msg1Cycle 12s ease-in-out infinite; }
-        .typing-1 { animation: typing1Cycle 12s ease-in-out infinite; }
-        .msg-2 { animation: msg2Cycle 12s ease-in-out infinite; }
-        .msg-3 { animation: msg3Cycle 12s ease-in-out infinite; }
-        @keyframes msg1Cycle {
-            0%     { opacity: 0; transform: translateY(8px); }
-            4%     { opacity: 1; transform: translateY(0); }
-            92%    { opacity: 1; transform: translateY(0); }
-            97%    { opacity: 0; transform: translateY(-4px); }
-            100%   { opacity: 0; }
+        /* Scene rotation — 4 scenes, 6s each = 24s total cycle */
+        .chat-scene {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 60px;
+            left: 18px;
+            right: 18px;
         }
-        @keyframes typing1Cycle {
-            0%, 18% { opacity: 0; }
+        .chat-card { position: relative; min-height: 260px; }
+
+        .scene-1 { animation: sceneRotate 24s ease-in-out infinite 0s; }
+        .scene-2 { animation: sceneRotate 24s ease-in-out infinite 6s; }
+        .scene-3 { animation: sceneRotate 24s ease-in-out infinite 12s; }
+        .scene-4 { animation: sceneRotate 24s ease-in-out infinite 18s; }
+
+        @keyframes sceneRotate {
+            0%      { visibility: visible; opacity: 0; }
+            3%      { visibility: visible; opacity: 1; }
+            22%     { visibility: visible; opacity: 1; }
+            25%     { visibility: hidden; opacity: 0; }
+            100%    { visibility: hidden; opacity: 0; }
+        }
+
+        .scene-1 .scene-msg   { animation: msgIn 24s ease-in-out infinite 0s; }
+        .scene-1 .scene-reply  { animation: replyIn 24s ease-in-out infinite 0s; }
+        .scene-1 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 0s; }
+
+        .scene-2 .scene-msg   { animation: msgIn 24s ease-in-out infinite 6s; }
+        .scene-2 .scene-reply  { animation: replyIn 24s ease-in-out infinite 6s; }
+        .scene-2 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 6s; }
+
+        .scene-3 .scene-msg   { animation: msgIn 24s ease-in-out infinite 12s; }
+        .scene-3 .scene-reply  { animation: replyIn 24s ease-in-out infinite 12s; }
+        .scene-3 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 12s; }
+
+        .scene-4 .scene-msg   { animation: msgIn 24s ease-in-out infinite 18s; }
+        .scene-4 .scene-reply  { animation: replyIn 24s ease-in-out infinite 18s; }
+        .scene-4 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 18s; }
+
+        @keyframes msgIn {
+            0%   { opacity: 0; transform: translateY(8px); }
+            3%   { opacity: 1; transform: translateY(0); }
+            22%  { opacity: 1; transform: translateY(0); }
+            25%  { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        @keyframes replyIn {
+            0%, 6%  { opacity: 0; transform: translateY(8px); }
+            9%      { opacity: 1; transform: translateY(0); }
             22%     { opacity: 1; }
-            34%     { opacity: 1; }
-            38%     { opacity: 0; }
+            25%     { opacity: 0; }
             100%    { opacity: 0; }
         }
-        @keyframes msg2Cycle {
-            0%, 36%  { opacity: 0; transform: translateY(8px); }
-            42%      { opacity: 1; transform: translateY(0); }
-            92%      { opacity: 1; transform: translateY(0); }
-            97%      { opacity: 0; transform: translateY(-4px); }
-            100%     { opacity: 0; }
-        }
-        @keyframes msg3Cycle {
-            0%, 58%  { opacity: 0; transform: translateY(8px); }
-            64%      { opacity: 1; transform: translateY(0); }
-            93%      { opacity: 1; transform: translateY(0); }
-            98%      { opacity: 0; transform: translateY(-4px); }
-            100%     { opacity: 0; }
+        @keyframes actionsIn {
+            0%, 11% { opacity: 0; transform: translateY(8px); }
+            14%     { opacity: 1; transform: translateY(0); }
+            22%     { opacity: 1; }
+            25%     { opacity: 0; }
+            100%    { opacity: 0; }
         }
         .demo-caption {
             margin-top: 18px;
@@ -1010,10 +1038,10 @@
         </a>
         <div class="nav-links">
             <a href="#how-it-works">How it Works</a>
-            <a href="#services">Services</a>
+            <a href="#capabilities">What SAM Does</a>
+            <a href="#services">Pricing</a>
             <a href="#tools">Our Tools</a>
-            <a href="#about">About</a>
-            <a href="#get-started" class="nav-cta">Book a Call</a>
+            <a href="#get-started" class="nav-cta">Just Ask SAM</a>
         </div>
     </div>
 </nav>
@@ -1021,9 +1049,9 @@
 <section class="hero">
     <div class="hero-wrap">
         <div class="hero-content">
-            <p style="font-size: 0.75rem; color: #00d4ff; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; font-weight: 700;">AI Systems. Voice-Driven. Built in Miami.</p>
-            <h1><span>S.A.M</span> builds AI systems<br>that run your business.</h1>
-            <p>You talk. AI executes. Quoting, scheduling, follow-ups, social media, invoicing — handled through voice notes. No apps. No coding. No laptop required.</p>
+            <p style="font-size: 0.75rem; color: #00d4ff; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; font-weight: 700;">Lead Gen. Websites. Email. Social. SEO. Content. All of it.</p>
+            <h1>Whatever your business needs.<br><span>Just ask SAM.</span></h1>
+            <p>Websites, lead generation, email outreach, social media, SEO, invoicing, scheduling, content creation, competitor research — SAM handles it. You talk, SAM executes. No apps. No coding. No laptop.</p>
             <div class="hero-stats">
                 <div class="stat">
                     <div class="stat-number">9</div>
@@ -1039,7 +1067,7 @@
                 </div>
             </div>
             <div style="margin-top: 28px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
-                <a href="#get-started" class="product-cta" style="padding: 16px 40px; font-size: 1.1rem; display: inline-block;">Book a Discovery Call</a>
+                <a href="#get-started" class="product-cta" style="padding: 16px 40px; font-size: 1.1rem; display: inline-block;">Just Ask SAM</a>
                 <div style="color: #999; font-size: 0.9rem;">
                     <div style="color: #00ff88; font-weight: 600; font-size: 0.95rem;">Setup from $500 · Maintenance from $299/mo</div>
                     <div style="color: #666; font-size: 0.8rem;">Flat rate. No hourly. No lock-ins.</div>
@@ -1056,30 +1084,57 @@
                         <div class="chat-status">online · voice-ready</div>
                     </div>
                 </div>
-                <div class="chat-body">
-                    <div class="msg msg-user msg-1">
-                        <span class="waveform">
-                            <span></span><span></span><span></span><span></span>
-                            <span></span><span></span><span></span><span></span>
-                        </span>
-                        Voice note · 0:09
-                        <div class="msg-transcript">"Quote Marcus — 2,400 sqft driveway, Tue 8am install, send invoice."</div>
+
+                <!-- Scenario 1: Car Dealer -->
+                <div class="chat-body chat-scene scene-1">
+                    <div class="msg msg-user scene-msg">"Find me 200 subprime auto leads in Marion County. Bad credit buyers, active on Facebook."</div>
+                    <div class="msg msg-bot scene-reply">Done. 200 leads scraped, scored, and exported.</div>
+                    <div class="msg msg-action scene-actions">
+                        <div>200 leads exported to spreadsheet</div>
+                        <div>Hot/Warm/Cold scored</div>
+                        <div>Facebook profiles matched</div>
+                        <div>Email outreach drafted for top 50</div>
                     </div>
-                    <div class="typing typing-1">
-                        <span></span><span></span><span></span>
+                </div>
+
+                <!-- Scenario 2: Barber -->
+                <div class="chat-body chat-scene scene-2">
+                    <div class="msg msg-user scene-msg">"Build me a booking page. SEO optimized for 'barber near me' in Atlanta. Deploy it live."</div>
+                    <div class="msg msg-bot scene-reply">Live. Custom site deployed with booking form.</div>
+                    <div class="msg msg-action scene-actions">
+                        <div>Mobile-first site built and deployed</div>
+                        <div>SEO structured data added</div>
+                        <div>Online booking form connected</div>
+                        <div>Google Business Profile optimized</div>
                     </div>
-                    <div class="msg msg-bot msg-2">
-                        Done. Quote sent to Marcus, calendar blocked, invoice drafted.
+                </div>
+
+                <!-- Scenario 3: E-commerce -->
+                <div class="chat-body chat-scene scene-3">
+                    <div class="msg msg-user scene-msg">"Schedule a week of content for my beard brand. TikTok and Instagram. Make it sound like me."</div>
+                    <div class="msg msg-bot scene-reply">Done. 14 posts scheduled across both platforms.</div>
+                    <div class="msg msg-action scene-actions">
+                        <div>7 TikTok + 7 Instagram posts written</div>
+                        <div>Captions matched to your voice</div>
+                        <div>Hashtags optimized per platform</div>
+                        <div>Scheduled for peak engagement times</div>
                     </div>
-                    <div class="msg msg-action msg-3">
-                        <div>$12,400 quote emailed</div>
+                </div>
+
+                <!-- Scenario 4: Contractor -->
+                <div class="chat-body chat-scene scene-4">
+                    <div class="msg msg-user scene-msg">"Quote Marcus — 2,400 sqft driveway, Tuesday 8am install, send the invoice."</div>
+                    <div class="msg msg-bot scene-reply">Done. Quote sent, calendar blocked, invoice drafted.</div>
+                    <div class="msg msg-action scene-actions">
+                        <div>$12,400 quote emailed to Marcus</div>
                         <div>Tue 8am blocked on calendar</div>
                         <div>Invoice drafted in Stripe</div>
                         <div>Crew notified via SMS</div>
                     </div>
                 </div>
+
             </div>
-            <p class="demo-caption">Real workflow. <strong>No apps. No coding. No laptop.</strong></p>
+            <p class="demo-caption">Real workflows. Any industry. <strong>Just ask SAM.</strong></p>
             <div class="demo-channels" aria-label="Runs on Telegram, WhatsApp, or Slack">
                 <span class="demo-channels-label">Runs on</span>
                 <span class="demo-channels-icons">
@@ -1125,10 +1180,68 @@
             </div>
             <div class="how-step">
                 <div class="how-num">3</div>
-                <h3>You run your business by talking</h3>
-                <p>Voice note through <strong style="color: #00d4ff;">Telegram, WhatsApp, or Slack</strong> — the apps you already have. AI quotes, schedules, invoices, follows up. Replies in seconds, not hours.</p>
+                <h3>Just ask SAM</h3>
+                <p>Voice note through <strong style="color: #00d4ff;">Telegram, WhatsApp, or Slack</strong>. Lead gen, websites, email, social, invoicing, scheduling — whatever you need. SAM handles it. Replies in seconds.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="section" id="capabilities" style="background: #0a0a0a; border-bottom: 1px solid #1a1a1a;">
+    <h2 class="section-title">Everything SAM Can Do</h2>
+    <p class="section-subtitle">This isn't a chatbot. SAM is a full AI operator for your business. Here's what you can ask.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto;">
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Lead Generation</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Find me 200 contractors in Miami" — SAM scrapes Google Maps, enriches with emails and socials, scores them hot/warm/cold, and exports to a spreadsheet.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Websites and Funnels</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Build me a landing page for bad credit car loans in Indianapolis" — deployed live with SEO, mobile-first design, and lead capture form. Same day.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Email Outreach</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Send the pitch to 20 BHPH dealers in central Indiana" — personalized sequences sent through Gmail, tracked for opens and replies, auto follow-ups.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Social Media</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Schedule a week of content for TikTok and Instagram" — captions in your voice, hashtags optimized per platform, posted on autopilot.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">SEO That Works in 2026</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Make sure I show up in AI search results" — structured data, AI-optimized content, citation strategies. Get cited in Google AI Mode, not just ranked.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Content Creation</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Write me 5 posts about rebuilding credit through car ownership" — motion graphics, video scripts, blog posts, newsletters. Created and scheduled.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Quoting and Invoicing</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Quote Marcus, 2400 sqft driveway, Tuesday 8am" — quote emailed, calendar blocked, invoice drafted, crew notified. One voice note.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Competitor Research</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"What are my competitors posting?" — SAM monitors their social, reviews, pricing, and digital presence. Surfaces what matters, ignores the noise.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Scheduling and Calendar</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Block Tuesday for the install and remind me Monday night" — SAM manages your calendar, sets reminders, coordinates with clients and crew.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Customer Follow-ups</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Follow up with everyone who didn't reply last week" — SAM tracks who opened, who replied, who ghosted, and writes the follow-up for each.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Data and Scraping</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Scrape every turf installer in South Florida with their reviews" — SAM builds the scraper, runs it, cleans the data, and hands you the list.</p>
+        </div>
+        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
+            <div style="color: #00d4ff; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Whatever Else You Need</div>
+            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">Inventory management. CRM updates. Reporting. Document drafting. Market research. If it can be done on a computer, SAM can do it. Just ask.</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="#get-started" class="product-cta" style="padding: 16px 48px; font-size: 1.15rem;">Just Ask SAM</a>
     </div>
 </section>
 
@@ -1209,8 +1322,8 @@
 </section>
 
 <section class="intake" id="get-started">
-    <h2>Ready to see what AI can do for <span>your</span> business?</h2>
-    <p class="intake-sub">Tell us what you do and what's eating your time. We'll research your business, your competitors, and your industry before we ever get on a call.</p>
+    <h2>Whatever you need. <span>Just ask SAM.</span></h2>
+    <p class="intake-sub">Tell us what you do and what's eating your time. SAM will research your business, your competitors, and your industry before we ever get on a call.</p>
     <div class="intake-form">
         <form action="https://formsubmit.co/strangeadvancedmarketing@gmail.com" method="POST">
             <input type="hidden" name="_captcha" value="false">
@@ -1237,7 +1350,7 @@ Strange Advanced Marketing
 Miami, FL">
             <input type="email" name="email" placeholder="Your email address" required>
             <textarea name="message" placeholder="What's your business and what's eating your time?" required></textarea>
-            <button type="submit" class="intake-btn">Start the Conversation</button>
+            <button type="submit" class="intake-btn">Just Ask SAM</button>
         </form>
         <div class="intake-divider">— or —</div>
         <div class="intake-calendly">
@@ -1461,10 +1574,10 @@ Miami, FL">
 
 <div class="mobile-cta" aria-hidden="true">
     <div class="mobile-cta-text">
-        <strong>From $500 setup</strong>
+        <strong>Whatever you need.</strong>
         <span>No lock-ins · You own everything</span>
     </div>
-    <a href="#get-started">Book a call</a>
+    <a href="#get-started">Just Ask SAM</a>
 </div>
 
 </body>
