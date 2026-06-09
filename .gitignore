@@ -1,0 +1,15 @@
+.vercel
+# Block stray local files from ever reaching the public repo
+*.mp3
+*.oga
+*.wav
+*.mp4
+Usersajsup*
+*whisper*
+*.txt
+!robots.txt
+!llms.txt
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
