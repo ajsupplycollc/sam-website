@@ -1036,7 +1036,25 @@
             #capabilities .section-title { font-size: 1.4rem; }
             .capabilities-grid { grid-template-columns: 1fr !important; }
         }
+
+    /* === SAM scroll-reveal motion (added 2026-06-24) === */
+    @media (prefers-reduced-motion: no-preference) {
+      html.sam-js :is(.how h2, .how-sub, .how-step, .section-title, .section-subtitle,
+        #capabilities .capabilities-grid > div, .product-card, #faq details,
+        .intake h2, .intake-sub, .intake-form) {
+        transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+        transition-delay: var(--reveal-delay, 0ms);
+        will-change: opacity, transform;
+      }
+      html.sam-js :is(.how h2, .how-sub, .how-step, .section-title, .section-subtitle,
+        #capabilities .capabilities-grid > div, .product-card, #faq details,
+        .intake h2, .intake-sub, .intake-form):not(.in) {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+    }
     </style>
+<script>document.documentElement.classList.add('sam-js');</script>
 </head>
 <body>
 
@@ -1621,5 +1639,25 @@ Miami, FL">
     <a href="#get-started">Just Ask SAM</a>
 </div>
 
+<script>
+/* === SAM scroll-reveal motion (added 2026-06-24) === */
+(function () {
+  var root = document.documentElement;
+  if (!('IntersectionObserver' in window)) { root.classList.remove('sam-js'); return; }
+  var sel = '.how h2, .how-sub, .how-step, .section-title, .section-subtitle, #capabilities .capabilities-grid > div, .product-card, #faq details, .intake h2, .intake-sub, .intake-form';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+  els.forEach(function (el) {
+    var i = 0, prev = el.previousElementSibling;
+    while (prev) { if (els.indexOf(prev) !== -1) i++; prev = prev.previousElementSibling; }
+    el.style.setProperty('--reveal-delay', (Math.min(i, 8) * 55) + 'ms');
+  });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
