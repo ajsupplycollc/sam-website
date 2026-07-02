@@ -53,8 +53,8 @@
 
     <!-- Theme -->
     <meta name="theme-color" content="#0a0a0a">
-    <link rel="icon" type="image/png" href="/sam-circle.png">
-    <link rel="apple-touch-icon" href="/sam-circle.png">
+    <link rel="icon" type="image/png" href="/sam-circle-128.png">
+    <link rel="apple-touch-icon" href="/sam-circle-128.png">
 
     <!-- Structured data: Organization -->
     <script type="application/ld+json">
@@ -239,7 +239,7 @@
           "name": "What makes S.A.M different from other AI agencies?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "S.A.M doesn't run your AI — we build it and you own it. We install a custom AI stack on your own hardware, not a cloud subscription you rent. The entire system runs through voice notes, not dashboards. And our founder Jereme Strange is an AI Architect, not a developer — he designs systems that actually run businesses."
+            "text": "S.A.M doesn't run your AI — we build it and you own it. We install a custom AI stack on your own hardware, not a cloud subscription you rent. The entire system runs through voice notes, not dashboards. And our founder Jereme Strange is an AI architect who designs systems that actually run businesses."
           }
         }
       ]
@@ -264,8 +264,9 @@
             word-spacing: 0.12em;
         }
         a { color: #3b82f6; text-decoration: none; transition: color 0.2s; }
-        a:hover { color: #34e08a; }
+        a:hover { color: #00d4ff; }
         html { scroll-behavior: smooth; }
+        [id] { scroll-margin-top: 76px; }
 
         /* Top nav — sticky, blurred, sits above hero */
         .nav {
@@ -332,7 +333,7 @@
             font-size: 0.88rem;
             transition: background 0.2s, transform 0.1s;
         }
-        .nav-cta:hover { background: #34e08a !important; transform: translateY(-1px); color: #0a0a0a !important; }
+        .nav-cta:hover { background: #00d4ff !important; transform: translateY(-1px); color: #0a0a0a !important; }
         @media (max-width: 768px) {
             .nav-wrap { padding: 10px 16px; }
             .nav-links > a:not(.nav-cta) { display: none; }
@@ -342,10 +343,32 @@
 
         /* Hero */
         .hero {
+            position: relative;
             text-align: center;
             padding: 48px 20px 60px;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
             border-bottom: 1px solid #222;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .hero-bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-bg.poster-only { background: url('hero-poster.jpg') center/cover no-repeat; }
+        .hero-bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(8,10,18,0.6), rgba(8,10,18,0.85));
+        }
+        @media (max-width: 768px) {
+            .hero-bg.poster-only { background-image: url('hero-poster-m.jpg'); }
         }
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
@@ -361,21 +384,6 @@
             max-width: 600px;
             margin: 0 auto 32px;
         }
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 32px;
-        }
-        .stat { text-align: center; }
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #3b82f6;
-        }
-        .stat-label { font-size: 0.85rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
-
         /* Products */
         .section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
         .section-title {
@@ -419,7 +427,7 @@
             margin-bottom: 16px;
         }
         .badge-lead-gen { background: #3b82f622; color: #3b82f6; }
-        .badge-seo { background: #34e08a22; color: #34e08a; }
+        .badge-seo { background: #00d4ff22; color: #00d4ff; }
         .badge-email { background: #3b82f622; color: #3b82f6; }
         .badge-intel { background: #3b82f622; color: #3b82f6; }
         .badge-quoting { background: #ffcc0022; color: #ffcc00; }
@@ -460,7 +468,7 @@
             font-size: 0.9rem;
             transition: background 0.2s;
         }
-        .product-cta:hover { background: #34e08a; color: #0a0a0a; }
+        .product-cta:hover { background: #00d4ff; color: #0a0a0a; }
 
         /* Stores */
         .stores {
@@ -492,11 +500,11 @@
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: #555;
+            color: #8b93a1;
             font-size: 0.85rem;
             border-top: 1px solid #1a1a1a;
         }
-        footer a { color: #666; }
+        footer a { color: #9aa3b2; }
 
         /* About */
         .about-text {
@@ -552,7 +560,7 @@
             outline: none;
             border-color: #3b82f6;
         }
-        .intake-form textarea::placeholder { color: #555; }
+        .intake-form textarea::placeholder { color: #7e8a9a; }
         .intake-form input[type="email"] {
             width: 100%;
             padding: 14px 16px;
@@ -569,7 +577,7 @@
             outline: none;
             border-color: #3b82f6;
         }
-        .intake-form input::placeholder { color: #555; }
+        .intake-form input::placeholder { color: #7e8a9a; }
         .intake-btn {
             display: inline-block;
             background: #3b82f6;
@@ -583,9 +591,9 @@
             transition: background 0.2s, transform 0.1s;
             width: 100%;
         }
-        .intake-btn:hover { background: #34e08a; transform: translateY(-2px); }
+        .intake-btn:hover { background: #00d4ff; transform: translateY(-2px); }
         .intake-divider {
-            color: #555;
+            color: #8b93a1;
             margin: 24px 0;
             font-size: 0.9rem;
         }
@@ -609,12 +617,14 @@
         .intake-calendly a:hover { background: #3b82f6; color: #0a0a0a; }
         .intake-trust {
             margin-top: 24px;
-            color: #666;
+            color: #8b93a1;
             font-size: 0.85rem;
         }
 
         /* Hero demo — CSS-only animated Telegram transcript */
         .hero-wrap {
+            position: relative;
+            z-index: 1;
             max-width: 1180px;
             margin: 0 auto;
             display: grid;
@@ -624,7 +634,6 @@
             text-align: left;
         }
         .hero-content { text-align: left; }
-        .hero-content .hero-stats { justify-content: flex-start; }
         .hero-content img.logo {
             display: block;
             margin-bottom: 16px;
@@ -634,252 +643,6 @@
             flex-direction: column;
             align-items: center;
         }
-        .chat-card {
-            width: 100%;
-            max-width: 400px;
-            background: #0f1620;
-            border: 1px solid #1e2a3a;
-            border-radius: 20px;
-            padding: 20px 18px 22px;
-            box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .chat-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
-            animation: scan 6s ease-in-out infinite;
-        }
-        @keyframes scan {
-            0%, 100% { opacity: 0; transform: translateX(-100%); }
-            50% { opacity: 1; transform: translateX(100%); }
-        }
-        .chat-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #1a2433;
-            margin-bottom: 14px;
-        }
-        .chat-avatar {
-            width: 32px; height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6, #34e08a);
-            display: flex; align-items: center; justify-content: center;
-            color: #0a0a0a; font-weight: 800; font-size: 0.9rem;
-        }
-        .chat-title { font-size: 0.85rem; color: #e0e0e0; font-weight: 600; }
-        .chat-status { font-size: 0.7rem; color: #34e08a; display: flex; align-items: center; gap: 4px; }
-        .chat-status::before {
-            content: "";
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: #34e08a;
-            box-shadow: 0 0 6px #34e08a;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-        .msg {
-            opacity: 0;
-            margin-bottom: 10px;
-            max-width: 85%;
-            padding: 10px 14px;
-            border-radius: 14px;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-        .msg-user {
-            background: #3b82f6;
-            color: #0a0a0a;
-            margin-left: auto;
-            border-bottom-right-radius: 4px;
-            font-weight: 500;
-        }
-        .msg-transcript {
-            margin-top: 6px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(10, 10, 10, 0.15);
-            font-size: 0.78rem;
-            font-weight: 500;
-            font-style: italic;
-            line-height: 1.35;
-            color: #0a1824;
-        }
-        .msg-bot {
-            background: #1a2433;
-            color: #e0e0e0;
-            border-bottom-left-radius: 4px;
-        }
-        .msg-action {
-            background: #0d2137;
-            border: 1px solid #3b82f633;
-            color: #3b82f6;
-            font-family: ui-monospace, SFMono-Regular, monospace;
-            font-size: 0.78rem;
-            padding: 12px 14px;
-            max-width: 92%;
-        }
-        .msg-action div { padding: 2px 0; color: #34e08a; }
-        .msg-action div::before { content: "✓  "; color: #34e08a; font-weight: 700; }
-        .waveform {
-            display: inline-flex;
-            gap: 2px;
-            align-items: center;
-            margin-right: 6px;
-        }
-        .waveform span {
-            display: inline-block;
-            width: 2px;
-            background: #0a0a0a;
-            border-radius: 1px;
-            animation: wave 1s ease-in-out infinite;
-        }
-        .waveform span:nth-child(1) { height: 6px; animation-delay: 0s; }
-        .waveform span:nth-child(2) { height: 12px; animation-delay: 0.1s; }
-        .waveform span:nth-child(3) { height: 16px; animation-delay: 0.2s; }
-        .waveform span:nth-child(4) { height: 20px; animation-delay: 0.3s; }
-        .waveform span:nth-child(5) { height: 16px; animation-delay: 0.4s; }
-        .waveform span:nth-child(6) { height: 10px; animation-delay: 0.5s; }
-        .waveform span:nth-child(7) { height: 14px; animation-delay: 0.6s; }
-        .waveform span:nth-child(8) { height: 8px; animation-delay: 0.7s; }
-        @keyframes wave {
-            0%, 100% { transform: scaleY(0.6); }
-            50% { transform: scaleY(1); }
-        }
-        .typing {
-            display: inline-flex;
-            gap: 3px;
-            padding: 10px 14px;
-            background: #1a2433;
-            border-radius: 14px;
-            border-bottom-left-radius: 4px;
-            opacity: 0;
-            margin-bottom: 10px;
-        }
-        .typing span {
-            width: 6px; height: 6px;
-            background: #3b82f6;
-            border-radius: 50%;
-            animation: typing 1.2s ease-in-out infinite;
-        }
-        .typing span:nth-child(2) { animation-delay: 0.2s; }
-        .typing span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing {
-            0%, 100% { opacity: 0.3; transform: translateY(0); }
-            50% { opacity: 1; transform: translateY(-3px); }
-        }
-        /* Scene rotation — 4 scenes, 6s each = 24s total cycle */
-        .chat-scene {
-            opacity: 0;
-            visibility: hidden;
-            position: absolute;
-            top: 76px;
-            left: 18px;
-            right: 18px;
-        }
-        .chat-card { position: relative; min-height: 360px; padding-bottom: 30px; }
-
-        .scene-1 { animation: sceneRotate 24s ease-in-out infinite 0s; }
-        .scene-2 { animation: sceneRotate 24s ease-in-out infinite 6s; }
-        .scene-3 { animation: sceneRotate 24s ease-in-out infinite 12s; }
-        .scene-4 { animation: sceneRotate 24s ease-in-out infinite 18s; }
-
-        @keyframes sceneRotate {
-            0%      { visibility: visible; opacity: 0; }
-            3%      { visibility: visible; opacity: 1; }
-            22%     { visibility: visible; opacity: 1; }
-            25%     { visibility: hidden; opacity: 0; }
-            100%    { visibility: hidden; opacity: 0; }
-        }
-
-        .scene-1 .scene-msg   { animation: msgIn 24s ease-in-out infinite 0s; }
-        .scene-1 .scene-reply  { animation: replyIn 24s ease-in-out infinite 0s; }
-        .scene-1 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 0s; }
-
-        .scene-2 .scene-msg   { animation: msgIn 24s ease-in-out infinite 6s; }
-        .scene-2 .scene-reply  { animation: replyIn 24s ease-in-out infinite 6s; }
-        .scene-2 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 6s; }
-
-        .scene-3 .scene-msg   { animation: msgIn 24s ease-in-out infinite 12s; }
-        .scene-3 .scene-reply  { animation: replyIn 24s ease-in-out infinite 12s; }
-        .scene-3 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 12s; }
-
-        .scene-4 .scene-msg   { animation: msgIn 24s ease-in-out infinite 18s; }
-        .scene-4 .scene-reply  { animation: replyIn 24s ease-in-out infinite 18s; }
-        .scene-4 .scene-actions{ animation: actionsIn 24s ease-in-out infinite 18s; }
-
-        @keyframes msgIn {
-            0%   { opacity: 0; transform: translateY(8px); }
-            3%   { opacity: 1; transform: translateY(0); }
-            22%  { opacity: 1; transform: translateY(0); }
-            25%  { opacity: 0; }
-            100% { opacity: 0; }
-        }
-        @keyframes replyIn {
-            0%, 6%  { opacity: 0; transform: translateY(8px); }
-            9%      { opacity: 1; transform: translateY(0); }
-            22%     { opacity: 1; }
-            25%     { opacity: 0; }
-            100%    { opacity: 0; }
-        }
-        @keyframes actionsIn {
-            0%, 11% { opacity: 0; transform: translateY(8px); }
-            14%     { opacity: 1; transform: translateY(0); }
-            22%     { opacity: 1; }
-            25%     { opacity: 0; }
-            100%    { opacity: 0; }
-        }
-        .demo-caption {
-            margin-top: 18px;
-            color: #666;
-            font-size: 0.85rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-        .demo-caption strong { color: #3b82f6; }
-        .demo-channels {
-            margin-top: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-        .demo-channels-label {
-            color: #666;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .demo-channels-icons {
-            display: inline-flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .demo-channels-icons svg {
-            width: 22px;
-            height: 22px;
-            fill: #3b82f6;
-            opacity: 0.85;
-            transition: opacity 0.2s, transform 0.2s;
-        }
-        .demo-channels-icons svg:hover {
-            opacity: 1;
-            transform: translateY(-2px);
-        }
-        .demo-channels-icons span {
-            color: #333;
-            font-size: 0.7rem;
-        }
-
         /* How it works — 3 step strip */
         .how {
             background: #0d1117;
@@ -936,7 +699,7 @@
             font-size: 1.6rem;
             font-weight: 900;
             margin: 0 auto 20px;
-            box-shadow: 0 0 0 1px rgba(124,92,255,0.30);
+            box-shadow: 0 0 0 1px rgba(0,212,255,0.25);
         }
         .how-step h3 {
             color: #fff;
@@ -1007,7 +770,7 @@
                 font-size: 0.85rem;
                 line-height: 1.2;
             }
-            .mobile-cta-text strong { color: #34e08a; display: block; font-size: 0.95rem; }
+            .mobile-cta-text strong { color: #00d4ff; display: block; font-size: 0.95rem; }
             .mobile-cta-text span { color: #888; font-size: 0.75rem; }
             .mobile-cta a {
                 background: #3b82f6;
@@ -1024,45 +787,43 @@
         @media (max-width: 900px) {
             .hero-wrap { grid-template-columns: 1fr; gap: 36px; text-align: center; }
             .hero-content { text-align: center; }
-            .hero-content .hero-stats { justify-content: center; }
             .hero-content img.logo { margin-left: auto; margin-right: auto; }
-            .chat-card { max-width: 360px; min-height: 360px; }
         }
         @media (max-width: 600px) {
             .hero { padding: 50px 16px 40px; }
-            .hero-stats { gap: 24px; }
             .section { padding: 40px 16px; }
             .products-grid { grid-template-columns: 1fr; }
             .proof-strip { gap: 16px; padding: 16px; }
             .proof-sep { display: none; }
-            .chat-card { max-width: 100%; min-height: 380px; }
-            .chat-scene { left: 14px; right: 14px; }
-            .chat-scene .msg { font-size: 0.8rem; max-width: 92%; }
-            .chat-scene .msg-action { font-size: 0.72rem; }
             #capabilities .section-title { font-size: 1.4rem; }
-            .capabilities-grid { grid-template-columns: 1fr !important; }
         }
 
     /* === SAM scroll-reveal motion (added 2026-06-24) === */
     @media (prefers-reduced-motion: no-preference) {
       html.sam-js :is(.how h2, .how-sub, .how-step, .section-title, .section-subtitle,
-        #capabilities .capabilities-grid > div, .product-card, #faq details,
+        #capabilities .console, .product-card, #faq details,
         .intake h2, .intake-sub, .intake-form) {
         transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
         transition-delay: var(--reveal-delay, 0ms);
         will-change: opacity, transform;
       }
       html.sam-js :is(.how h2, .how-sub, .how-step, .section-title, .section-subtitle,
-        #capabilities .capabilities-grid > div, .product-card, #faq details,
+        #capabilities .console, .product-card, #faq details,
         .intake h2, .intake-sub, .intake-form):not(.in) {
         opacity: 0;
         transform: translateY(28px);
       }
+      html.sam-js .how-steps::before { transform: scaleX(0); transform-origin: left; transition: transform 1.1s cubic-bezier(.22,1,.36,1) .15s; }
+      html.sam-js .how-steps.in::before { transform: scaleX(1); }
+      html.sam-js .product-card .product-features li { opacity: 0; transform: translateX(-8px); transition: opacity .45s cubic-bezier(.22,1,.36,1), transform .45s cubic-bezier(.22,1,.36,1); transition-delay: calc(var(--li, 0) * 70ms + 250ms); }
+      html.sam-js .product-card.in .product-features li { opacity: 1; transform: none; }
+      html.sam-js .product-card.pop.in { animation: popSheen 1s ease-out .4s; }
+      @keyframes popSheen { 50% { box-shadow: 0 18px 60px -12px rgba(0,212,255,.28); border-color: #00d4ff; } }
     }
     
-    /* === SAM new phone hero (2026-06-24) — scoped nh-*, no colored glows === */
+        /* === SAM phone hero (scoped nh-*, cyan accents) === */
     .nh-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.8rem;font-weight:600;color:#9aa4b2;background:#0f1620;border:1px solid #1e2a3a;padding:7px 15px;border-radius:999px;margin-bottom:22px}
-    .nh-pulse{width:8px;height:8px;border-radius:50%;background:#34e08a;flex:none;animation:nhblink 2s ease-in-out infinite}
+    .nh-pulse{width:8px;height:8px;border-radius:50%;background:#00d4ff;flex:none;animation:nhblink 2s ease-in-out infinite}
     @keyframes nhblink{0%,100%{opacity:1}50%{opacity:.35}}
     .nh-chan{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 4px}
     .nh-chan span{font-size:.82rem;color:#cdd5df;border:1px solid #1e2a3a;border-radius:8px;padding:6px 12px;display:inline-flex;gap:7px;align-items:center}
@@ -1074,7 +835,7 @@
     .nh-tg-head{display:flex;align-items:center;gap:11px;padding:42px 15px 12px;border-bottom:1px solid #1e2a3a;background:rgba(15,22,32,.7)}
     .nh-av{width:36px;height:36px;border-radius:50%;background:#3b82f6;display:grid;place-items:center;font-family:'Clash Display',sans-serif;font-weight:700;color:#fff}
     .nh-name{font-weight:700;font-size:.95rem;color:#fff}
-    .nh-status{display:flex;align-items:center;gap:6px;font-size:.72rem;color:#34e08a}
+    .nh-status{display:flex;align-items:center;gap:6px;font-size:.72rem;color:#00d4ff}
     .nh-body{flex:1;padding:16px 13px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
     .nh-bub{max-width:85%;padding:10px 13px;font-size:.88rem;line-height:1.45;opacity:0;transform:translateY(10px);transition:.45s cubic-bezier(.22,1,.36,1)}
     .nh-bub.nh-in{opacity:1;transform:none}
@@ -1092,7 +853,7 @@
     .nh-res div.nh-in{opacity:1;transform:none}
     .nh-c{width:16px;height:16px;border-radius:5px;display:grid;place-items:center;font-size:.6rem;flex:none}
     .nh-c.nh-pending{border:2px solid #243040;border-top-color:#3b82f6;animation:nhspin .7s linear infinite}
-    .nh-c.nh-done{background:#34e08a;color:#06210f}
+    .nh-c.nh-done{background:#00d4ff;color:#062a33}
     @keyframes nhspin{to{transform:rotate(360deg)}}
     .nh-typing{align-self:flex-start;display:flex;gap:4px;padding:11px 13px;background:#19212c;border:1px solid #243040;border-radius:15px 15px 15px 5px}
     .nh-typing i{width:6px;height:6px;border-radius:50%;background:#5b6675;animation:nhtp 1.2s infinite}
@@ -1104,6 +865,55 @@
     .nh-mic{width:36px;height:36px;border-radius:50%;background:#3b82f6;display:grid;place-items:center;color:#fff;flex:none;animation:nhmic 2.6s ease-in-out infinite}
     @keyframes nhmic{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
     @media (max-width:600px){.nh-phone{width:300px}.nh-screen{height:520px}}
+
+    /* === chips under the hero phone === */
+    .nh-try{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center}
+    .nh-try span{color:#8b93a1;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+    .nh-try button{font-family:'Satoshi',sans-serif;font-size:.82rem;color:#cdd5df;background:#0f1620;border:1px solid #1e2a3a;border-radius:999px;padding:8px 14px;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+    .nh-try button:hover{border-color:#3b82f6;color:#fff}
+    .nh-try button.on{border-color:#3b82f6;color:#fff;background:#0d2137}
+
+    /* === interactive command console (replaces the 12-card wall) === */
+    .console{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:18px;align-items:stretch}
+    .console-cmds{display:flex;flex-direction:column;gap:6px;max-height:470px;overflow-y:auto;padding-right:4px}
+    .console-cmds button{text-align:left;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84rem;color:#8b93a1;background:#0f1620;border:1px solid #1e2a3a;border-radius:8px;padding:10px 14px;cursor:pointer;transition:color .2s,border-color .2s,background .2s}
+    .console-cmds button::before{content:"$ ";color:#3b82f6}
+    .console-cmds button:hover{color:#e8edf2;border-color:#3b82f6}
+    .console-cmds button.on{color:#fff;background:#0d2137;border-color:#3b82f6}
+    .console-pane{background:#06070a;border:1px solid #1e2a3a;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-height:470px}
+    .console-head{display:flex;align-items:center;gap:7px;padding:12px 16px;border-bottom:1px solid #1e2a3a;background:#0f1620}
+    .console-head i{width:11px;height:11px;border-radius:50%;background:#243040;display:inline-block}
+    .console-head span{margin-left:8px;color:#8b93a1;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+    .console-out{flex:1;padding:18px 20px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;line-height:1.75}
+    .co-ask{color:#e8edf2;margin-bottom:12px}
+    .co-ask::before{content:"$ ";color:#3b82f6}
+    .co-row{display:flex;align-items:center;gap:9px;color:#aab3c0;opacity:0;transform:translateY(6px);transition:.4s cubic-bezier(.22,1,.36,1)}
+    .co-row.co-in{opacity:1;transform:none}
+    .co-c{width:15px;height:15px;border-radius:5px;display:grid;place-items:center;font-size:.58rem;flex:none}
+    .co-c.co-pending{border:2px solid #243040;border-top-color:#3b82f6;animation:nhspin .7s linear infinite}
+    .co-c.co-done{background:#00d4ff;color:#062a33}
+    .co-done-line{color:#00d4ff;margin-top:12px;opacity:0;transition:opacity .5s}
+    .co-done-line.co-in{opacity:1}
+    @media (max-width:900px){
+      .console{grid-template-columns:1fr}
+      .console-cmds{flex-direction:row;overflow-x:auto;max-height:none;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+      .console-cmds button{flex:none;white-space:nowrap}
+      .console-pane{min-height:380px}
+    }
+
+    /* === from-the-lab compact row === */
+    .lab-row{max-width:1100px;margin:28px auto 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+    .lab-label{color:#8b93a1;font-size:.8rem;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+    .lab-row a{font-size:.85rem;color:#cdd5df;border:1px solid #222;background:#141414;border-radius:999px;padding:7px 14px;transition:border-color .2s,color .2s}
+    .lab-row a:hover{border-color:#3b82f6;color:#fff}
+
+    /* === intake success panel === */
+    .intake-success{background:#0d2137;border:1px solid #3b82f655;border-radius:12px;padding:28px}
+    .intake-success .big{font-size:2rem;color:#00d4ff}
+
+    @media (prefers-reduced-motion: reduce){
+      .nh-phone,.nh-mic,.nh-pulse,.nh-wave i,.co-c.co-pending{animation:none !important}
+    }
 </style>
 <script>document.documentElement.classList.add('sam-js');</script>
 </head>
@@ -1112,7 +922,7 @@
 <nav class="nav" aria-label="Main navigation">
     <div class="nav-wrap">
         <a href="/" class="nav-brand" aria-label="Strange Advanced Marketing home">
-            <img src="sam-circle.png" alt="S.A.M logo">
+            <img src="sam-circle-128.png" alt="S.A.M logo" width="34" height="34">
             <span class="nav-brand-text">
                 <strong>S.A.M</strong>
                 <span>Strange Advanced Marketing</span>
@@ -1129,11 +939,12 @@
 </nav>
 
 <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-wrap">
         <div class="hero-content">
             <div class="nh-eyebrow"><span class="nh-pulse"></span>Voice in. Done deal out.</div>
             <h1>Run your business<br>by <span>voice.</span></h1>
-            <p>Send a voice note from your phone &mdash; SAM handles the rest. Quoting, scheduling, your online store, getting paid. No apps to learn, no laptop, no sitting at a desk.</p>
+            <p>Send a voice note from your phone. SAM quotes, schedules, runs your store, and gets you paid. No apps, no laptop, no desk.</p>
             <div class="nh-chan">
                 <span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#229ED9" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212-.07-.062-.174-.041-.249-.024-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</span>
                 <span><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>WhatsApp</span>
@@ -1143,12 +954,12 @@
                 <a href="#get-started" class="product-cta" style="padding:16px 40px; font-size:1.1rem; display:inline-block;">Book a free discovery call</a>
                 <div style="color:#999; font-size:0.9rem;">
                     <div style="color:#e8edf2; font-weight:600; font-size:0.95rem;">Setup from $500 &middot; from $299/mo</div>
-                    <div style="color:#666; font-size:0.8rem;">Flat rate, no lock-ins.</div>
+                    <div style="color:#8b93a1; font-size:0.8rem;">Flat rate, no lock-ins.</div>
                 </div>
             </div>
         </div>
-        <div class="hero-demo" aria-hidden="true">
-            <div class="nh-phone">
+        <div class="hero-demo">
+            <div class="nh-phone" aria-hidden="true">
                 <div class="nh-notch"></div>
                 <div class="nh-screen">
                     <div class="nh-tg-head">
@@ -1159,9 +970,25 @@
                     <div class="nh-input"><span class="nh-attach">&#128206;</span><div class="nh-field">Message</div><div class="nh-mic">&#127908;</div></div>
                 </div>
             </div>
+            <div class="nh-try" aria-label="Try a command">
+                <span>Try one:</span>
+                <button type="button" data-scene="0">Quote a driveway</button>
+                <button type="button" data-scene="1">Restock my store</button>
+                <button type="button" data-scene="3">Chase invoices</button>
+            </div>
         </div>
     </div>
 </section>
+
+<div class="proof-strip" id="proof">
+    <div class="proof-item"><strong class="count" data-count="353">0</strong>&nbsp;production sessions logged</div>
+    <span class="proof-sep">&#9679;</span>
+    <div class="proof-item"><strong class="count" data-count="5">0</strong>&nbsp;live tools on the Apify store</div>
+    <span class="proof-sep">&#9679;</span>
+    <div class="proof-item">Client systems live in <strong>Indiana &amp; Florida</strong>, built from Miami</div>
+    <span class="proof-sep">&#9679;</span>
+    <div class="proof-item">Installed on <strong>hardware you own</strong></div>
+</div>
 
 <section class="how" id="how-it-works">
     <div class="how-wrap">
@@ -1189,55 +1016,12 @@
 
 <section class="section" id="capabilities" style="background: #0a0a0a; border-bottom: 1px solid #1a1a1a;">
     <h2 class="section-title">Everything SAM Can Do</h2>
-    <p class="section-subtitle">This isn't a chatbot. SAM is a full AI operator for your business. Here's what you can ask.</p>
-    <div class="capabilities-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 1100px; margin: 0 auto;">
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Lead Generation</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Find me 200 contractors in Miami" — SAM scrapes Google Maps, enriches with emails and socials, scores them hot/warm/cold, and exports to a spreadsheet.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Websites and Funnels</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Build me a landing page for bad credit car loans in Indianapolis" — deployed live with SEO, mobile-first design, and lead capture form. Same day.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Email Outreach</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Send the pitch to 20 BHPH dealers in central Indiana" — personalized sequences sent through Gmail, tracked for opens and replies, auto follow-ups.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Social Media</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Schedule a week of content for TikTok and Instagram" — captions in your voice, hashtags optimized per platform, posted on autopilot.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">SEO That Works in 2026</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Make sure I show up in AI search results" — structured data, AI-optimized content, citation strategies. Get cited in Google AI Mode, not just ranked.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Content Creation</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Write me 5 posts about rebuilding credit through car ownership" — motion graphics, video scripts, blog posts, newsletters. Created and scheduled.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Quoting and Invoicing</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Quote Marcus, 2400 sqft driveway, Tuesday 8am" — quote emailed, calendar blocked, invoice drafted, crew notified. One voice note.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Competitor Research</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"What are my competitors posting?" — SAM monitors their social, reviews, pricing, and digital presence. Surfaces what matters, ignores the noise.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Scheduling and Calendar</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Block Tuesday for the install and remind me Monday night" — SAM manages your calendar, sets reminders, coordinates with clients and crew.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Customer Follow-ups</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Follow up with everyone who didn't reply last week" — SAM tracks who opened, who replied, who ghosted, and writes the follow-up for each.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Data and Scraping</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">"Scrape every turf installer in South Florida with their reviews" — SAM builds the scraper, runs it, cleans the data, and hands you the list.</p>
-        </div>
-        <div style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 20px 22px;">
-            <div style="color: #3b82f6; font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Whatever Else You Need</div>
-            <p style="color: #888; font-size: 0.88rem; line-height: 1.5; margin: 0;">Inventory management. CRM updates. Reporting. Document drafting. Market research. If it can be done on a computer, SAM can do it. Just ask.</p>
+    <p class="section-subtitle">SAM is a full AI operator for your business, not a chatbot. Pick a command and watch it run.</p>
+    <div class="console" id="sam-console">
+        <div class="console-cmds" role="tablist" aria-label="Example commands"></div>
+        <div class="console-pane">
+            <div class="console-head"><i></i><i></i><i></i><span>SAM &middot; live run</span></div>
+            <div class="console-out" id="console-out" aria-live="polite"></div>
         </div>
     </div>
     <div style="text-align: center; margin-top: 40px;">
@@ -1247,14 +1031,14 @@
 
 <section class="section" id="services" style="background: #0a0a0a; border-bottom: 1px solid #1a1a1a;">
     <h2 class="section-title">What We Build For You</h2>
-    <p class="section-subtitle">Pick your level. Every setup is done for you — you don't touch a thing.</p>
+    <p class="section-subtitle">Pick your level. Every setup is done for you, start to finish.</p>
     <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
 
         <div class="product-card" style="border-color: #333;">
             <span class="product-badge" style="background: #3b82f622; color: #3b82f6;">Basic</span>
             <h3 style="margin-bottom: 4px;">Basic Setup</h3>
             <div style="font-size: 2rem; font-weight: 900; color: #3b82f6; margin-bottom: 4px;">$500</div>
-            <div style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">One-time setup · Same day</div>
+            <div style="font-size: 0.85rem; color: #8b93a1; margin-bottom: 20px;">One-time setup · Same day</div>
             <p>Your own AI assistant, deployed on your machine and ready to go. Talk to it through Telegram. It knows your business.</p>
             <ul class="product-features">
                 <li>Claude Code installed and configured</li>
@@ -1265,11 +1049,11 @@
             <a href="#get-started" class="product-cta" style="width: 100%; text-align: center;">Get Started</a>
         </div>
 
-        <div class="product-card" style="border-color: #3b82f6; box-shadow: 0 18px 48px -18px rgba(0,0,0,0.6);">
-            <span class="product-badge" style="background: #34e08a22; color: #34e08a;">Most Popular</span>
+        <div class="product-card pop" style="border-color: #3b82f6; box-shadow: 0 18px 48px -18px rgba(0,0,0,0.6);">
+            <span class="product-badge" style="background: #00d4ff22; color: #00d4ff;">Most Popular</span>
             <h3 style="margin-bottom: 4px;">Business Setup</h3>
             <div style="font-size: 2rem; font-weight: 900; color: #3b82f6; margin-bottom: 4px;">$1,000</div>
-            <div style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">One-time setup + $299/mo maintenance</div>
+            <div style="font-size: 0.85rem; color: #8b93a1; margin-bottom: 20px;">One-time setup + $299/mo maintenance</div>
             <p>Full voice-to-execution system. Your AI handles email, calendar, customer follow-ups, and business workflows. You just talk.</p>
             <ul class="product-features">
                 <li>Everything in Basic</li>
@@ -1286,7 +1070,7 @@
             <span class="product-badge" style="background: #3b82f622; color: #3b82f6;">Premium</span>
             <h3 style="margin-bottom: 4px;">Curated Install</h3>
             <div style="font-size: 2rem; font-weight: 900; color: #3b82f6; margin-bottom: 4px;">$1,500</div>
-            <div style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">One-time setup + $499/mo maintenance</div>
+            <div style="font-size: 0.85rem; color: #8b93a1; margin-bottom: 20px;">One-time setup + $499/mo maintenance</div>
             <p>Multi-agent architecture with monitoring and optimization. For businesses ready for full AI-powered operations.</p>
             <ul class="product-features">
                 <li>Everything in Business</li>
@@ -1303,7 +1087,7 @@
             <span class="product-badge" style="background: #ffcc0022; color: #ffcc00;">Standalone</span>
             <h3 style="margin-bottom: 4px;">Custom Website</h3>
             <div style="font-size: 2rem; font-weight: 900; color: #3b82f6; margin-bottom: 4px;">$500</div>
-            <div style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">One-time · Free hosting included</div>
+            <div style="font-size: 0.85rem; color: #8b93a1; margin-bottom: 20px;">One-time · Free hosting included</div>
             <p>Modern, mobile-first, SEO-optimized website for your business. Built with AI, hosted for free on GitHub Pages.</p>
             <ul class="product-features">
                 <li>Custom design — not a template</li>
@@ -1351,7 +1135,7 @@
         </details>
         <details style="background: #141414; border: 1px solid #222; border-radius: 10px; padding: 18px 22px;">
             <summary style="color: #fff; font-weight: 700; font-size: 1rem; cursor: pointer;">What makes S.A.M different from other AI agencies?</summary>
-            <p style="color: #888; font-size: 0.92rem; line-height: 1.6; margin-top: 12px;">S.A.M doesn't run your AI — we build it and you own it. We install a custom AI stack on your own hardware, not a cloud subscription you rent. The entire system runs through voice notes, not dashboards. And our founder Jereme Strange is an AI Architect, not a developer — he designs systems that actually run businesses.</p>
+            <p style="color: #888; font-size: 0.92rem; line-height: 1.6; margin-top: 12px;">S.A.M doesn't run your AI — we build it and you own it. We install a custom AI stack on your own hardware, not a cloud subscription you rent. The entire system runs through voice notes, not dashboards. And our founder Jereme Strange is an AI architect who designs systems that actually run businesses.</p>
         </details>
     </div>
 </section>
@@ -1398,21 +1182,8 @@ Miami, FL">
 
 <section class="section" id="tools">
     <h2 class="section-title">Our Tools</h2>
-    <p class="section-subtitle">Production-proven tools deployed on GitHub, Apify, and Substack. Most are free. All are battle-tested.</p>
+    <p class="section-subtitle">Production-proven tools on GitHub, Apify, and Substack. Most are free.</p>
     <div class="products-grid">
-
-        <div class="product-card">
-            <span class="product-badge badge-intel">Community</span>
-            <h3>OurSpace</h3>
-            <p>A curated, video-first discovery hub centered on people. MySpace nostalgia meets TikTok consumption. Follow truth-seekers, scientists, comedians, and deep thinkers across 11 topic lanes.</p>
-            <ul class="product-features">
-                <li>75+ curated people profiles</li>
-                <li>6 tracked podcasts cross-referenced</li>
-                <li>YouTube and TikTok content aggregated</li>
-                <li>Discovery through connections, not algorithms</li>
-            </ul>
-            <a href="https://ourspacetoktik.vercel.app" class="product-cta">Explore OurSpace</a>
-        </div>
 
         <div class="product-card">
             <span class="product-badge badge-quoting">Sales Tools</span>
@@ -1443,32 +1214,6 @@ Miami, FL">
         </div>
 
         <div class="product-card">
-            <span class="product-badge badge-intel">Open Source</span>
-            <h3>The Adam Framework</h3>
-            <p>AI memory that outlives any model or vendor. The persistence layer Jereme built while running SAM on consumer hardware — 353 real production sessions, MIT licensed, files you own.</p>
-            <ul class="product-features">
-                <li>AI amnesia solved — coherence across sessions</li>
-                <li>Vendor-independent identity sovereignty</li>
-                <li>353 sessions of live production proof</li>
-                <li>MIT open source, fast-track setup available</li>
-            </ul>
-            <a href="https://github.com/strangeadvancedmarketing/Adam" class="product-cta">Explore Adam</a>
-        </div>
-
-        <div class="product-card">
-            <span class="product-badge badge-intel">Open Source</span>
-            <h3>Claude Buddy</h3>
-            <p>A real-time operational awareness layer for Claude Code. Watches tool calls, tracks what your AI is thinking and doing, and displays it on a secondary screen. Your AI's brain, visible.</p>
-            <ul class="product-features">
-                <li>Real-time tool call monitoring</li>
-                <li>Secondary display dashboard</li>
-                <li>Session awareness and context tracking</li>
-                <li>Open source, runs locally</li>
-            </ul>
-            <a href="https://github.com/strangeadvancedmarketing/claude-buddy" class="product-cta">Explore Claude Buddy</a>
-        </div>
-
-        <div class="product-card">
             <span class="product-badge badge-lead-gen">Lead Generation</span>
             <h3>Google Maps Lead Generator</h3>
             <p>Find business leads with email enrichment, social media discovery, and lead scoring. One search returns complete contact profiles.</p>
@@ -1479,32 +1224,6 @@ Miami, FL">
                 <li>Hot/Warm/Cold lead scoring</li>
             </ul>
             <a href="https://apify.com/strange-advanced-marketing/google-maps-lead-generator" class="product-cta">Try on Apify</a>
-        </div>
-
-        <div class="product-card">
-            <span class="product-badge badge-lead-gen">Lead Generation</span>
-            <h3>Google Maps Reviews Analyzer</h3>
-            <p>Scrape and analyze Google Maps reviews with AI sentiment analysis. Detect themes, flag red flags, compare competitors.</p>
-            <ul class="product-features">
-                <li>Full review text extraction</li>
-                <li>Sentiment scoring per review</li>
-                <li>Theme detection (pricing, service, quality)</li>
-                <li>Red flag identification</li>
-            </ul>
-            <a href="https://apify.com/strange-advanced-marketing/google-maps-reviews-analyzer" class="product-cta">Try on Apify</a>
-        </div>
-
-        <div class="product-card">
-            <span class="product-badge badge-lead-gen">Lead Generation</span>
-            <h3>Google Maps Competitor Analyzer</h3>
-            <p>Input a business, find every competitor in the area. Compare ratings, reviews, and digital presence. Spot opportunities instantly.</p>
-            <ul class="product-features">
-                <li>Automatic competitor discovery</li>
-                <li>Side-by-side comparison</li>
-                <li>Rating and review rankings</li>
-                <li>Opportunity flagging</li>
-            </ul>
-            <a href="https://apify.com/strange-advanced-marketing/google-maps-competitor-analyzer" class="product-cta">Try on Apify</a>
         </div>
 
         <div class="product-card">
@@ -1520,19 +1239,15 @@ Miami, FL">
             <a href="https://apify.com/strange-advanced-marketing/business-website-analyzer" class="product-cta">Try on Apify</a>
         </div>
 
-        <div class="product-card">
-            <span class="product-badge badge-email">Email Tools</span>
-            <h3>Email Finder and Verifier</h3>
-            <p>Turn domain names into email addresses. Scrapes websites, generates patterns, checks MX records, detects email providers.</p>
-            <ul class="product-features">
-                <li>Website email scraping</li>
-                <li>Smart pattern generation</li>
-                <li>MX record validation</li>
-                <li>Email provider detection</li>
-            </ul>
-            <a href="https://apify.com/strange-advanced-marketing/email-finder-verifier" class="product-cta">Try on Apify</a>
-        </div>
-
+    </div>
+    <div class="lab-row">
+        <span class="lab-label">From the lab:</span>
+        <a href="https://github.com/strangeadvancedmarketing/Adam">The Adam Framework</a>
+        <a href="https://github.com/strangeadvancedmarketing/claude-buddy">Claude Buddy</a>
+        <a href="https://ourspacetoktik.vercel.app">OurSpace</a>
+        <a href="https://apify.com/strange-advanced-marketing/google-maps-reviews-analyzer">Reviews Analyzer</a>
+        <a href="https://apify.com/strange-advanced-marketing/google-maps-competitor-analyzer">Competitor Analyzer</a>
+        <a href="https://apify.com/strange-advanced-marketing/email-finder-verifier">Email Finder</a>
     </div>
 </section>
 
@@ -1556,7 +1271,7 @@ Miami, FL">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             X / Twitter
         </a>
-        <a href="https://discord.gg/XtVNFEhz" class="store-link">
+        <a href="https://discord.gg/VraSKjvD3W" class="store-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286z"/></svg>
             Discord
         </a>
@@ -1590,7 +1305,7 @@ Miami, FL">
     <p>&copy; 2026 Strange Advanced Marketing. All rights reserved.</p>
     <p style="margin-top: 8px;">
         <a href="https://strangeintel.substack.com">Newsletter</a> &middot;
-        <a href="https://discord.gg/XtVNFEhz">Discord</a> &middot;
+        <a href="https://discord.gg/VraSKjvD3W">Discord</a> &middot;
         <a href="https://github.com/strangeadvancedmarketing">GitHub</a> &middot;
         <a href="https://www.tiktok.com/@strangeadvancedmarketing">TikTok</a> &middot;
         <a href="https://x.com/StrangeAICorp">X</a> &middot;
@@ -1613,12 +1328,17 @@ Miami, FL">
 (function () {
   var root = document.documentElement;
   if (!('IntersectionObserver' in window)) { root.classList.remove('sam-js'); return; }
-  var sel = '.how h2, .how-sub, .how-step, .section-title, .section-subtitle, #capabilities .capabilities-grid > div, .product-card, #faq details, .intake h2, .intake-sub, .intake-form';
+  var sel = '.how h2, .how-sub, .how-step, .how-steps, .section-title, .section-subtitle, #capabilities .console, .product-card, #faq details, .intake h2, .intake-sub, .intake-form';
   var els = Array.prototype.slice.call(document.querySelectorAll(sel));
   els.forEach(function (el) {
     var i = 0, prev = el.previousElementSibling;
     while (prev) { if (els.indexOf(prev) !== -1) i++; prev = prev.previousElementSibling; }
     el.style.setProperty('--reveal-delay', (Math.min(i, 8) * 55) + 'ms');
+  });
+  document.querySelectorAll('.product-card').forEach(function (card) {
+    Array.prototype.forEach.call(card.querySelectorAll('.product-features li'), function (li, k) {
+      li.style.setProperty('--li', k);
+    });
   });
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
@@ -1629,7 +1349,7 @@ Miami, FL">
 })();
 </script>
 <script>
-/* === SAM new phone hero — cycling command->execution (2026-06-24) === */
+/* === SAM new phone hero — cycling command->execution + tappable presets === */
 (function(){
   var chat=document.getElementById('nh-chat'); if(!chat) return;
   var scenes=[
@@ -1638,28 +1358,130 @@ Miami, FL">
     {dur:'0:06', ack:'Sure thing \uD83D\uDC4D', done:'Booked.', res:['Thursday 3pm confirmed','Address texted to Maria','Reminder set for you both']},
     {dur:'0:08', ack:'On it \uD83D\uDC4D', done:'Done.', res:['8 invoices sent','3 overdue reminders sent','$4,200 flagged outstanding']}
   ];
-  var i=0, reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var i=0, timers=[], reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function later(fn,ms){timers.push(setTimeout(fn,ms));}
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
   function el(html,cls){var d=document.createElement('div');d.className=cls;d.innerHTML=html;chat.appendChild(d);return d;}
-  function waveBars(n){var s='';for(var k=0;k<n;k++)s+='<i style="animation-delay:'+(k*0.08)+'s"></i>';return s;}
+  function waveBars(n){var t='';for(var k=0;k<n;k++)t+='<i style="animation-delay:'+(k*0.08)+'s"></i>';return t;}
+  var chips=document.querySelectorAll('.nh-try button');
+  function mark(){chips.forEach(function(b){b.classList.toggle('on', +b.getAttribute('data-scene')===i);});}
   function run(){
-    chat.innerHTML=''; var s=scenes[i];
+    mark(); chat.innerHTML=''; var s=scenes[i];
     var vn=el('<div class="nh-vn"><div class="nh-play">\u25B6</div><div class="nh-wave">'+waveBars(13)+'</div><div class="nh-dur">'+s.dur+'</div></div>','nh-bub nh-user');
     requestAnimationFrame(function(){vn.classList.add('nh-in');});
-    setTimeout(function(){
+    later(function(){
       var typ=el('<i></i><i></i><i></i>','nh-typing');
-      setTimeout(function(){
+      later(function(){
         typ.remove();
         var rows=s.res.map(function(x){return '<div><span class="nh-c nh-pending"></span><span>'+x+'</span></div>';}).join('');
         var sam=el('<div><b>'+s.ack+'</b></div><div class="nh-res">'+rows+'</div>','nh-bub nh-sam');
         requestAnimationFrame(function(){sam.classList.add('nh-in');});
         var r=sam.querySelectorAll('.nh-res div'), hdr=sam.querySelector('b');
-        if(reduce){ r.forEach(function(rw){rw.classList.add('nh-in');var c=rw.querySelector('.nh-c');c.className='nh-c nh-done';c.textContent='\u2713';}); hdr.textContent=s.done; setTimeout(function(){i=(i+1)%scenes.length;run();},4200); return; }
-        r.forEach(function(rw,k){ setTimeout(function(){ rw.classList.add('nh-in'); setTimeout(function(){ var c=rw.querySelector('.nh-c'); c.className='nh-c nh-done'; c.textContent='\u2713'; if(k===r.length-1) hdr.textContent=s.done; },460); }, k*740); });
-        setTimeout(function(){ i=(i+1)%scenes.length; run(); }, r.length*740+2600);
+        if(reduce){ r.forEach(function(rw){rw.classList.add('nh-in');var c=rw.querySelector('.nh-c');c.className='nh-c nh-done';c.textContent='\u2713';}); hdr.textContent=s.done; later(function(){i=(i+1)%scenes.length;run();},4200); return; }
+        r.forEach(function(rw,k){ later(function(){ rw.classList.add('nh-in'); later(function(){ var c=rw.querySelector('.nh-c'); c.className='nh-c nh-done'; c.textContent='\u2713'; if(k===r.length-1) hdr.textContent=s.done; },460); }, k*740); });
+        later(function(){ i=(i+1)%scenes.length; run(); }, r.length*740+2600);
       }, reduce?0:1100);
     }, reduce?0:700);
   }
+  chips.forEach(function(b){ b.addEventListener('click',function(){ clearTimers(); i=+b.getAttribute('data-scene'); run(); }); });
   run();
+})();
+</script>
+<script>
+/* === interactive command console (2026-07-01) === */
+(function(){
+  var cmds=document.querySelector('.console-cmds'), out=document.getElementById('console-out');
+  if(!cmds||!out) return;
+  var CAPS=[
+    {label:'Lead Generation', ask:'find me 200 contractors in Miami', res:['Scraped 200 Google Maps profiles','Emails + socials enriched','Scored: 37 hot \u00b7 88 warm \u00b7 75 cold','Exported to your spreadsheet']},
+    {label:'Websites & Funnels', ask:'build a landing page for bad credit car loans in Indianapolis', res:['Page built: mobile-first + SEO','Lead capture form wired','Deployed live, same day']},
+    {label:'Email Outreach', ask:'send the pitch to 20 BHPH dealers in central Indiana', res:['20 personalized emails sent','Opens + replies tracked','Follow-ups scheduled']},
+    {label:'Social Media', ask:'schedule a week of content for TikTok and Instagram', res:['7 posts drafted in your voice','Hashtags optimized per platform','Queue set, posts on autopilot']},
+    {label:'AI Search / SEO', ask:'make sure I show up in AI search results', res:['Schema + structured data added','Content optimized for AI citation','Cited in Google AI Mode']},
+    {label:'Content Creation', ask:'write me 5 posts about rebuilding credit', res:['5 scripts + captions drafted','Graphics rendered','Scheduled across platforms']},
+    {label:'Quoting & Invoicing', ask:'quote Marcus, 2400 sqft driveway, Tuesday 8am', res:['Quote emailed to Marcus','Tuesday 8am blocked','Invoice drafted in Stripe','Crew notified']},
+    {label:'Competitor Research', ask:'what are my competitors posting?', res:['4 competitors monitored','Pricing + review changes flagged','Signal report delivered']},
+    {label:'Scheduling', ask:'block Tuesday for the install and remind me Monday night', res:['Calendar blocked','Reminder set for Monday 8pm','Client + crew notified']},
+    {label:'Follow-ups', ask:'follow up with everyone who didn\u2019t reply last week', res:['12 no-replies found','Personalized follow-ups written','Sent + tracked']},
+    {label:'Data & Scraping', ask:'scrape every turf installer in South Florida with reviews', res:['Scraper built + run','Data cleaned','List delivered: 214 rows']},
+    {label:'Anything Else', ask:'draft the contract, update the CRM, pull a market report', res:['Contract drafted','CRM updated','Market report delivered']}
+  ];
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var timers=[], auto=null, idx=0, started=false;
+  function later(fn,ms){timers.push(setTimeout(fn,ms));}
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+  CAPS.forEach(function(c,k){
+    var b=document.createElement('button');
+    b.type='button'; b.setAttribute('role','tab'); b.textContent=c.ask;
+    b.title=c.label;
+    b.addEventListener('click',function(){ stopAuto(); play(k); });
+    cmds.appendChild(b);
+  });
+  var btns=cmds.querySelectorAll('button');
+  function play(k){
+    idx=k; clearTimers();
+    btns.forEach(function(b,j){b.classList.toggle('on', j===k);});
+    var c=CAPS[k];
+    out.innerHTML='';
+    var ask=document.createElement('div'); ask.className='co-ask'; ask.textContent=c.ask; out.appendChild(ask);
+    var rows=c.res.map(function(x){
+      var d=document.createElement('div'); d.className='co-row';
+      d.innerHTML='<span class="co-c co-pending"></span><span>'+x+'</span>';
+      out.appendChild(d); return d;
+    });
+    var doneLine=document.createElement('div'); doneLine.className='co-done-line'; doneLine.textContent='\u2713 done \u00b7 '+c.label; out.appendChild(doneLine);
+    if(reduce){ rows.forEach(function(r){r.classList.add('co-in'); var cc=r.querySelector('.co-c'); cc.className='co-c co-done'; cc.textContent='\u2713';}); doneLine.classList.add('co-in'); return; }
+    rows.forEach(function(r,j){ later(function(){ r.classList.add('co-in'); later(function(){ var cc=r.querySelector('.co-c'); cc.className='co-c co-done'; cc.textContent='\u2713'; if(j===rows.length-1) doneLine.classList.add('co-in'); },430); }, 350+j*640); });
+  }
+  function stopAuto(){ if(auto){clearInterval(auto);auto=null;} }
+  function startAuto(){ if(auto||reduce) return; auto=setInterval(function(){ play((idx+1)%CAPS.length); }, 7500); }
+  new IntersectionObserver(function(es,obs){
+    es.forEach(function(e){ if(e.isIntersecting&&!started){ started=true; play(0); startAuto(); obs.disconnect(); } });
+  },{threshold:0.25}).observe(out);
+})();
+/* === proof count-up + external links + form success + hero bg probe === */
+(function(){
+  document.querySelectorAll('a[href^="http"]').forEach(function(a){ a.target='_blank'; a.rel='noopener'; });
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var counts=document.querySelectorAll('.proof-strip .count');
+  if(counts.length){
+    new IntersectionObserver(function(es,obs){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        counts.forEach(function(c){
+          var n=+c.getAttribute('data-count');
+          if(reduce){ c.textContent=n; return; }
+          var t0=null;
+          function step(t){ if(!t0)t0=t; var p=Math.min((t-t0)/1100,1); c.textContent=Math.round(n*(1-Math.pow(1-p,3))); if(p<1)requestAnimationFrame(step); }
+          requestAnimationFrame(step);
+        });
+        obs.disconnect();
+      });
+    },{threshold:0.5}).observe(counts[0]);
+  }
+  if(location.search.indexOf('submitted=1')>-1){
+    var f=document.querySelector('.intake-form');
+    if(f){ f.innerHTML='<div class="intake-success"><div class="big">\u2713</div><h3 style="color:#fff;margin:8px 0 6px;">Got it.</h3><p style="color:#9aa3b2;font-size:0.95rem;line-height:1.6;">Jereme reviews every submission personally and gets back within 24 hours with a breakdown of what we can automate in your business. Check your email for a confirmation.</p></div>'; }
+  }
+  var bg=document.querySelector('.hero-bg');
+  if(bg){
+    var mob=window.matchMedia&&window.matchMedia('(max-width:768px)').matches;
+    if(reduce){ bg.classList.add('poster-only'); }
+    else{
+      var v=document.createElement('video');
+      v.muted=true; v.loop=true; v.autoplay=true; v.playsInline=true; v.setAttribute('playsinline','');
+      v.preload='metadata'; v.poster=mob?'hero-poster-m.jpg':'hero-poster.jpg';
+      v.src=mob?'hero-bg-m.mp4':'hero-bg.mp4';
+      bg.appendChild(v);
+      var pp=v.play(); if(pp&&pp.catch)pp.catch(function(){});
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){ var p2=v.play(); if(p2&&p2.catch)p2.catch(function(){}); }
+          else v.pause();
+        });
+      },{threshold:0.05}).observe(bg);
+    }
+  }
 })();
 </script>
 </body>
