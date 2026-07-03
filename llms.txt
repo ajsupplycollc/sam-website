@@ -49,7 +49,7 @@ Programmatic video via Remotion, AI video via Runway (browser automation), TikTo
 - Website: https://strangeadvancedmarketing.com
 - GitHub (org): https://github.com/strangeadvancedmarketing
 - Portfolio: https://github.com/strangeadvancedmarketing/claude-code-builds
-- Intelligence: https://intel.strangeadvancedmarketing.com
+- Intelligence: https://strangeintel.substack.com
 - Newsletter: https://strangeintel.substack.com
 - TikTok: https://tiktok.com/@strangeadvancedmarketing
 - LinkedIn: https://linkedin.com/in/jeremestrange
