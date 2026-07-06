@@ -131,6 +131,7 @@
   function render(d){
     const hasGbp = d.gbp_score !== undefined;
     return `
+    ${d.js_warning ? `<div class="card" style="border-color:var(--amber);background:rgba(255,204,0,.08)"><b style="color:var(--amber)">Heads up:</b> this site renders its content with JavaScript, so some checks below may under-read it. For a business-critical audit we do a deeper manual review before acting on the score.</div>` : ''}
     <div class="card">
       <div class="scorehead">
         <div class="dgrade" style="color:${d.overall_score>=70?'var(--cyan)':d.overall_score>=40?'var(--amber)':'var(--bad)'}">${d.grade}</div>
@@ -151,6 +152,7 @@
         <h3>Web Foundation</h3>
         ${(d.foundation_checks||[]).map(checkRow).join('')}
       </div>
+      <p style="color:var(--mut);font-size:11.5px;margin-top:16px">AI-readiness assessment based on what's publicly visible — a practical guide, not Google's internal score.</p>
     </div>
     <div class="card cta">
       <h2>${d.overall_score>=85?'Strong — want to stay ahead?':'Want AI to actually recommend you?'}</h2>
