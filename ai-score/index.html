@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Visibility Score — Will AI recommend your business? | SAM</title>
+<meta name="description" content="Free instant check: see if AI search (ChatGPT, Perplexity, Google AI) can find and recommend your business — and exactly what to fix. By Strange Advanced Marketing.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0a; --panel:#141414; --panel2:#1a1a1a; --line:#243040;
+    --ink:#e8edf2; --mut:#8b93a1; --blue:#3b82f6; --cyan:#00d4ff; --amber:#ffcc00;
+    --good:#00d4ff; --bad:#ff5470;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Satoshi',-apple-system,system-ui,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  h1,h2,h3,.dgrade{font-family:'Clash Display','Satoshi',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+  header{display:flex;align-items:center;gap:10px;padding:22px 0}
+  header img{width:34px;height:34px;border-radius:8px}
+  header b{font-family:'Clash Display',sans-serif;font-size:19px;letter-spacing:-.01em}
+  header span{color:var(--mut);font-size:12px;font-weight:500}
+  .hero{padding:34px 0 10px;text-align:center}
+  .hero h1{font-size:clamp(30px,6vw,50px);background:linear-gradient(120deg,#fff 30%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{color:var(--mut);font-size:17px;max-width:520px;margin:14px auto 0}
+  .form{display:flex;gap:10px;margin:28px auto 8px;max-width:540px}
+  .form input{flex:1;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    padding:15px 16px;border-radius:12px;font-size:16px;font-family:inherit}
+  .form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,212,255,.15)}
+  .form button{background:linear-gradient(120deg,var(--blue),var(--cyan));color:#04121f;border:0;
+    padding:0 22px;border-radius:12px;font-weight:700;font-size:15px;font-family:'Clash Display',sans-serif;
+    cursor:pointer;white-space:nowrap;transition:transform .1s,filter .15s}
+  .form button:hover{filter:brightness(1.08)}
+  .form button:active{transform:translateY(1px)}
+  .form button:disabled{opacity:.55;cursor:wait}
+  .hint{color:var(--mut);font-size:13px;text-align:center}
+  .hint b{color:var(--ink)}
+  #out{margin:30px 0 60px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:18px}
+  .scorehead{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .dgrade{font-size:64px;width:112px;height:112px;border-radius:18px;display:grid;place-items:center;
+    background:var(--panel2);border:1px solid var(--line);flex:none}
+  .scorehead .big{font-size:40px;font-family:'Clash Display',sans-serif}
+  .scorehead .u{color:var(--mut);font-size:14px;word-break:break-all}
+  .bars{margin-top:20px;display:grid;gap:14px}
+  .bar b{font-size:13px;display:flex;justify-content:space-between;margin-bottom:6px;font-weight:500}
+  .track{height:9px;background:var(--panel2);border-radius:99px;overflow:hidden}
+  .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+  .checks{margin-top:6px}
+  .checks h3{font-size:15px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;
+    font-size:12px;margin:20px 0 10px;font-family:'Satoshi',sans-serif;font-weight:700}
+  .chk{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:14.5px}
+  .chk .m{flex:none;width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-size:11px;font-weight:700;margin-top:2px}
+  .pass .m{background:rgba(0,212,255,.14);color:var(--cyan)}
+  .miss .m{background:rgba(255,84,112,.14);color:var(--bad)}
+  .chk .d{color:var(--mut);font-size:12.5px}
+  .cta{background:linear-gradient(120deg,rgba(59,130,246,.16),rgba(0,212,255,.10));
+    border:1px solid rgba(0,212,255,.35);text-align:center}
+  .cta h2{font-size:24px}
+  .cta p{color:var(--mut);margin:8px auto 18px;max-width:440px}
+  .cta a{display:inline-block;background:linear-gradient(120deg,var(--blue),var(--cyan));color:#04121f;
+    text-decoration:none;font-weight:700;font-family:'Clash Display',sans-serif;padding:14px 26px;border-radius:12px}
+  .spin{text-align:center;color:var(--mut);padding:30px}
+  .err{color:var(--bad);text-align:center;padding:16px}
+  footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mut);font-size:13px;text-align:center}
+  footer a{color:var(--cyan);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="/sam-circle-128.png" alt="Strange Advanced Marketing logo" onerror="this.style.display='none'">
+    <b>SAM</b><span>· AI Visibility Score</span>
+  </header>
+
+  <section class="hero">
+    <h1>Will AI recommend your business?</h1>
+    <p>ChatGPT, Perplexity and Google's AI now answer questions <em>for</em> your customers. See if they can find you — free, instant, no email required.</p>
+    <form class="form" id="f">
+      <input id="url" type="text" placeholder="yourbusiness.com" autocomplete="off" spellcheck="false" required>
+      <button id="go" type="submit">Get my free score</button>
+    </form>
+    <p class="hint">Checks <b>15+ AI-search signals</b> — schema, AI-crawler access, answer content, local readiness &amp; more.</p>
+  </section>
+
+  <div id="out"></div>
+</div>
+
+<footer class="wrap">
+  Built by <a href="https://strangeadvancedmarketing.com">Strange Advanced Marketing</a> ·
+  Get the deep-dive guide free on <a href="https://strangeintel.substack.com">Substack</a>
+</footer>
+
+<script>
+  // Swapped to the deployed Cloudflare Worker URL at deploy time.
+  const API_BASE = window.SAM_API_BASE || "https://sam-ai-visibility-scorer.strange-advanced-marketing.workers.dev";
+  const out = document.getElementById('out');
+  const f = document.getElementById('f'), go = document.getElementById('go');
+
+  f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const url = document.getElementById('url').value.trim();
+    if (!url) return;
+    go.disabled = true; go.textContent = 'Scoring…';
+    out.innerHTML = '<div class="spin">Analyzing the site across 15+ AI-search signals…</div>';
+    try {
+      const r = await fetch(`${API_BASE}/score?url=${encodeURIComponent(url)}`);
+      const d = await r.json();
+      if (d.status === 'unreachable' || d.error) {
+        out.innerHTML = `<div class="card err">Couldn't reach that site. ${(d.top_fixes&&d.top_fixes[0])||d.error||''}<br>Check the address and try again.</div>`;
+      } else {
+        out.innerHTML = render(d);
+      }
+    } catch (err) {
+      out.innerHTML = `<div class="card err">Something went wrong. Try again in a moment.</div>`;
+    }
+    go.disabled = false; go.textContent = 'Get my free score';
+  });
+
+  function bar(label, val){
+    return `<div class="bar"><b><span>${label}</span><span>${val}/100</span></b>
+      <div class="track"><div class="fill" style="width:${val}%"></div></div></div>`;
+  }
+  function checkRow(c){
+    return `<div class="chk ${c.passed?'pass':'miss'}"><span class="m">${c.passed?'✓':'✕'}</span>
+      <span><span>${c.label}</span>${c.detail?`<br><span class="d">${c.detail}</span>`:''}</span></div>`;
+  }
+  function render(d){
+    const all = [...(d.ai_checks||[]), ...(d.foundation_checks||[])];
+    return `
+    <div class="card">
+      <div class="scorehead">
+        <div class="dgrade" style="color:${d.overall_score>=70?'var(--cyan)':d.overall_score>=40?'var(--amber)':'var(--bad)'}">${d.grade}</div>
+        <div>
+          <div class="big">${d.overall_score}<span style="color:var(--mut);font-size:20px">/100 overall</span></div>
+          <div class="u">${d.final_url||d.url}</div>
+        </div>
+      </div>
+      <div class="bars">
+        ${bar('AI Search Readiness (AEO/GEO)', d.ai_score)}
+        ${bar('Web Foundation', d.foundation_score)}
+      </div>
+      <div class="checks">
+        <h3>What we checked</h3>
+        ${all.map(checkRow).join('')}
+      </div>
+    </div>
+    <div class="card cta">
+      <h2>${d.overall_score>=85?'Strong — want to stay ahead?':'Want AI to actually recommend you?'}</h2>
+      <p>We fix these for local businesses so ChatGPT, Perplexity &amp; Google's AI put you in the answer. Free 15-min teardown of your report.</p>
+      <a href="https://strangeadvancedmarketing.com/#contact">Get my fixes from SAM →</a>
+    </div>`;
+  }
+</script>
+</body>
+</html>
