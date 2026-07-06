@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SAM AI Visibility Scorer — What We Check & Why</title>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+  @page { margin: 14mm 14mm; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Satoshi',system-ui,sans-serif;color:#1a2233;line-height:1.45;font-size:12.5px}
+  h1,h2,h3{font-family:'Clash Display','Satoshi',sans-serif;letter-spacing:-.02em;color:#0a1424}
+  .head{border-bottom:3px solid #00a3c4;padding-bottom:12px;margin-bottom:18px}
+  .head h1{font-size:26px}
+  .head .sub{color:#5b6472;font-size:13px;margin-top:4px}
+  .kicker{color:#0077a3;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:22px 0 8px}
+  h2{font-size:18px;margin:6px 0 4px}
+  .dim{color:#5b6472;font-size:12px;margin-bottom:12px}
+  .item{padding:9px 0;border-bottom:1px solid #e7ebf0;break-inside:avoid}
+  .item .n{font-weight:700;color:#0a1424;font-size:13px}
+  .item .w{color:#333d4d;margin:2px 0}
+  .item .fix{color:#0a1424}
+  .item .fix b{color:#0077a3}
+  .wt{display:inline-block;background:#eef7fb;color:#0077a3;font-size:10px;font-weight:700;
+    padding:1px 7px;border-radius:99px;margin-left:6px;vertical-align:middle}
+  .diff li,.gap li{margin:6px 0}
+  ul{padding-left:18px}
+  .star{color:#0a1424;background:#fff6da;border:1px solid #ffcc00;border-radius:8px;padding:10px 12px;margin:8px 0}
+  .foot{margin-top:22px;padding-top:12px;border-top:1px solid #e7ebf0;color:#5b6472;font-size:11px}
+  .two{column-count:1}
+</style>
+</head>
+<body>
+  <div class="head">
+    <h1>What the AI Visibility Scorer Checks — and How to Fix Each</h1>
+    <div class="sub">Strange Advanced Marketing · plain-English guide · every check + the real fix</div>
+  </div>
+
+  <div class="kicker">The big idea</div>
+  <p>People used to Google you and click your site. Now ChatGPT, Perplexity and Google's AI <b>answer the question for them</b> — and only recommend a handful of businesses. This tool checks whether AI can <b>find you, understand you, trust you, and recommend you</b>. Two parts: <b>AI Search Readiness</b> (can AI use your site) and <b>Web Foundation</b> (the basics AI and customers both expect).</p>
+
+  <div class="kicker">Part 1 — AI Search Readiness (AEO / GEO)</div>
+  <div class="dim">The signals that decide whether AI pulls your business into its answers.</div>
+
+  <div class="item"><div class="n">1. AI crawlers allowed <span class="wt">highest weight</span></div>
+    <div class="w">AI search engines send bots (GPTBot, ClaudeBot, PerplexityBot, Google's AI) to read your site. A file called robots.txt can accidentally block them — meaning you're invisible to AI no matter how good your site is.</div>
+    <div class="fix"><b>Fix:</b> Edit robots.txt to explicitly allow the AI bots. One small file change; instantly makes you readable.</div></div>
+
+  <div class="item"><div class="n">2. Structured data (schema)</div>
+    <div class="w">Hidden labels in your code that tell AI exactly what you are — a business, your services, hours, reviews — instead of making it guess from your text.</div>
+    <div class="fix"><b>Fix:</b> Add schema.org markup (JSON-LD) for your organization, services and reviews.</div></div>
+
+  <div class="item"><div class="n">3. Business identity schema (LocalBusiness)</div>
+    <div class="w">The specific label that says "this is a real business named X, in city Y, phone Z." This is what feeds local AI answers like "best plumber near me."</div>
+    <div class="fix"><b>Fix:</b> Add LocalBusiness schema with your name, address, phone and hours.</div></div>
+
+  <div class="item"><div class="n">4. FAQ / question-answer content</div>
+    <div class="w">AI answers ARE questions. Pages that clearly ask and answer real customer questions get pulled straight into AI results.</div>
+    <div class="fix"><b>Fix:</b> Add an FAQ section answering what customers actually ask, tagged with FAQPage schema.</div></div>
+
+  <div class="item"><div class="n">5. Meta description (your answer snippet)</div>
+    <div class="w">The one- or two-sentence summary of your page. AI and search use it as your preview line.</div>
+    <div class="fix"><b>Fix:</b> Write a clear 1–2 sentence description of what you do and who you serve.</div></div>
+
+  <div class="item"><div class="n">6. Social / preview tags (OpenGraph)</div>
+    <div class="w">Tags that control how your link looks when shared and give AI extra context about the page.</div>
+    <div class="fix"><b>Fix:</b> Add og:title, og:description and og:image tags.</div></div>
+
+  <div class="item"><div class="n">7. llms.txt file</div>
+    <div class="w">A brand-new standard file that hands AI a clean, plain summary of your site — an early "we're AI-ready" signal most sites don't have yet.</div>
+    <div class="fix"><b>Fix:</b> Add an llms.txt file at your domain root. (Ours has one — few competitors do.)</div></div>
+
+  <div class="item"><div class="n">8. Sitemap</div>
+    <div class="w">A map of all your pages so crawlers find everything, not just the homepage.</div>
+    <div class="fix"><b>Fix:</b> Generate sitemap.xml and link it in robots.txt.</div></div>
+
+  <div class="item"><div class="n">9. Enough real content</div>
+    <div class="w">Thin pages give AI nothing to quote. The more real, useful content, the more there is for AI to pull and cite.</div>
+    <div class="fix"><b>Fix:</b> Add substantive content — services explained, FAQs, an about section.</div></div>
+
+  <div class="item"><div class="n">10. One clear headline (H1)</div>
+    <div class="w">A single main headline tells AI the page's topic. None, or several, confuses it.</div>
+    <div class="fix"><b>Fix:</b> Use exactly one H1 per page that states what the page is about.</div></div>
+
+  <div class="item"><div class="n">11. Stats &amp; data <span class="wt">research-backed</span></div>
+    <div class="w">A Princeton study found pages with concrete numbers get cited by AI 30–40% more. Data reads as credible.</div>
+    <div class="fix"><b>Fix:</b> Add real numbers — years in business, jobs completed, response times, results.</div></div>
+
+  <div class="item"><div class="n">12. Quotes &amp; sources <span class="wt">research-backed</span></div>
+    <div class="w">The same study found expert quotes and citations can boost AI citation up to +115%. It signals authority.</div>
+    <div class="fix"><b>Fix:</b> Add customer testimonials, expert quotes, or references to trusted sources.</div></div>
+
+  <div class="item"><div class="n">13. Visible author &amp; dates (trust signals)</div>
+    <div class="w">AI weighs who's behind the content and how fresh it is (part of what Google calls E-E-A-T).</div>
+    <div class="fix"><b>Fix:</b> Show your business/author name and published or updated dates.</div></div>
+
+  <div class="kicker">Part 2 — Web Foundation</div>
+  <div class="dim">The basics AI and human customers both expect. Break these and nothing above matters.</div>
+
+  <div class="item"><div class="n">14. HTTPS / SSL (the padlock)</div>
+    <div class="w">Secure connection. Sites without it get distrusted and downranked by everyone.</div>
+    <div class="fix"><b>Fix:</b> Install an SSL certificate — usually free from your host.</div></div>
+
+  <div class="item"><div class="n">15. Mobile-friendly</div>
+    <div class="w">Whether the site is built to work on phones, where most customers actually are.</div>
+    <div class="fix"><b>Fix:</b> Add the mobile viewport tag and use responsive design.</div></div>
+
+  <div class="item"><div class="n">16. Page title</div>
+    <div class="w">The title shown in the browser tab and search results — a top-level signal of what you do.</div>
+    <div class="fix"><b>Fix:</b> Set a clear, descriptive title with your business + service + city.</div></div>
+
+  <div class="item"><div class="n">17. Contact method</div>
+    <div class="w">Can a customer (or AI) actually find how to reach you — a form, email or phone.</div>
+    <div class="fix"><b>Fix:</b> Add a visible contact form and/or email and phone number.</div></div>
+
+  <div class="item"><div class="n">18. Social profiles linked</div>
+    <div class="w">Linked, active social accounts confirm you're a real, current business.</div>
+    <div class="fix"><b>Fix:</b> Link your Instagram, Facebook, etc. from the site.</div></div>
+
+  <div class="item"><div class="n">19. Image alt text</div>
+    <div class="w">Text descriptions of your images so AI and screen readers understand them.</div>
+    <div class="fix"><b>Fix:</b> Add descriptive alt text to every meaningful image.</div></div>
+
+  <div class="item"><div class="n">20. Canonical URL</div>
+    <div class="w">Tells search which version of a page is the official one, preventing duplicate-content confusion.</div>
+    <div class="fix"><b>Fix:</b> Add a canonical link tag to each page.</div></div>
+
+  <div class="kicker">What makes OURS different &amp; better</div>
+  <ul class="diff">
+    <li><b>No email wall.</b> Almost every "free" competitor makes you hand over your email before you see your score. Ours shows the number instantly — we only ask for contact at the "fix it for me" step.</li>
+    <li><b>Plain English, for business owners.</b> Competitors speak SEO jargon. Ours asks the only question that matters: "Will AI recommend your business?"</li>
+    <li><b>Research-backed signals.</b> We score the Princeton-study factors (stats, quotes, author trust) that most technical tools skip entirely.</li>
+    <li><b>Free, on our own site, no catch.</b> Not a locked demo of a paid product.</li>
+    <li><b>Built by an operator, for local businesses</b> — not an enterprise dashboard.</li>
+  </ul>
+
+  <div class="kicker">Where we improve next (what's missing)</div>
+  <div class="star"><b>#1 — Google Business Profile / local score (our flagship edge).</b> Right now the tool scores the website. But for local businesses, your Google Business Profile now feeds Google's AI answers directly — and <b>no competitor scores it.</b> Adding a GBP check (complete profile, matching name/address/phone, reviews, LocalBusiness schema) is our biggest differentiator and it's literally SAM's home turf. This is the next build.</div>
+  <ul class="gap">
+    <li><b>"What this means for you"</b> in plain English on each result — translate every miss into the business impact ("you're invisible to AI search for X").</li>
+    <li><b>Competitor benchmark</b> — "You scored 42. The top 3 businesses in your area average 74." Nothing motivates like the gap.</li>
+    <li><b>Emailed PDF report</b> — the polished takeaway (and the natural lead-capture moment).</li>
+    <li><b>Scan more than the homepage</b> — check key service/contact pages too.</li>
+    <li><b>Optional live AI test</b> — actually ask ChatGPT/Perplexity "best [service] in [city]" and show whether they're mentioned. The ultimate proof.</li>
+  </ul>
+
+  <div class="foot">Strange Advanced Marketing · strangeadvancedmarketing.com/ai-score · Built to make local businesses findable by AI.</div>
+</body>
+</html>
