@@ -189,6 +189,7 @@
         <h3>Web Foundation</h3>
         ${(d.foundation_checks||[]).map(checkRow).join('')}
       </div>
+      ${d.gbp_found===false ? `<p class="leadctx" style="margin-top:14px"><b style="color:var(--amber)">Google Business Profile:</b> ${d.gbp_note}</p>` : ''}
       <p style="color:var(--mut);font-size:11.5px;margin-top:16px">AI-readiness assessment based on what's publicly visible — a practical guide, not Google's internal score.</p>
     </div>
     <div class="card cta">
