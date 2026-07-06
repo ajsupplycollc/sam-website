@@ -129,7 +129,7 @@
       <span><span>${c.label}</span>${c.detail?`<br><span class="d">${c.detail}</span>`:''}</span></div>`;
   }
   function render(d){
-    const all = [...(d.ai_checks||[]), ...(d.foundation_checks||[])];
+    const hasGbp = d.gbp_score !== undefined;
     return `
     <div class="card">
       <div class="scorehead">
@@ -141,11 +141,15 @@
       </div>
       <div class="bars">
         ${bar('AI Search Readiness (AEO/GEO)', d.ai_score)}
+        ${hasGbp ? bar('Google Business Profile (Local)', d.gbp_score) : ''}
         ${bar('Web Foundation', d.foundation_score)}
       </div>
       <div class="checks">
-        <h3>What we checked</h3>
-        ${all.map(checkRow).join('')}
+        ${hasGbp ? `<h3>Google Business Profile</h3>${(d.gbp_checks||[]).map(checkRow).join('')}` : ''}
+        <h3>AI Search Readiness</h3>
+        ${(d.ai_checks||[]).map(checkRow).join('')}
+        <h3>Web Foundation</h3>
+        ${(d.foundation_checks||[]).map(checkRow).join('')}
       </div>
     </div>
     <div class="card cta">
