@@ -36,9 +36,9 @@ Programmatic video via Remotion, AI video via Runway (browser automation), TikTo
 
 - Satellite Quoter — AI satellite imagery analysis for turf installation quoting (sam-satellite-quoter.netlify.app)
 - Strange Intel Dashboard — real-time AI + energy sector intelligence
-- Google Maps Lead Generator (Apify Store)
-- Business Website Analyzer (Apify Store)
-- Google Maps Competitor Analyzer (Apify Store)
+- AI Visibility Scorer — free instant AEO/GEO + Google Business score (strangeadvancedmarketing.com/ai-score)
+- Competitor Analyzer — free local-market ranking analysis (strangeadvancedmarketing.com/competitors)
+- Google Maps Lead Generator (Apify Store; on-site version coming)
 - Adam Framework — open-source AI memory architecture (github.com/strangeadvancedmarketing/Adam)
 - Claude Buddy — desktop robot companion for Claude Code (github.com/strangeadvancedmarketing/claude-buddy)
 
