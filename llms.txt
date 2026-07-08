@@ -38,7 +38,7 @@ Programmatic video via Remotion, AI video via Runway (browser automation), TikTo
 - Strange Intel Dashboard — real-time AI + energy sector intelligence
 - AI Visibility Scorer — free instant AEO/GEO + Google Business score (strangeadvancedmarketing.com/ai-score)
 - Competitor Analyzer — free local-market ranking analysis (strangeadvancedmarketing.com/competitors)
-- Google Maps Lead Generator (Apify Store; on-site version coming)
+- Lead Finder — free local-market lead list with contact enrichment (strangeadvancedmarketing.com/leads)
 - Adam Framework — open-source AI memory architecture (github.com/strangeadvancedmarketing/Adam)
 - Claude Buddy — desktop robot companion for Claude Code (github.com/strangeadvancedmarketing/claude-buddy)
 
