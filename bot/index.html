@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Hosted Agent — an AI operator in your pocket, $49/mo | SAM</title>
+<meta name="description" content="A hosted AI agent that runs your business errands from a voice note on Telegram. Preloaded with your business, live in 24 hours, $49/mo. By Strange Advanced Marketing.">
+<link rel="canonical" href="https://strangeadvancedmarketing.com/bot/">
+<meta name="theme-color" content="#050506">
+<style>
+  :root{
+    --bg:#050506; --panel:rgba(20,20,24,.6); --panel2:rgba(237,234,227,.04);
+    --line:rgba(237,234,227,.10); --line2:rgba(237,234,227,.18);
+    --ink:#EDEAE3; --mut:#938F86; --faint:#5C5A54; --gold:#C9A968;
+    --serif:ui-serif,"New York","Hoefler Text","Iowan Old Style",Georgia,Cambria,serif;
+    --mono:ui-monospace,"SF Mono","SFMono-Regular","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--bg);scroll-behavior:smooth}
+  body{background:
+      radial-gradient(120% 80% at 82% -8%, rgba(201,169,104,.06), transparent 55%),
+      var(--bg);
+    color:var(--ink);font-family:var(--mono);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.018em;line-height:1.08}
+  a{color:var(--gold)}
+  header{display:flex;align-items:center;gap:13px;padding:26px 0;border-bottom:1px solid var(--line)}
+  header img{height:30px;width:auto}
+  header b{font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
+  header span{color:var(--mut);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase}
+  header a.back{margin-left:auto;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--mut)}
+  header a.back:hover{color:var(--gold)}
+  .hero{padding:clamp(46px,8vw,84px) 0 14px}
+  .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--line2)}
+  .hero h1{font-size:clamp(34px,6.6vw,60px);max-width:16ch;text-wrap:balance}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p{color:var(--mut);font-size:15px;line-height:1.75;max-width:58ch;margin:22px 0 0}
+  .hero p b{color:var(--ink);font-weight:500}
+  .pricebar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:32px 0 8px}
+  .pricebar .amt{font-family:var(--serif);font-size:34px;color:var(--ink)}
+  .pricebar .amt small{font-size:15px;color:var(--mut)}
+  .pricebar .setup{color:var(--faint);font-size:12px;letter-spacing:.06em}
+  .cta{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;padding:16px 30px;border-radius:2px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;transition:transform .35s,background .35s}
+  .cta:hover{background:var(--gold);transform:translateY(-2px);color:var(--bg)}
+  .cta.big{padding:18px 38px}
+  section{padding:44px 0;border-top:1px solid var(--line)}
+  .kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  h2{font-size:clamp(24px,4vw,34px);margin-bottom:8px}
+  h2 em{font-style:italic;color:var(--gold)}
+  .lead{color:var(--mut);font-size:14px;max-width:58ch;margin-bottom:26px}
+  .row{display:grid;grid-template-columns:44px 200px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .row .idx{color:var(--faint);font-size:12px}
+  .row h3{font-size:19px}
+  .row .desc{color:var(--mut);font-size:13.5px;line-height:1.7}
+  .row .desc b{color:var(--ink);font-weight:500}
+  @media(max-width:640px){.row{grid-template-columns:32px 1fr}.row .desc{grid-column:2}}
+  .steps{counter-reset:s;display:grid;gap:0}
+  .step{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:24px 0;border-bottom:1px solid var(--line)}
+  .step::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-style:italic;font-size:30px;color:var(--gold)}
+  .step h3{font-size:19px;margin-bottom:6px}
+  .step p{color:var(--mut);font-size:13.5px;line-height:1.7;max-width:56ch}
+  .step p b{color:var(--ink);font-weight:500}
+  .card{background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:34px;margin-top:10px;
+    backdrop-filter:blur(20px) saturate(120%);-webkit-backdrop-filter:blur(20px) saturate(120%);
+    box-shadow:0 30px 80px -40px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.04);text-align:center}
+  .card .amt{font-family:var(--serif);font-size:52px}
+  .card .amt small{font-size:18px;color:var(--mut)}
+  .card .setup{color:var(--mut);font-size:13px;margin:6px 0 22px}
+  .card .fine{color:var(--faint);font-size:11.5px;margin-top:18px;letter-spacing:.04em}
+  .faq .q{padding:18px 0;border-bottom:1px solid var(--line)}
+  .faq .q h3{font-size:16px;font-family:var(--mono);font-weight:600;letter-spacing:.02em;margin-bottom:6px}
+  .faq .q p{color:var(--mut);font-size:13.5px;line-height:1.7;max-width:60ch}
+  footer{padding:40px 0 60px;color:var(--faint);font-size:11.5px;letter-spacing:.06em}
+  footer a{color:var(--mut);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="../sam-circle-128.png" alt="SAM">
+  <div><b>SAM</b><br><span>Strange Advanced Marketing</span></div>
+  <a class="back" href="/">← Main site</a>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">The Hosted Agent</div>
+  <h1>An <em>operator</em> in your pocket.</h1>
+  <p>Send a voice note. It gets done. Your agent lives in <b>Telegram</b> (the free app, two minutes to install) and arrives <b>pre-wired with what a small business actually needs</b> — we already did the figuring-out. It knows your business the first time it speaks to you: it drafts your emails, watches your calendar, researches your competitors, builds your flyers and posts, then <b>voices back</b> when it's finished. No dashboard. No new software to learn. Nothing to install on a computer, because it never needs one. Neither do you.</p>
+  <div class="pricebar">
+    <div class="amt">$49<small>/month</small></div>
+    <div class="setup">+ $99 one-time setup · cancel anytime</div>
+    <a class="cta" href="https://buy.stripe.com/3cI14n3kyeZu1Hd9cseZ204">Commission yours →</a>
+  </div>
+</div>
+
+<section>
+  <div class="kicker">What it does</div>
+  <h2>Hired Monday. <em>Useful</em> Monday.</h2>
+  <p class="lead">Every competitor ships a blank bot you have to teach. Yours arrives <b>pre-wired and already briefed</b>: email, calendar, research, content and memory, set up for how a small business actually runs.</p>
+  <div class="row"><div class="idx">01</div><h3>Voice-to-execution</h3><div class="desc"><b>The signature.</b> Speak from the truck, the job site, the school pickup line. It transcribes, does the work, and reports back in a voice note of its own.</div></div>
+  <div class="row"><div class="idx">02</div><h3>Knows your business, day one</h3><div class="desc">Setup includes a <b>real research pass on your business</b>: we go through your website, your socials, your market, and pull out your services, pricing and hours, organized into your agent's memory before it ever speaks to you. Not just links on file. Actual homework.</div></div>
+  <div class="row"><div class="idx">03</div><h3>Your email &amp; calendar</h3><div class="desc">One tap on your phone connects your own Google account. It sends the follow-up, books the slot, tells you what your week looks like.</div></div>
+  <div class="row"><div class="idx">04</div><h3>Research &amp; content, built in</h3><div class="desc">Web research, competitor checks, quotes drafted, flyers and social posts designed. All included, no extra subscriptions underneath.</div></div>
+  <div class="row"><div class="idx">05</div><h3>You shape it by talking</h3><div class="desc">Wrong price? New service? Different tone? <b>Tell it once and it's saved for good.</b> No settings screens, no training courses. Its memory is yours to mold, correction by correction, until it runs your back office the way you would. Never used AI before? This is the one built for you.</div></div>
+  <div class="row"><div class="idx">06</div><h3>Its own virtual computer</h3><div class="desc">Your agent runs on <b>its own virtual computer in the cloud</b>: a private, sealed workspace built only for you, powered by <b>OpenClaw</b>. Its memory of your business lives there, encrypted, shared with no other client and no other agent. Nothing runs on your devices, and nothing of yours is used to train anything.</div></div>
+</section>
+
+<section>
+  <div class="kicker">How it starts</div>
+  <h2>Three steps. <em>24 hours.</em></h2>
+  <div class="steps">
+    <div class="step"><div><h3>Commission it</h3><p>$49/month plus a one-time $99 setup. <b>One bill, all-inclusive</b>: the intelligence, the hosting, the voice. You will never be asked for an API key, a top-up, or a second subscription.</p></div></div>
+    <div class="step"><div><h3>Tell us about your business</h3><p>A five-minute questionnaire right after checkout: what you do, what you charge, how you like to sound. That's the whole setup. We handle everything else.</p></div></div>
+    <div class="step"><div><h3>Say hello to your operator</h3><p>Within 24 hours, your agent's link arrives in your email: download Telegram, tap the link, press Start, say hello. <b>It answers already knowing your business.</b></p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="kicker" style="justify-content:center;display:flex">The commission</div>
+    <div class="amt">$49<small>/month</small></div>
+    <div class="setup">+ $99 one-time setup</div>
+    <a class="cta big" href="https://buy.stripe.com/3cI14n3kyeZu1Hd9cseZ204">Commission your agent →</a>
+    <div class="fine">Month to month. Cancel anytime. Your agent's link arrives within 24 hours of your questionnaire.</div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="kicker">Questions</div>
+  <h2>The <em>honest</em> answers.</h2>
+  <div class="q"><h3>What's Telegram?</h3><p>A free messaging app, like WhatsApp. Two minutes to download, and it's the only thing you'll ever need. Your agent lives there as a private contact only you can message.</p></div>
+  <div class="q"><h3>Do I need to set anything up?</h3><p>No. You fill out the questionnaire, we build and host everything. Connecting your email and calendar is a single link we send you: tap, sign in to Google, allow. Done from your phone.</p></div>
+  <div class="q"><h3>What if I don't use Gmail?</h3><p>Tell us your provider in the questionnaire. Google connects with one tap; Yahoo, Outlook and others are wired by us during your setup window, before your agent goes live.</p></div>
+  <div class="q"><h3>Is my business data safe?</h3><p>Your agent has its own virtual computer: a sealed, private workspace in the cloud. Its memory belongs to you alone, encrypted, isolated from every other client, and never used to train anything.</p></div>
+  <div class="q"><h3>Is this a chatbot for my customers?</h3><p>No — it's <b>yours</b>. A private operator for the owner. It works for you, knows your business, and answers to nobody else.</p></div>
+  <div class="q"><h3>What if it gets something wrong?</h3><p>Tell it. "Actually, driveway cleaning starts at $150." Corrected, saved, and remembered from then on. Everything in its memory can be changed just by asking. That's the whole interface.</p></div>
+  <div class="q"><h3>What if I want it to do more?</h3><p>It grows with you. Extra connections and bigger capabilities are added case by case. Ask your agent, it will tell us.</p></div>
+  <div class="q"><h3>Can I cancel?</h3><p>Anytime. Month to month, no contract.</p></div>
+</section>
+
+<footer>
+  Strange Advanced Marketing · Miami, FL · <a href="/">strangeadvancedmarketing.com</a> · <a href="mailto:sam@strangeadvancedmarketing.com">sam@strangeadvancedmarketing.com</a>
+</footer>
+
+</div>
+</body>
+</html>

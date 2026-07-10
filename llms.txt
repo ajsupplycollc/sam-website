@@ -8,14 +8,14 @@ Strange Advanced Marketing (SAM) is an AI automation deployment agency based in 
 
 ## Services & Published Pricing
 
-- AI System Audit — $500. Standalone consulting: operational review with written findings. Credited in full toward any build.
-- AI Opportunity Map — $1,500. Deep audit: complete system review plus written roadmap (priorities, tooling, projected return). Yours to execute with anyone.
+- AI System Audit — $250. Standalone consulting: operational review with written findings. Credited in full toward any build.
+- AI Opportunity Map — $750. Deep audit: complete system review plus written roadmap (priorities, tooling, projected return). Yours to execute with anyone.
 - Custom Agent Deployment — Essential $500 / Business $1,000 / Curated $1,500. Bespoke voice-to-execution agent wired into existing tools.
 - Managed Intelligence — Business $299/mo / Curated $499/mo. Ongoing monitoring, refinement, expansion.
 - AI-Ready Web Architecture — $500. Site engineered for AI search visibility (AEO/GEO built in).
 
 ### AI System Audit (Consulting)
-Paid, standalone AI consulting for businesses that want the map before (or instead of) a build. SAM reviews the operation — tools, workflows, bottlenecks — and delivers written findings on where AI creates the most leverage. $500, credited in full toward any build.
+Paid, standalone AI consulting for businesses that want the map before (or instead of) a build. SAM reviews the operation — tools, workflows, bottlenecks — and delivers written findings on where AI creates the most leverage. $250, credited in full toward any build.
 
 ### AI System Deployment
 Complete headless AI assistant installed on your hardware. Telegram voice bot (text + voice in/out), Whisper transcription, Edge TTS responses, custom knowledge base, auto-start on reboot, health watchdog with Telegram alerts, remote crash recovery via Tailscale SSH. The client never touches the terminal.
