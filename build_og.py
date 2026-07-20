@@ -1,23 +1,22 @@
-"""Generate 1200x630 OG social share image for strangeadvancedmarketing.com"""
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
+"""Generate 1200x630 OG social share image for strangeadvancedmarketing.com (light theme, 7/19 rework)"""
+from PIL import Image, ImageDraw, ImageFont
 import os
 
 W, H = 1200, 630
-OUT = os.path.join(os.path.dirname(__file__), "og-image.png")
-LOGO = os.path.join(os.path.dirname(__file__), "sam-circle.png")
+HERE = os.path.dirname(__file__)
+OUT_PNG = os.path.join(HERE, "og-image.png")
+OUT_JPG = os.path.join(HERE, "og.jpg")
+LOGO = os.path.join(HERE, "logo-light.png")
 
-# Fonts — try Inter, fall back to Windows system fonts
-FONT_CANDIDATES = [
-    r"C:\Windows\Fonts\Inter-Black.ttf",
-    r"C:\Windows\Fonts\segoeuib.ttf",  # Segoe UI Bold
-    r"C:\Windows\Fonts\arialbd.ttf",
-    r"C:\Windows\Fonts\Arial.ttf",
-]
-FONT_REGULAR = [
-    r"C:\Windows\Fonts\Inter-Regular.ttf",
-    r"C:\Windows\Fonts\segoeui.ttf",
-    r"C:\Windows\Fonts\arial.ttf",
-]
+INK = (20, 27, 51)
+MUT = (90, 100, 125)
+ACCENT = (30, 111, 217)
+TRACE = (207, 224, 243)
+BG = (250, 251, 253)
+
+FONT_BOLD = [r"C:\Windows\Fonts\georgiab.ttf", r"C:\Windows\Fonts\georgia.ttf", r"C:\Windows\Fonts\segoeuib.ttf"]
+FONT_SERIF = [r"C:\Windows\Fonts\georgiai.ttf", r"C:\Windows\Fonts\georgia.ttf"]
+FONT_REG = [r"C:\Windows\Fonts\segoeui.ttf", r"C:\Windows\Fonts\arial.ttf"]
 
 def first_font(paths, size):
     for p in paths:
@@ -25,88 +24,64 @@ def first_font(paths, size):
             return ImageFont.truetype(p, size)
     return ImageFont.load_default()
 
-# Base gradient background — navy to black, matches hero
-bg = Image.new("RGB", (W, H), (10, 10, 10))
+bg = Image.new("RGB", (W, H), BG)
 draw = ImageDraw.Draw(bg)
-for y in range(H):
-    # radial-ish: darker corners, tinted blue center
-    t = abs(y - H / 2) / (H / 2)
-    r = int(10 + (26 - 10) * (1 - t) * 0.6)
-    g = int(10 + (26 - 10) * (1 - t) * 0.6)
-    b = int(10 + (46 - 10) * (1 - t) * 0.9)
-    draw.line([(0, y), (W, y)], fill=(r, g, b))
 
-# Subtle cyan accent line at top (scan line effect)
-for x in range(W):
-    alpha = int(180 * (1 - abs(x - W/2) / (W/2)) ** 2)
-    if alpha > 0:
-        draw.point((x, 2), fill=(0, 212, 255))
-        draw.point((x, 3), fill=(0, 212, 255))
+# faint circuitry traces (the logo language)
+import random
+rnd = random.Random(7)
+for _ in range(16):
+    x, y = rnd.randint(0, W), rnd.randint(0, H)
+    for _ in range(3):
+        if rnd.random() > .5:
+            nx = x + rnd.choice([-1, 1]) * rnd.randint(50, 150)
+            draw.line([(x, y), (nx, y)], fill=TRACE, width=2)
+            x = nx
+        else:
+            ny = y + rnd.choice([-1, 1]) * rnd.randint(35, 100)
+            draw.line([(x, y), (x, ny)], fill=TRACE, width=2)
+            y = ny
+    draw.ellipse([x - 4, y - 4, x + 4, y + 4], outline=(169, 200, 233), width=2)
 
-# Left column: logo + brand label + headline + stats
-padding_x = 70
-y = 80
+# top accent line
+draw.rectangle([0, 0, W, 5], fill=ACCENT)
 
-# Logo
+pad = 70
+# logo lockup top-left
 if os.path.exists(LOGO):
     logo = Image.open(LOGO).convert("RGBA")
-    logo.thumbnail((110, 110), Image.LANCZOS)
-    bg.paste(logo, (padding_x, y), logo)
+    logo.thumbnail((360, 110), Image.LANCZOS)
+    bg.paste(logo, (pad, 56), logo)
 
-# Brand label
-font_label = first_font(FONT_REGULAR, 22)
-draw.text((padding_x + 130, y + 25), "STRANGE ADVANCED MARKETING",
-          font=font_label, fill=(0, 212, 255))
-draw.text((padding_x + 130, y + 55), "AI systems. Voice-driven. Built in Miami.",
-          font=first_font(FONT_REGULAR, 20), fill=(153, 153, 153))
+# headline
+y_head = 220
+h1 = first_font(FONT_BOLD, 78)
+h1i = first_font(FONT_SERIF, 78)
+draw.text((pad, y_head), "AI that actually", font=h1, fill=INK)
+bbox = draw.textbbox((pad, y_head), "AI that actually", font=h1)
+draw.text((bbox[2] + 22, y_head), "works.", font=h1i, fill=ACCENT)
 
-# Headline
-y_head = y + 155
-font_h1 = first_font(FONT_CANDIDATES, 72)
-font_h1_accent = first_font(FONT_CANDIDATES, 72)
-# "S.A.M" in cyan
-draw.text((padding_x, y_head), "S.A.M", font=font_h1, fill=(0, 212, 255))
-# measure
-bbox = draw.textbbox((padding_x, y_head), "S.A.M", font=font_h1)
-after_sam_x = bbox[2] + 18
-draw.text((after_sam_x, y_head), "builds AI systems", font=font_h1, fill=(255, 255, 255))
+tag = first_font(FONT_REG, 30)
+draw.text((pad, y_head + 115), "AI agents, automated workflows & memory systems", font=tag, fill=MUT)
+draw.text((pad, y_head + 158), "for real businesses. Deployed and supported by us.", font=tag, fill=MUT)
 
-# Line 2
-draw.text((padding_x, y_head + 85), "that run your business.",
-          font=font_h1, fill=(255, 255, 255))
-
-# Tagline
-font_tag = first_font(FONT_REGULAR, 26)
-draw.text((padding_x, y_head + 190),
-          "You talk. AI executes. Quoting, scheduling, follow-ups — via voice note.",
-          font=font_tag, fill=(204, 204, 204))
-
-# Bottom stats row
-y_stats = H - 100
-stat_font_num = first_font(FONT_CANDIDATES, 40)
-stat_font_lbl = first_font(FONT_REGULAR, 15)
-
-stats = [
-    ("353+", "SESSIONS"),
-    ("9", "LIVE PRODUCTS"),
-    ("100%", "VOICE-TO-EXEC"),
-    ("<60 sec", "RESPONSE"),
-]
-col_w = (W - 2 * padding_x) / len(stats)
+# bottom row
+y_stats = H - 95
+draw.line([(pad, y_stats - 24), (W - pad, y_stats - 24)], fill=(228, 234, 243), width=2)
+num_f = first_font(FONT_BOLD, 34)
+lbl_f = first_font(FONT_REG, 16)
+stats = [("10-15 hrs", "SAVED PER WEEK"), ("Free", "30-MIN CONSULTATION"), ("24 hrs", "RESPONSE TIME")]
+col_w = (W - 2 * pad) / 3
 for i, (num, lbl) in enumerate(stats):
-    cx = padding_x + int(col_w * i)
-    draw.text((cx, y_stats), num, font=stat_font_num, fill=(0, 212, 255))
-    draw.text((cx, y_stats + 54), lbl, font=stat_font_lbl, fill=(102, 102, 102))
+    cx = pad + int(col_w * i)
+    draw.text((cx, y_stats), num, font=num_f, fill=ACCENT)
+    draw.text((cx, y_stats + 46), lbl, font=lbl_f, fill=MUT)
 
-# Separator above stats
-draw.line([(padding_x, y_stats - 20), (W - padding_x, y_stats - 20)], fill=(30, 42, 58), width=1)
-
-# URL in top right
-font_url = first_font(FONT_REGULAR, 18)
+url_f = first_font(FONT_REG, 20)
 url = "strangeadvancedmarketing.com"
-bbox = draw.textbbox((0, 0), url, font=font_url)
-url_w = bbox[2] - bbox[0]
-draw.text((W - padding_x - url_w, 40), url, font=font_url, fill=(102, 102, 102))
+ub = draw.textbbox((0, 0), url, font=url_f)
+draw.text((W - pad - (ub[2] - ub[0]), 66), url, font=url_f, fill=MUT)
 
-bg.save(OUT, "PNG", optimize=True)
-print(f"Wrote {OUT} ({os.path.getsize(OUT)} bytes)")
+bg.save(OUT_PNG, "PNG", optimize=True)
+bg.save(OUT_JPG, "JPEG", quality=90)
+print(f"Wrote {OUT_PNG} + {OUT_JPG}")
