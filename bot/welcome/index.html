@@ -1,132 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Welcome — let's build your operator | SAM</title>
-<meta name="description" content="Payment received. Tell us about your business and your hosted agent goes live within 24 hours.">
-<link rel="canonical" href="https://strangeadvancedmarketing.com/bot/welcome/">
+<title>Strange Advanced Marketing</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#050506">
-<style>
-  :root{
-    --bg:#050506; --panel:rgba(20,20,24,.6); --panel2:rgba(237,234,227,.04);
-    --line:rgba(237,234,227,.10); --line2:rgba(237,234,227,.18);
-    --ink:#EDEAE3; --mut:#938F86; --faint:#5C5A54; --gold:#C9A968;
-    --serif:ui-serif,"New York","Hoefler Text","Iowan Old Style",Georgia,Cambria,serif;
-    --mono:ui-monospace,"SF Mono","SFMono-Regular","JetBrains Mono",Menlo,Consolas,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{background:var(--bg)}
-  body{background:
-      radial-gradient(120% 80% at 82% -8%, rgba(201,169,104,.06), transparent 55%),
-      var(--bg);
-    color:var(--ink);font-family:var(--mono);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
-  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
-  h1,h2{font-family:var(--serif);font-weight:400;letter-spacing:-.018em;line-height:1.08}
-  a{color:var(--gold)}
-  header{display:flex;align-items:center;gap:13px;padding:26px 0;border-bottom:1px solid var(--line)}
-  header img{height:30px;width:auto}
-  header b{font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
-  header span{color:var(--mut);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase}
-  .hero{padding:clamp(40px,7vw,66px) 0 8px}
-  .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px}
-  .eyebrow::before{content:"";width:32px;height:1px;background:var(--line2)}
-  .hero h1{font-size:clamp(30px,5.6vw,46px);max-width:18ch;text-wrap:balance}
-  .hero h1 em{font-style:italic;color:var(--gold)}
-  .hero p{color:var(--mut);font-size:14.5px;line-height:1.75;max-width:56ch;margin:18px 0 0}
-  .hero p b{color:var(--ink);font-weight:500}
-  form{padding:34px 0 70px}
-  .field{margin-bottom:26px}
-  label{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-bottom:9px}
-  label small{display:block;color:var(--faint);text-transform:none;letter-spacing:.02em;font-size:12px;margin-top:2px}
-  input,textarea,select{width:100%;background:var(--panel2);border:1px solid var(--line2);color:var(--ink);
-    padding:14px 16px;border-radius:4px;font-size:15px;font-family:var(--mono)}
-  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--gold);background:rgba(201,169,104,.05)}
-  textarea{min-height:96px;resize:vertical}
-  select{appearance:none}
-  button{background:var(--ink);color:var(--bg);border:0;padding:17px 34px;border-radius:2px;
-    font-weight:400;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-family:var(--mono);
-    cursor:pointer;transition:transform .35s,background .35s}
-  button:hover{background:var(--gold);transform:translateY(-2px)}
-  button:disabled{opacity:.55;cursor:wait}
-  .done{display:none;padding:60px 0;text-align:center}
-  .done h2{font-size:clamp(26px,5vw,38px)}
-  .done h2 em{font-style:italic;color:var(--gold)}
-  .done p{color:var(--mut);font-size:14.5px;max-width:46ch;margin:16px auto 0}
-  footer{padding:0 0 60px;color:var(--faint);font-size:11.5px;letter-spacing:.06em}
-</style>
+<meta http-equiv="refresh" content="0;url=https://strangeadvancedmarketing.com/">
+<link rel="canonical" href="https://strangeadvancedmarketing.com/">
 </head>
 <body>
-<div class="wrap">
-
-<header>
-  <img src="../../sam-circle-128.png" alt="SAM">
-  <div><b>SAM</b><br><span>Strange Advanced Marketing</span></div>
-</header>
-
-<div class="hero" id="hero">
-  <div class="eyebrow">Payment received</div>
-  <h1>Now, the <em>five minutes</em> that build your operator.</h1>
-  <p>Everything you write here is seeded straight into your agent's memory. <b>Have a website or socials?</b> We run a real research pass on them — services, pricing, hours pulled out automatically, so rough answers here are fine. And nothing is set in stone: if your agent ever has something wrong, tell it once and it's corrected for good. <b>Within 24 hours</b> of this form, your agent's link arrives in your email.</p>
-</div>
-
-<form id="intake">
-  <input type="hidden" name="access_key" value="14ee6ff7-bdaa-4f43-b864-7747fa0ba6c6">
-  <input type="hidden" name="subject" value="🤖 HOSTED AGENT INTAKE — new client">
-  <input type="hidden" name="from_name" value="SAM Hosted Agent Intake">
-
-  <div class="field"><label>Your name</label><input name="owner_name" required autocomplete="name"></div>
-  <div class="field"><label>Business name</label><input name="business_name" required autocomplete="organization"></div>
-  <div class="field"><label>Cell number<small>The phone you'll run your agent from. We text your setup link here.</small></label><input name="phone" type="tel" required autocomplete="tel"></div>
-  <div class="field"><label>Email</label><input name="email" type="email" required autocomplete="email"></div>
-  <div class="field"><label>What does the business do?<small>Plain words. "Pressure washing in Cape Coral" beats a mission statement.</small></label><textarea name="what_you_do" required></textarea></div>
-  <div class="field"><label>Services &amp; rough pricing<small>What you sell and about what it costs. Ranges are fine.</small></label><textarea name="services_pricing" required></textarea></div>
-  <div class="field"><label>Hours &amp; service area</label><input name="hours_area" required></div>
-  <div class="field"><label>Website &amp; socials<small>Links, or "none yet" is a fine answer.</small></label><input name="web_socials"></div>
-  <div class="field"><label>What do you use for email &amp; calendar?</label>
-    <select name="email_provider">
-      <option>Google / Gmail</option>
-      <option>Microsoft / Outlook</option>
-      <option>Yahoo</option>
-      <option>Apple / iCloud</option>
-      <option>Something else / not sure</option>
-    </select>
-  </div>
-  <div class="field"><label>How should it sound?</label>
-    <select name="voice_style">
-      <option>Friendly and casual, like me</option>
-      <option>Professional and polished</option>
-      <option>Direct and to the point</option>
-    </select>
-  </div>
-  <div class="field"><label>The three things you most want off your plate<small>Be honest. This is what it works on first.</small></label><textarea name="top_three" required></textarea></div>
-  <button type="submit" id="go">Build my operator →</button>
-</form>
-
-<div class="done" id="done">
-  <h2>Briefed. <em>Building.</em></h2>
-  <p>Your operator is being assembled and seeded with everything you just wrote. Within 24 hours your agent's link arrives in your email: download Telegram, tap it, press Start, say hello. Questions in the meantime: <a href="mailto:sam@strangeadvancedmarketing.com">sam@strangeadvancedmarketing.com</a></p>
-</div>
-
-<footer>Strange Advanced Marketing · Miami, FL</footer>
-
-</div>
-<script>
-document.getElementById("intake").addEventListener("submit",function(e){
-  e.preventDefault();
-  var f=e.target,b=document.getElementById("go");
-  b.disabled=true;b.textContent="Sending…";
-  var data=Object.fromEntries(new FormData(f).entries());
-  fetch("https://api.web3forms.com/submit",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)})
-    .then(function(r){return r.json()})
-    .then(function(j){
-      if(j.success){f.style.display="none";document.getElementById("hero").style.display="none";document.getElementById("done").style.display="block";window.scrollTo(0,0);}
-      else{b.disabled=false;b.textContent="Build my operator →";alert("Something went wrong. Please try again or email sam@strangeadvancedmarketing.com");}
-    })
-    .catch(function(){b.disabled=false;b.textContent="Build my operator →";alert("Something went wrong. Please try again or email sam@strangeadvancedmarketing.com");});
-});
-</script>
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "68a65b5d3f244a53a023b5dab46945e9"}'></script>
+<!-- Hosted Agent intake page paused 2026-07-19 (Jereme) — restore from git history when relaunched -->
+<p>Redirecting to <a href="https://strangeadvancedmarketing.com/">strangeadvancedmarketing.com</a>…</p>
 </body>
 </html>
