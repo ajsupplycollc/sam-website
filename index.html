@@ -101,9 +101,11 @@ section{padding:76px 0;position:relative}
 .svc p{color:var(--mut)}
 .svc .more{display:inline-block;margin-top:12px;font-weight:600;font-size:15px}
 .flow{padding:22px;display:flex;flex-direction:column;gap:0;font-size:14px}
-.fnode{display:flex;align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.fnode{display:flex;align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:#fff;justify-content:space-between}
 .fnode b{font-weight:600}
-.fnode .chiplet{margin-left:auto;font-size:12px;color:var(--faint);font-family:var(--mono)}
+.fnode .ftxt{flex:1;min-width:0}
+.fnode .chiplet{font-size:12px;color:var(--faint);font-family:var(--mono);white-space:nowrap;flex-shrink:0}
+@media(max-width:600px){.fnode{flex-wrap:wrap;gap:4px 12px}.fnode .chiplet{width:100%;font-size:11px}}
 .fjoin{width:2px;height:16px;background:var(--trace);margin-left:28px;position:relative;overflow:hidden}
 .fjoin::after{content:"";position:absolute;left:0;top:-8px;width:100%;height:8px;background:var(--accent);animation:drip 2.4s linear infinite}
 @keyframes drip{0%{top:-8px}100%{top:20px}}
@@ -244,15 +246,15 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;background:#fff}
       <div class="mock">
         <div class="bar"><span class="dot"></span> workflow · lead engine</div>
         <div class="flow">
-          <div class="fnode"><b>New lead</b> comes in <span class="chiplet">web · Angi · missed call</span></div>
+          <div class="fnode"><span class="ftxt"><b>New lead</b> comes in</span><span class="chiplet">web · Angi · calls</span></div>
           <div class="fjoin"></div>
-          <div class="fnode">Looked up &amp; <b>enriched</b> <span class="chiplet">history · source</span></div>
+          <div class="fnode"><span class="ftxt">Looked up &amp; <b>enriched</b></span><span class="chiplet">history · source</span></div>
           <div class="fjoin"></div>
-          <div class="fnode">Reply <b>drafted</b> in your voice <span class="chiplet">your pricing</span></div>
+          <div class="fnode"><span class="ftxt">Reply <b>drafted</b> in your voice</span><span class="chiplet">your pricing</span></div>
           <div class="fjoin"></div>
-          <div class="fnode hl"><b>You approve</b> with one tap <span class="chiplet">Telegram</span></div>
+          <div class="fnode hl"><span class="ftxt"><b>You approve</b> with one tap</span><span class="chiplet">Telegram</span></div>
           <div class="fjoin"></div>
-          <div class="fnode"><b>Sent</b>, follow-up scheduled <span class="chiplet">day 3 auto-nudge</span></div>
+          <div class="fnode"><span class="ftxt"><b>Sent</b>, follow-up scheduled</span><span class="chiplet">day 3 auto-nudge</span></div>
         </div>
       </div>
     </div>
@@ -281,10 +283,10 @@ footer{border-top:1px solid var(--line);padding:54px 0 40px;background:#fff}
       <div class="mock">
         <div class="bar"><span class="dot"></span> your roadmap</div>
         <div class="gantt" id="gantt">
-          <div class="grow"><div class="lbl"><span>Phase 1: Audit</span><span>week 1–2</span></div><div class="track"><div class="fill" style="width:25%"></div></div></div>
-          <div class="grow"><div class="lbl"><span>Phase 2: Quick wins</span><span>week 3–4</span></div><div class="track"><div class="fill" style="width:45%"></div></div></div>
-          <div class="grow"><div class="lbl"><span>Phase 3: Core build</span><span>week 5–10</span></div><div class="track"><div class="fill" style="width:75%"></div></div></div>
-          <div class="grow"><div class="lbl"><span>Phase 4: Scale</span><span>week 11+</span></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
+          <div class="grow"><div class="lbl"><span>Phase 1: Audit</span><span>week 1</span></div><div class="track"><div class="fill" style="width:25%"></div></div></div>
+          <div class="grow"><div class="lbl"><span>Phase 2: Quick wins</span><span>week 2</span></div><div class="track"><div class="fill" style="width:45%"></div></div></div>
+          <div class="grow"><div class="lbl"><span>Phase 3: Core build</span><span>week 3–5</span></div><div class="track"><div class="fill" style="width:75%"></div></div></div>
+          <div class="grow"><div class="lbl"><span>Phase 4: Scale</span><span>week 6+</span></div><div class="track"><div class="fill" style="width:100%"></div></div></div>
         </div>
       </div>
     </div>
