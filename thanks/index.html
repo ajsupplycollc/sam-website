@@ -4,42 +4,88 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Request Received | Strange Advanced Marketing</title>
-<meta name="description" content="Your consultation request reached Strange Advanced Marketing. Jereme replies within 24 hours, usually much faster.">
+<meta name="description" content="Your consultation request reached Strange Advanced Marketing. You will hear back within 24 hours, usually much faster.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://strangeadvancedmarketing.com/thanks/">
+<meta name="theme-color" content="#fafbfd">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--void:#050506;--champagne:#C9A968;--titanium:#EDEAE3;--muted:#938F86;--faint:#5C5A54;--hairline:rgba(237,234,227,0.10);
-    --mono:ui-monospace,"SF Mono","SFMono-Regular","JetBrains Mono",Menlo,Consolas,monospace;
-    --serif:ui-serif,"New York","Hoefler Text","Iowan Old Style",Georgia,Cambria,serif}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--void);color:var(--titanium);font-family:var(--mono);font-size:14px;line-height:1.75;-webkit-font-smoothing:antialiased;
-    padding:clamp(28px,6vw,80px) clamp(20px,6vw,40px);min-height:100svh;display:flex;align-items:center;justify-content:center}
-  .wrap{max-width:620px;width:100%}
-  .kick{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--champagne);margin-bottom:16px}
-  h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5vw,3rem);line-height:1.1;letter-spacing:-.01em;margin-bottom:18px}
-  p{color:var(--muted);margin-bottom:16px}
-  b{color:var(--titanium);font-weight:500}
-  a{color:var(--champagne);text-decoration:none}
-  a:hover{opacity:.75}
-  .rule{height:1px;background:var(--hairline);margin:34px 0}
-  .next{list-style:none}
-  .next li{color:var(--muted);margin-bottom:10px;padding-left:20px;position:relative}
-  .next li:before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--champagne)}
-  .home{display:inline-block;margin-top:26px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--champagne)}
+:root{
+  --bg:#fafbfd; --panel:#ffffff; --ink:#141b33; --mut:#5a647d; --faint:#8b94a9;
+  --accent:#1e6fd9; --accent-ink:#1558b0; --trace:#cfe0f3; --node:#a9c8e9;
+  --line:#e4eaf3; --ok:#1d9e6f;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:ui-monospace,'Cascadia Code',Consolas,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:16.5px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+img{max-width:100%}
+
+nav{background:rgba(250,251,253,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto}
+.nav-in img{height:44px;width:auto;display:block}
+.nav-back{font-size:15px;font-weight:500;color:var(--mut)}
+.nav-back:hover{color:var(--ink)}
+
+.stage{position:relative;min-height:calc(100svh - 74px);display:flex;align-items:center;justify-content:center;padding:64px 24px;overflow:hidden}
+.circuit{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.circuit svg{position:absolute;inset:0;width:100%;height:100%}
+.z{position:relative;z-index:1}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(30px,5vw,52px);max-width:620px;width:100%;
+  box-shadow:0 1px 2px rgba(20,27,51,.04),0 14px 40px rgba(20,27,51,.06)}
+.tick{width:46px;height:46px;border-radius:50%;border:1.6px solid var(--ok);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.tick svg{width:22px;height:22px}
+h1{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.08;font-size:clamp(2rem,5vw,2.9rem);margin-bottom:14px}
+.lede{color:var(--mut);font-size:17px;margin-bottom:26px}
+.lede b{color:var(--ink);font-weight:600}
+.rule{height:1px;background:var(--line);margin:26px 0}
+ul{list-style:none}
+li{color:var(--mut);margin-bottom:12px;padding-left:26px;position:relative;font-size:15.5px}
+li:before{content:"";position:absolute;left:4px;top:9px;width:7px;height:7px;border-radius:50%;border:1.4px solid var(--node);background:var(--panel)}
+.btn{display:inline-block;background:var(--accent);color:#fff;font-weight:600;font-size:15.5px;padding:12px 22px;border-radius:12px;margin-top:26px;transition:background .15s ease,transform .15s ease}
+.btn:hover{background:var(--accent-ink);transform:translateY(-1px);color:#fff}
+.mailto{display:block;margin-top:16px;font-size:14.5px;color:var(--faint)}
+.mailto a{font-weight:500}
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="kick">Request received</div>
+
+<nav><div class="nav-in">
+  <a href="/"><img src="/logo-light.png" alt="Strange Advanced Marketing"></a>
+  <a class="nav-back" href="/">&larr; Back to site</a>
+</div></nav>
+
+<div class="stage">
+  <div class="circuit" id="circuit-thanks"></div>
+  <div class="card z">
+    <div class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5.2 5.2L20 7" stroke="#1d9e6f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <h1>Got it. It came through.</h1>
-    <p>Your consultation request landed in my inbox. <b>You will hear back within 24 hours, usually much faster.</b></p>
+    <p class="lede">Your consultation request landed in my inbox. <b>You will hear back within 24 hours, usually much faster.</b></p>
     <div class="rule"></div>
-    <ul class="next">
+    <ul>
       <li>I read every one of these myself. No assistant, no queue.</li>
       <li>The call is free and runs about 30 minutes. No pitch.</li>
-      <li>If it is urgent, just reply straight to <a href="mailto:sam@strangeadvancedmarketing.com">sam@strangeadvancedmarketing.com</a>.</li>
+      <li>You leave with the plan either way, whether we work together or not.</li>
     </ul>
-    <a class="home" href="/">&larr; Back to strangeadvancedmarketing.com</a>
+    <a class="btn" href="/">Back to the site</a>
+    <span class="mailto">Something urgent? Reply straight to <a href="mailto:sam@strangeadvancedmarketing.com">sam@strangeadvancedmarketing.com</a></span>
   </div>
+</div>
+
+<script>
+// same circuitry language as the homepage
+function circuit(el,seedOffset){if(!el)return;const w=1600,h=el.parentElement.offsetHeight+100;let s=42+seedOffset;
+const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647};
+let p="";let n="";
+for(let i=0;i<26;i++){let x=Math.floor(rnd()*w),y=Math.floor(rnd()*h);let path=`M${x} ${y}`;
+for(let k=0;k<3;k++){const dx=(rnd()>.5?1:-1)*(40+rnd()*120),dy=(rnd()>.5?1:-1)*(30+rnd()*90);
+rnd()>.5?(x+=dx,path+=` h${Math.round(dx)}`):(y+=dy,path+=` v${Math.round(dy)}`)}
+p+=`<path d="${path}" fill="none" stroke="var(--trace)" stroke-width="1.4"/>`;
+n+=`<circle cx="${x}" cy="${y}" r="3.2" fill="none" stroke="var(--node)" stroke-width="1.4"/>`}
+el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" style="opacity:.5">${p}${n}</svg>`}
+circuit(document.getElementById("circuit-thanks"),7);
+</script>
 </body>
 </html>
