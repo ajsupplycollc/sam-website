@@ -374,22 +374,24 @@ footer{border-top:1px solid var(--line);padding:54px 0 0;background:#fff}
         <input type="hidden" name="subject" value="CONSULTATION REQUEST (site form)">
         <input type="hidden" name="from_name" value="SAM Site Consultation Form">
         <input type="hidden" name="redirect" value="https://strangeadvancedmarketing.com/thanks/">
-        <div class="prog"><span>Form progress</span><div class="ptrack"><div class="pfill" id="pfill"></div></div><span id="pcount">0/6</span></div>
+        <!-- Web3Forms honeypot: bots tick it, humans never see it. Must be type=checkbox named botcheck. -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="prog"><span>Form progress</span><div class="ptrack"><div class="pfill" id="pfill"></div></div><span id="pcount">0/3</span></div>
         <label>Name *</label><input type="text" name="name" required>
         <label>Email *</label><input type="email" name="email" required>
         <label>Website <span class="opt">(optional)</span></label><input type="text" inputmode="url" name="website" placeholder="yoursite.com">
-        <label>What are you interested in? *</label>
+        <label>What are you interested in? <span class="opt">(optional)</span></label>
         <div class="checks">
           <label><input type="checkbox" name="services" value="AI Agents"> AI Agents</label>
           <label><input type="checkbox" name="services" value="Automated Workflows"> Automated Workflows</label>
           <label><input type="checkbox" name="services" value="Memory Systems"> Memory Systems</label>
           <label><input type="checkbox" name="services" value="AI Strategy"> AI Strategy</label>
         </div>
-        <label>Timeline *</label>
-        <select name="timeline" required><option value="" selected disabled>Choose one</option><option>ASAP</option><option>1–3 months</option><option>3–6 months</option><option>Just exploring</option></select>
+        <label>Timeline <span class="opt">(optional)</span></label>
+        <select name="timeline"><option value="" selected>Choose one</option><option>ASAP</option><option>1–3 months</option><option>3–6 months</option><option>Just exploring</option></select>
         <label>What eats most of your time? *</label><textarea name="challenge" rows="3" required placeholder="e.g. quotes pile up at night, leads go cold before I can reply..."></textarea>
-        <label>Estimated budget *</label>
-        <select name="budget" required><option value="" selected disabled>Choose one</option><option>Under $1k</option><option>$1k – $2.5k</option><option>$2.5k – $5k</option><option>Not sure yet</option></select>
+        <label>Estimated budget <span class="opt">(optional)</span></label>
+        <select name="budget"><option value="" selected>Choose one</option><option>Under $1k</option><option>$1k – $2.5k</option><option>$2.5k – $5k</option><option>Not sure yet</option></select>
         <button class="btn" type="submit">Book Your Free Consultation</button>
       </form>
     </div>
@@ -457,14 +459,12 @@ document.querySelectorAll("#gantt").forEach(g=>gio.observe(g));
 
 // form progress 0/6
 const form=document.getElementById("leadform"),pfill=document.getElementById("pfill"),pcount=document.getElementById("pcount");
+// only the 3 required fields drive the bar - the rest are optional and shouldn't read as incomplete
 function prog(){let n=0;
 if(form.name.value.trim())n++;
 if(form.email.value.trim())n++;
-if([...form.querySelectorAll("input[name=services]")].some(c=>c.checked))n++;
-if(form.timeline.value)n++;
 if(form.challenge.value.trim())n++;
-if(form.budget.value)n++;
-pfill.style.transform="scaleX("+(n/6)+")";pcount.textContent=n+"/6"}
+pfill.style.transform="scaleX("+(n/3)+")";pcount.textContent=n+"/3"}
 form.addEventListener("input",prog);form.addEventListener("change",prog);
 
 // circuitry background (SAM logo language: light traces + small nodes)
