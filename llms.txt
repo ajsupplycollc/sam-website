@@ -57,6 +57,37 @@ Pricing is scoped per engagement and discussed directly. It is not published.
 - Strange Intel called an energy thesis ahead of the Wall Street Journal
 - Claude Buddy built independently before Anthropic's own version surfaced
 
+## Pages
+
+Services:
+- AI Agents for Small Business: https://strangeadvancedmarketing.com/services/ai-agents/
+- Automated Workflows: https://strangeadvancedmarketing.com/services/automated-workflows/
+- Business Memory Systems: https://strangeadvancedmarketing.com/services/memory-systems/
+- AI Strategy & Audit: https://strangeadvancedmarketing.com/services/ai-strategy/
+
+Industries:
+- AI for Auto Glass Shops: https://strangeadvancedmarketing.com/industries/auto-glass/
+- AI for Lawn Care & Landscaping: https://strangeadvancedmarketing.com/industries/lawn-care-landscaping/
+- AI for Shopify & E-commerce Brands: https://strangeadvancedmarketing.com/industries/ecommerce/
+- AI for Distributors & Multi-Company Owners: https://strangeadvancedmarketing.com/industries/distributors-wholesale/
+- AI for Contractors & Home Services: https://strangeadvancedmarketing.com/industries/home-services-contractors/
+
+Videos (transcripts on each page): https://strangeadvancedmarketing.com/videos/
+- 3 native Claude Code tips most people miss: https://strangeadvancedmarketing.com/videos/3-native-claude-code-tips-most-people-miss/
+- 5 AI repos worth stealing this week: https://strangeadvancedmarketing.com/videos/5-ai-repos-worth-stealing-this-week/
+- AI Agent for Contractors: Get 10-15 Hours of Your Week Back: https://strangeadvancedmarketing.com/videos/ai-agent-for-contractors-get-10-15-hours-of-your-week-back/
+- Claude Code desktop app vs CLI: the differences that matter for a business: https://strangeadvancedmarketing.com/videos/claude-code-desktop-app-vs-cli-the-differences-that-matter-for-a-busin/
+- Claude in Chrome tip: make Claude navigate natively, not by screenshots: https://strangeadvancedmarketing.com/videos/claude-in-chrome-tip-make-claude-navigate-natively-not-by-screenshots/
+- How to get TikTok + Instagram API access for an auto-posting workflow: https://strangeadvancedmarketing.com/videos/how-to-get-tiktok-instagram-api-access-for-an-auto-posting-workflow/
+- Let Claude Code manage GitHub for you: 3 hard rules for non-developers: https://strangeadvancedmarketing.com/videos/let-claude-code-manage-github-for-you-3-hard-rules-for-non-developers/
+- Let Claude handle your GitHub: https://strangeadvancedmarketing.com/videos/let-claude-handle-your-github/
+- Opus 4.8 vs Fable 5 — same client website, rebuilt.: https://strangeadvancedmarketing.com/videos/opus-4-8-vs-fable-5-same-client-website-rebuilt/
+- Ponytail: the GitHub repo that makes Claude Code token-efficient: https://strangeadvancedmarketing.com/videos/ponytail-the-github-repo-that-makes-claude-code-token-efficient/
+- The next 5 upgrades to our Claude Code setup (Part 2): https://strangeadvancedmarketing.com/videos/the-next-5-upgrades-to-our-claude-code-setup-part-2/
+- Your AI agent is wasting tokens on every MCP you connect (here's the fix): https://strangeadvancedmarketing.com/videos/your-ai-agent-is-wasting-tokens-on-every-mcp-you-connect-here-s-the-fi/
+- 3 AI tools to start a side hustle this weekend (free to set up): https://strangeadvancedmarketing.com/videos/3-ai-tools-to-start-a-side-hustle-this-weekend-free-to-set-up/
+- The 3 APIs every AI content creator should be running: https://strangeadvancedmarketing.com/videos/the-3-apis-every-ai-content-creator-should-be-running/
+
 ## Links
 
 - Website: https://strangeadvancedmarketing.com

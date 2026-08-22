@@ -27,14 +27,19 @@ def slugify(s):
     s=re.sub(r"#\w+","",s); s=re.sub(r"[^a-z0-9]+","-",s.lower()).strip("-")
     return s[:70].rstrip("-") or "video"
 
+# Videos that went up with TikTok file-ids as titles (8/3 batch). Clean titles here; the YouTube-side fix needs Jereme signed in.
+TITLES={"VTZ94R7ecbU":"Ponytail: the GitHub repo that makes Claude Code token-efficient",
+        "Klj00uR_odw":"Claude in Chrome tip: make Claude navigate natively, not by screenshots",
+        "6NyPEC0aki0":"Let Claude Code manage GitHub for you: 3 hard rules for non-developers",
+        "2SG-EqmUABw":"Claude Code desktop app vs CLI: the differences that matter for a business"}
+
 def page(vid, info, text):
     e=html.escape
-    title=re.sub(r"\s*#\w+","",info["title"]).strip()
-    if re.match(r"^v\d{5,}[a-z0-9]+\s*-\s*", title):            # TikTok-id junk title -> use first line of description
-        title=(info.get("description") or "").split("\n")[0].strip()[:90] or title
+    title=TITLES.get(vid) or re.split(r"\s+[🌀-🫿☀-➿•]", re.sub(r"\s*#\w+","",info["title"]))[0].strip()
     slug=slugify(title); url=f"{SITE}/videos/{slug}/"
     desc=(info.get("description") or "").split("\n\n")[0].replace("\n"," ").strip()
     desc=re.sub(r"\s*-?Posted by .*$","",desc)[:155]
+    if vid in TITLES: desc=text[:150].rsplit(" ",1)[0]+"..."
     d=info["upload_date"]; iso=f"{d[:4]}-{d[4:6]}-{d[6:]}"
     ld={"@context":"https://schema.org","@type":"VideoObject","name":title,"description":desc or title,
         "thumbnailUrl":f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg","uploadDate":iso,
@@ -116,15 +121,49 @@ def main(ids):
         with tempfile.TemporaryDirectory() as tmp:
             info, vtt = fetch(vid, tmp)
         text=transcript(vtt)
+        if len(text)<50: print(vid,"SKIPPED: no captions"); continue
         # DM -> direct messages (site copy, not TTS, but keep the brand rule consistent)
         text=re.sub(r"\bDM me\b","Message me",text); text=re.sub(r"\bDM\b","message",text)
         slug,url,body=page(vid,info,text)
         out=os.path.join(ROOT,"videos",slug); os.makedirs(out,exist_ok=True)
         open(os.path.join(out,"index.html"),"w",encoding="utf-8").write(body)
         if url not in sm: add+=f"  <url><loc>{url}</loc><lastmod>2026-08-22</lastmod></url>\n"
-        assert "VideoObject" in body and len(text)>50, vid
+        assert "VideoObject" in body, vid
         print(vid,"->",url,f"({len(text)} chars transcript)")
     if add: open(sm_path,"w",encoding="utf-8").write(sm.replace("</urlset>",add+"</urlset>"))
 
+
+def index_page():
+    """/videos/ hub: one card per generated page, newest first (reads each page's title/date)."""
+    rows=[]
+    vd=os.path.join(ROOT,"videos")
+    for slug in os.listdir(vd):
+        f=os.path.join(vd,slug,"index.html")
+        if not os.path.isfile(f): continue
+        t=open(f,encoding="utf-8").read()
+        title=html.unescape(re.search(r"<h1>(.*?)</h1>",t).group(1)); date=re.search(r"Video &middot; (\d{4}-\d{2}-\d{2})",t).group(1)
+        vid=re.search(r"/embed/([\w-]+)",t).group(1)
+        rows.append((date,title,slug,vid))
+    rows.sort(reverse=True)
+    cards="".join(f'<a class="card" href="/videos/{s}/" style="display:block;text-decoration:none"><img src="https://i.ytimg.com/vi/{v}/hqdefault.jpg" alt="" loading="lazy" style="width:100%;border-radius:8px;aspect-ratio:16/9;object-fit:cover"><h3>{html.escape(t)}</h3><p>{d}</p></a>' for d,t,s,v in rows)
+    body=f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Videos | Strange Advanced Marketing</title>
+<meta name="description" content="Short, practical videos on running a business with AI agents, Claude Code, and automation. From Strange Advanced Marketing, Miami, FL.">
+<link rel="canonical" href="{SITE}/videos/"><meta name="theme-color" content="#fafbfd">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+{head_css()}{EXTRA_CSS}<style>.wrap{{max-width:1120px}}</style>
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/apple-touch-icon.png"></head><body>
+<nav><div class="nav-in"><a href="/"><img src="/logo-light.png" alt="Strange Advanced Marketing"></a><a class="nav-back" href="/#contact">Book a free consultation &rarr;</a></div></nav>
+<header class="head"><div class="circuit" id="circuit-head"></div><div class="head-in"><div class="kick">Videos</div><h1>How we actually run a business on AI</h1></div></header>
+<div class="wrap"><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">{cards}</div>
+<div class="foot">&copy; 2026 Strange Advanced Marketing. Miami, FL. &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div></div>
+<script>function circuit(el,o){{if(!el)return;const w=1600,h=el.parentElement.offsetHeight+100;let s=42+o;const r=()=>{{s=(s*16807)%2147483647;return s/2147483647}};let p="",n="";for(let i=0;i<26;i++){{let x=Math.floor(r()*w),y=Math.floor(r()*h),d=`M${{x}} ${{y}}`;for(let k=0;k<3;k++){{const dx=(r()>.5?1:-1)*(40+r()*120),dy=(r()>.5?1:-1)*(30+r()*90);r()>.5?(x+=dx,d+=` h${{Math.round(dx)}}`):(y+=dy,d+=` v${{Math.round(dy)}}`)}}p+=`<path d="${{d}}" fill="none" stroke="var(--trace)" stroke-width="1.4"/>`;n+=`<circle cx="${{x}}" cy="${{y}}" r="3.2" fill="none" stroke="var(--node)" stroke-width="1.4"/>`}}el.innerHTML=`<svg viewBox="0 0 ${{w}} ${{h}}" preserveAspectRatio="xMidYMid slice" style="opacity:.5">${{p}}${{n}}</svg>`}}circuit(document.getElementById("circuit-head"),11);</script>
+</body></html>"""
+    open(os.path.join(vd,"index.html"),"w",encoding="utf-8").write(body)
+    sm_path=os.path.join(ROOT,"sitemap.xml"); sm=open(sm_path,encoding="utf-8").read()
+    if f"{SITE}/videos/</loc>" not in sm: open(sm_path,"w",encoding="utf-8").write(sm.replace("</urlset>",f"  <url><loc>{SITE}/videos/</loc><lastmod>2026-08-22</lastmod></url>\n</urlset>"))
+    print("index:",len(rows),"videos")
+
 if __name__=="__main__":
-    main(sys.argv[1:])
+    main(sys.argv[1:]); index_page()
