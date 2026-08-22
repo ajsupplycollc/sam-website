@@ -241,7 +241,7 @@ rnd()>.5?(x+=dx,path+=` h${{Math.round(dx)}}`):(y+=dy,path+=` v${{Math.round(dy)
 p+=`<path d="${{path}}" fill="none" stroke="var(--trace)" stroke-width="1.4"/>`;
 n+=`<circle cx="${{x}}" cy="${{y}}" r="3.2" fill="none" stroke="var(--node)" stroke-width="1.4"/>`}}
 el.innerHTML=`<svg viewBox="0 0 ${{w}} ${{h}}" preserveAspectRatio="xMidYMid slice" style="opacity:.5">${{p}}${{n}}</svg>`}}
-circuit(document.getElementById("circuit-head"),{abs(hash(slug))%50});
+circuit(document.getElementById("circuit-head"),{sum(map(ord,slug))%50});
 </script>
 </body>
 </html>
