@@ -86,7 +86,7 @@ details p{margin:8px 0 0}
   <div class="foot">&copy; 2026 Strange Advanced Marketing. Miami, FL. &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/articles/">All articles</a></div>
 </div>
 <script>
-function circuit(el,o){if(!el)return;const w=1600,h=el.parentElement.offsetHeight+100;let s=42+o;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};let p="",n="";for(let i=0;i<26;i++){let x=Math.floor(r()*w),y=Math.floor(r()*h),d=`M${x} ${y}`;for(let k=0;k<3;k++){const dx=(r()>.5?1:-1)*(40+r()*120),dy=(r()>.5?1:-1)*(30+r()*90);r()>.5?(x+=dx,d+=` h${Math.round(dx)}`):(y+=dy,d+=` v${Math.round(dy)}`)}p+=`<path d="${d}" fill="none" stroke="var(--trace)" stroke-width="1.4"/>`;n+=`<circle cx="${x}" cy="${y}" r="3.2" fill="none" stroke="var(--node)" stroke-width="1.4"/>`}el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" style="opacity:.5">${p}${n}</svg>`}circuit(document.getElementById("circuit-head"),3);
+function circuit(el,o){if(!el)return;const w=1600,h=el.parentElement.offsetHeight+100;let s=42+o;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};let p="",n="";for(let i=0;i<26;i++){let x=Math.floor(r()*w),y=Math.floor(r()*h),d=`M${x} ${y}`;for(let k=0;k<3;k++){const dx=(r()>.5?1:-1)*(40+r()*120),dy=(r()>.5?1:-1)*(30+r()*90);r()>.5?(x+=dx,d+=` h${Math.round(dx)}`):(y+=dy,d+=` v${Math.round(dy)}`)}p+=`<path d="${d}" fill="none" stroke="var(--trace)" stroke-width="1.4"/>`;n+=`<circle cx="${x}" cy="${y}" r="3.2" fill="none" stroke="var(--node)" stroke-width="1.4"/>`}el.innerHTML=`<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice" style="opacity:.5">${p}${n}</svg>`}circuit(document.getElementById("circuit-head"),32);
 </script>
 </body>
 </html>

@@ -87,6 +87,7 @@ Articles (Strange Intel mirror): https://strangeadvancedmarketing.com/articles/
 - We Went Quiet Because We Were Building. Here's Everything.: https://strangeadvancedmarketing.com/articles/we-went-quiet-because-we-were-building-here-s-everything/
 
 Videos (transcripts on each page): https://strangeadvancedmarketing.com/videos/
+- 3 AI tools to start a side hustle this weekend (free to set up): https://strangeadvancedmarketing.com/videos/3-ai-tools-to-start-a-side-hustle-this-weekend-free-to-set-up/
 - 3 native Claude Code tips most people miss: https://strangeadvancedmarketing.com/videos/3-native-claude-code-tips-most-people-miss/
 - 5 AI repos worth stealing this week: https://strangeadvancedmarketing.com/videos/5-ai-repos-worth-stealing-this-week/
 - AI Agent for Contractors: Get 10-15 Hours of Your Week Back: https://strangeadvancedmarketing.com/videos/ai-agent-for-contractors-get-10-15-hours-of-your-week-back/
@@ -97,10 +98,9 @@ Videos (transcripts on each page): https://strangeadvancedmarketing.com/videos/
 - Let Claude handle your GitHub: https://strangeadvancedmarketing.com/videos/let-claude-handle-your-github/
 - Opus 4.8 vs Fable 5 — same client website, rebuilt.: https://strangeadvancedmarketing.com/videos/opus-4-8-vs-fable-5-same-client-website-rebuilt/
 - Ponytail: the GitHub repo that makes Claude Code token-efficient: https://strangeadvancedmarketing.com/videos/ponytail-the-github-repo-that-makes-claude-code-token-efficient/
+- The 3 APIs every AI content creator should be running: https://strangeadvancedmarketing.com/videos/the-3-apis-every-ai-content-creator-should-be-running/
 - The next 5 upgrades to our Claude Code setup (Part 2): https://strangeadvancedmarketing.com/videos/the-next-5-upgrades-to-our-claude-code-setup-part-2/
 - Your AI agent is wasting tokens on every MCP you connect (here's the fix): https://strangeadvancedmarketing.com/videos/your-ai-agent-is-wasting-tokens-on-every-mcp-you-connect-here-s-the-fi/
-- 3 AI tools to start a side hustle this weekend (free to set up): https://strangeadvancedmarketing.com/videos/3-ai-tools-to-start-a-side-hustle-this-weekend-free-to-set-up/
-- The 3 APIs every AI content creator should be running: https://strangeadvancedmarketing.com/videos/the-3-apis-every-ai-content-creator-should-be-running/
 
 ## Links
 
