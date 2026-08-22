@@ -78,6 +78,14 @@ Case studies (anonymized):
 - Lawn care operator: https://strangeadvancedmarketing.com/work/lawn-care-pocket-office/
 - Peptide distributor, multiple companies: https://strangeadvancedmarketing.com/work/multi-company-distributor-command-center/
 
+Articles (Strange Intel mirror): https://strangeadvancedmarketing.com/articles/
+- Get Found by AI: The Exact Files Your Website Needs on the Back End: https://strangeadvancedmarketing.com/articles/get-found-by-ai-the-exact-files-your-website-needs-on-the-back-end/
+- How I Built What Anthropic Was Hiding — Before They Even Leaked It: https://strangeadvancedmarketing.com/articles/how-i-built-what-anthropic-was-hiding-before-they-even-leaked-it/
+- Receipts: A Beard-Care Brand, a Mac Mini, and an AI That Answers Voice Notes: https://strangeadvancedmarketing.com/articles/receipts-a-beard-care-brand-a-mac-mini-and-an-ai-that-answers-voice-no/
+- The Claude Code Setup Library — Every Tip, One Page: https://strangeadvancedmarketing.com/articles/the-claude-code-setup-library-every-tip-one-page/
+- The STACK Checklist: What It Actually Takes to Run a Business on Claude Code: https://strangeadvancedmarketing.com/articles/the-stack-checklist-what-it-actually-takes-to-run-a-business-on-claude/
+- We Went Quiet Because We Were Building. Here's Everything.: https://strangeadvancedmarketing.com/articles/we-went-quiet-because-we-were-building-here-s-everything/
+
 Videos (transcripts on each page): https://strangeadvancedmarketing.com/videos/
 - 3 native Claude Code tips most people miss: https://strangeadvancedmarketing.com/videos/3-native-claude-code-tips-most-people-miss/
 - 5 AI repos worth stealing this week: https://strangeadvancedmarketing.com/videos/5-ai-repos-worth-stealing-this-week/
