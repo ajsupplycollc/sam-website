@@ -270,3 +270,71 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Case studies — copy limited to what is ALREADY public on the homepage "Recent builds" cards (no client names, no numbers
+# Jereme hasn't published). Expand only after he approves naming.  (feedback_never_invent_client_facing_options)
+CASES = {
+ "auto-glass-instant-quoting": dict(ind="auto-glass", name="Auto glass shop, South Florida",
+  h1="Quotes that used to wait until after dinner now go out while the customer is on the phone",
+  before="Every windshield quote ran through the owner. Calls came in all day; quotes went out at night, after the shop closed — and some customers had already called the next shop.",
+  built=["Instant quoting wired to the shop's real parts data","Missed-call text-back and estimate follow-up","A 12-page website built to rank for the searches that bring in jobs"],
+  after="Quotes go out while the customer is still on the phone. The owner approves with one tap instead of typing every quote by hand."),
+ "shopify-brand-voice-agent": dict(ind="ecommerce", name="Shopify apparel brand",
+  h1="The owner runs the store from his phone, by voice note",
+  before="Running the store meant logging into Shopify, checking five dashboards, and an end-of-day spreadsheet ritual.",
+  built=["A Telegram agent wired into the store: orders, customers, and daily numbers","Voice-note in, answer out","Customer replies drafted in the owner's voice, sent on approval"],
+  after="No dashboard logins, no end-of-day spreadsheet. The owner asks and gets the number."),
+ "lawn-care-pocket-office": dict(ind="lawn-care-landscaping", name="Lawn care operator",
+  h1="The after-dark paperwork shift is gone",
+  before="Quotes, invoices, and customer history all lived in the owner's head and his phone. Office work happened at 9pm.",
+  built=["A pocket-office agent that quotes and invoices from the truck","Memory of every customer conversation, answerable in plain English","Invoice chasing on a schedule"],
+  after="The agent works the paperwork shift instead. The owner's evenings are his again."),
+ "multi-company-distributor-command-center": dict(ind="distributors-wholesale", name="Peptide distributor, multiple companies",
+  h1="He asks his books a question out loud and gets the real number back in seconds",
+  before="Several companies, several sets of books, and no single place to see them. Every number meant opening QuickBooks and digging.",
+  built=["An always-on agent running on his own machine (sovereign — his data stays with him)","A command dashboard across every company","QuickBooks wired in read-only"],
+  after="One question, one answer, across the whole portfolio. Nothing can change the books; everything can be asked."),
+}
+
+def case_page(slug, d):
+    e=html.escape; url=f"{SITE}/work/{slug}/"; ind=INDUSTRIES[d["ind"]]
+    built="".join(f"<li>{e(x)}</li>" for x in d["built"])
+    ld={"@context":"https://schema.org","@type":"Article","headline":d["h1"],"about":d["name"],"url":url,
+        "author":{"@type":"Organization","name":"Strange Advanced Marketing","url":SITE+"/"},"datePublished":"2026-08-22"}
+    others="".join(f'<a href="/work/{s}/">{e(c["name"])}</a>' for s,c in CASES.items() if s!=slug)
+    tpl=page("auto-glass","industries",INDUSTRIES["auto-glass"])   # borrow head/nav/footer/script verbatim
+    head=tpl.split("<body>")[0]; tail="<script>"+tpl.split("<script>")[-1]
+    head=re.sub(r"<title>.*?</title>",f"<title>{e(d['name'])} — case study | Strange Advanced Marketing</title>",head)
+    head=re.sub(r'<meta name="description" content=".*?">',f'<meta name="description" content="{e(d["h1"])}. What we built for a {e(d["name"].lower())} and what changed.">',head)
+    head=re.sub(r'<link rel="canonical" href=".*?">',f'<link rel="canonical" href="{url}">',head)
+    head=re.sub(r'<meta property="og:(title|description|url)" content=".*?">',"",head)
+    head=re.sub(r'<script type="application/ld\+json">.*?</script>\s*',"",head,flags=re.S)
+    head=head.replace("</head>",f'<script type="application/ld+json">{json.dumps(ld)}</script>\n</head>')
+    body=f"""<body>
+<nav><div class="nav-in">
+  <a href="/"><img src="/logo-light.png" alt="Strange Advanced Marketing"></a>
+  <a class="nav-back" href="/#contact">Book a free consultation &rarr;</a>
+</div></nav>
+<header class="head"><div class="circuit" id="circuit-head"></div><div class="head-in">
+  <div class="kick">Case study &middot; {e(d["name"])}</div><h1>{e(d["h1"])}</h1></div></header>
+<div class="wrap">
+  <h2>Before</h2><p>{e(d["before"])}</p>
+  <h2>What we built</h2><ul>{built}</ul>
+  <h2>After</h2><p class="answer">{e(d["after"])}</p>
+  <p style="margin-top:28px"><a class="cta" href="/#contact">See this running in your business &mdash; free 30-minute consultation</a></p>
+  <h2>Related</h2><div class="links"><a href="/industries/{d["ind"]}/">{e(ind["name"])}</a>{others}</div>
+  <div class="foot">&copy; 2026 Strange Advanced Marketing. Miami, FL. &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div>
+</div>
+"""
+    return head+body+tail
+
+def build_cases():
+    sm_path=os.path.join(ROOT,"sitemap.xml"); sm=open(sm_path,encoding="utf-8").read(); add=""
+    for slug,d in CASES.items():
+        out=os.path.join(ROOT,"work",slug); os.makedirs(out,exist_ok=True)
+        t=case_page(slug,d); open(os.path.join(out,"index.html"),"w",encoding="utf-8").write(t)
+        assert t.count("<h1>")==1 and "Article" in t and 'canonical" href="'+SITE+"/work/" in t
+        u=f"{SITE}/work/{slug}/"
+        if u not in sm: add+=f"  <url><loc>{u}</loc><lastmod>2026-08-22</lastmod></url>\n"
+    if add: open(sm_path,"w",encoding="utf-8").write(sm.replace("</urlset>",add+"</urlset>"))
+    print("cases:",len(CASES))

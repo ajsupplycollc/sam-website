@@ -72,6 +72,12 @@ Industries:
 - AI for Distributors & Multi-Company Owners: https://strangeadvancedmarketing.com/industries/distributors-wholesale/
 - AI for Contractors & Home Services: https://strangeadvancedmarketing.com/industries/home-services-contractors/
 
+Case studies (anonymized):
+- Auto glass shop, South Florida: https://strangeadvancedmarketing.com/work/auto-glass-instant-quoting/
+- Shopify apparel brand: https://strangeadvancedmarketing.com/work/shopify-brand-voice-agent/
+- Lawn care operator: https://strangeadvancedmarketing.com/work/lawn-care-pocket-office/
+- Peptide distributor, multiple companies: https://strangeadvancedmarketing.com/work/multi-company-distributor-command-center/
+
 Videos (transcripts on each page): https://strangeadvancedmarketing.com/videos/
 - 3 native Claude Code tips most people miss: https://strangeadvancedmarketing.com/videos/3-native-claude-code-tips-most-people-miss/
 - 5 AI repos worth stealing this week: https://strangeadvancedmarketing.com/videos/5-ai-repos-worth-stealing-this-week/
