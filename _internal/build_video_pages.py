@@ -36,7 +36,10 @@ TITLES={"VTZ94R7ecbU":"Ponytail: the GitHub repo that makes Claude Code token-ef
 def page(vid, info, text):
     e=html.escape
     title=TITLES.get(vid) or re.split(r"\s+[🌀-🫿☀-➿•]", re.sub(r"\s*#\w+","",info["title"]))[0].strip()
-    slug=slugify(title); url=f"{SITE}/videos/{slug}/"
+    slug=slugify(title)
+    existing=os.path.join(ROOT,"videos",slug,"index.html")          # same title twice -> suffix the id
+    if os.path.exists(existing) and f"/embed/{vid}" not in open(existing,encoding="utf-8").read(): slug=f"{slug}-{vid[:6].lower()}"
+    url=f"{SITE}/videos/{slug}/"
     desc=(info.get("description") or "").split("\n\n")[0].replace("\n"," ").strip()
     desc=re.sub(r"\s*-?Posted by .*$","",desc)[:155]
     if vid in TITLES: desc=text[:150].rsplit(" ",1)[0]+"..."
@@ -121,7 +124,7 @@ def main(ids):
         with tempfile.TemporaryDirectory() as tmp:
             info, vtt = fetch(vid, tmp)
         text=transcript(vtt)
-        if len(text)<50: print(vid,"SKIPPED: no captions"); continue
+        if len(text)<50: print(vid,"no captions -> page without transcript"); text=""
         # DM -> direct messages (site copy, not TTS, but keep the brand rule consistent)
         text=re.sub(r"\bDM me\b","Message me",text); text=re.sub(r"\bDM\b","message",text)
         slug,url,body=page(vid,info,text)
