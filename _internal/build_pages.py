@@ -83,6 +83,28 @@ SERVICES = {
        ("How long does the audit take?","Usually one to two weeks from the first call."),
        ("What does it cost?","The discovery call is free. Audit pricing is quoted on the call based on the size of the business.")],
  ),
+ "ai-setup-rescue": dict(
+  name='AI Setup Rescue',
+  kick='Service',
+  h1='Your AI setup worked for a week. We fix that.',
+  answer='Strange Advanced Marketing repairs AI setups that small businesses built themselves and that stopped working: chatbots that went quiet, Zapier and Make automations that silently quit, custom GPT or Claude projects that drifted, agents that answer wrong. We find the real cause, fix it, and leave it monitored so you know if it ever breaks again.',
+  desc='We fix broken AI setups for small businesses: dead chatbots, silent Zapier and Make automations, drifting GPT or Claude builds. Diagnosis first, then a real quote. SAM, Miami, FL.',
+  does=['Your chatbot answers again, and answers right', 'Silent automations found and restarted, with an alarm on them this time', 'A straight answer on what broke, in plain English', 'A monitor that tells you the day something stops, instead of a customer telling you a month later'],
+  steps=[('Diagnose', "A free look at what you built and what it's doing now. We tell you what broke and what the fix costs before anything starts."), ('Fix', "We repair the setup you have, or tell you honestly when it's cheaper to rebuild it right."), ('Watch', 'The fixed setup gets a health check that pings you if it ever stops working again.')],
+  fits=['Owners who built something with a no-code tool and it quietly died', 'Businesses that paid someone for a chatbot that customers stopped using', 'Anyone whose automation ran for months and stopped after an update'],
+  faq=[('What kinds of setups do you fix?', 'Chatbots, Zapier and Make and n8n automations, custom GPTs, Claude projects, and AI agents other people built.'), ('What does a rescue cost?', 'The diagnosis is free. Most repairs land between a $500 fix and a $1,500 rebuild, quoted before we start.'), ('Did I do something wrong?', "Usually not. Tools update, APIs change, and setups built once with no monitoring break silently. That's the normal failure mode, not a user error."), ("Can you make it so this doesn't happen again?", 'Yes. Every rescue leaves with monitoring, so silence gets caught the same day.')],
+ ),
+ "pricing": dict(
+  name='What AI Setup Actually Costs',
+  kick='Pricing',
+  h1='Real numbers, before you ever get on a call',
+  answer='Strange Advanced Marketing publishes its pricing: entry setups start at $500, a full AI employee stack starts at $1,500, and rescue work on broken setups is quoted after a free diagnosis. Here is what each tier includes and how that compares to doing it yourself or hiring a dev shop.',
+  desc='AI setup pricing for small businesses, published: $500 entry setups, $1,500+ full agent stacks, rescue quotes after a free diagnosis. SAM, Miami, FL.',
+  does=['$500 entry setup: one working assistant on your machine, wired to your phone, doing one job well', '$1,500 and up, full stack: agents, automated workflows, business memory, a dashboard, and support', 'Rescue work: free diagnosis first, then a quote, most land between a fix and a rebuild', 'No subscriptions required to start. You own what we build.'],
+  steps=[('Compare', "DIY no-code tools run free to about $100 a month, and you do all the work and the babysitting. Dev shops start around $15,000. We're the middle: done for you, small-business priced."), ('Scope', 'A free 30-minute call. You leave with a number for your situation, not a range.'), ('Build', 'Fixed scope, stated price, your approval on everything that goes out.')],
+  fits=['Owners comparing us against buying software and figuring it out themselves', 'Businesses burned by open-ended agency retainers', 'Anyone who wants the number before the pitch'],
+  faq=[('Why publish prices?', "Because every competitor page says 'book a call.' You should know if we're in your budget before you spend 30 minutes with us."), ("What's the monthly cost after setup?", 'Entry setups can run with no monthly fee. Full stacks include a support plan we scope with you, stated up front.'), ('Is the $500 setup real or a teaser?', "Real. One assistant, one job, working on your own machine. It's how several of our clients started."), ('What about big custom builds?', 'If your scope is genuinely bigger than a full stack, we say so and quote it fixed, or tell you if a dev shop is the better fit.')],
+ ),
 }
 
 # Industries mirror the public "Recent builds" cards — anonymized, no client names (see feedback_nothing_client_facing_without_approval).
