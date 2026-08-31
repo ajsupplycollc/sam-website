@@ -171,7 +171,7 @@ LOCAL = {
  "miami": dict(
   name="AI Automation for Miami & South Florida Small Businesses",
   kick="Local",
-  h1="Miami's AI setup shop for real small businesses",
+  h1="South Florida's AI setup shop for real small businesses",
   answer="Strange Advanced Marketing is a Miami consultancy that installs working AI assistants for South Florida small businesses: trades, shops, and owner-operators from Miami Gardens to Fort Lauderdale. Entry setups start at $500, full AI employee stacks at $1,500, and we fix AI setups that broke. Remote-friendly, so the same builds run anywhere in the country.",
   desc="AI automation for Miami and South Florida small businesses: agents, workflows, and rescues of broken setups. Entry setups from $500. Strange Advanced Marketing.",
   does=["A working AI assistant installed on your own machine, not another subscription",
