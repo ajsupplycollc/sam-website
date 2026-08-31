@@ -166,6 +166,31 @@ INDUSTRIES = {
  ),
 }
 
+# Top-level local hub (organic lane 8/31, COO-delegated). kind="" -> writes to ROOT/<slug>/.
+LOCAL = {
+ "miami": dict(
+  name="AI Automation for Miami & South Florida Small Businesses",
+  kick="Local",
+  h1="Miami's AI setup shop for real small businesses",
+  answer="Strange Advanced Marketing is a Miami consultancy that installs working AI assistants for South Florida small businesses: trades, shops, and owner-operators from Miami Gardens to Fort Lauderdale. Entry setups start at $500, full AI employee stacks at $1,500, and we fix AI setups that broke. Remote-friendly, so the same builds run anywhere in the country.",
+  desc="AI automation for Miami and South Florida small businesses: agents, workflows, and rescues of broken setups. Entry setups from $500. Strange Advanced Marketing.",
+  does=["A working AI assistant installed on your own machine, not another subscription",
+        "Built for South Florida trades and local businesses: auto glass, landscaping, contractors, shops",
+        "Quotes, follow-ups, invoices, and scheduling handled by voice note from your phone",
+        "Local means local: based in Miami-Dade, serving Miami-Dade and Broward, on-site when it helps"],
+  steps=[("Talk", "A free 30-minute call, in English or Spanish. You describe how the business runs; we tell you what's automatable and what it costs."),
+         ("Build", "We install the assistant, wire your tools, and load your pricing and your customers."),
+         ("Run", "You approve everything it sends until you trust it. We keep it healthy after.")],
+  fits=["Owner-operators in Miami-Dade and Broward doing paperwork after dinner",
+        "South Florida trades losing after-hours calls to whoever answers first",
+        "Anyone anywhere, honestly: the builds are remote-friendly, Miami just gets us in person"],
+  faq=[("Do you come on site?", "In Miami-Dade and Broward, yes when it helps. Most of the work is remote either way."),
+       ("Hablan espanol?", "Si. The assistants work in English and Spanish, and so do we."),
+       ("What does it cost?", "Entry setups start at $500. Full AI employee stacks start at $1,500. Broken-setup rescues get a free diagnosis first. Details on the pricing page."),
+       ("What kinds of businesses?", "Auto glass, landscaping and turf, contractors and home services, e-commerce, distributors. If you quote, schedule, and invoice, we can automate it.")],
+ ),
+}
+
 def head_css():
     src = open(os.path.join(ROOT, "privacy", "index.html"), encoding="utf-8").read()
     return re.search(r"<style>.*?</style>", src, re.S).group(0)
@@ -187,7 +212,7 @@ details p{margin:8px 0 0}
 </style>"""
 
 def page(slug, kind, d):
-    url = f"{SITE}/{kind}/{slug}/"
+    url = f"{SITE}/{slug}/" if kind == "" else f"{SITE}/{kind}/{slug}/"
     e = html.escape
     faq_ld = {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in d["faq"]]}
@@ -271,12 +296,12 @@ circuit(document.getElementById("circuit-head"),{sum(map(ord,slug))%50});
 
 def main():
     urls = []
-    for kind, data in (("services", SERVICES), ("industries", INDUSTRIES)):
+    for kind, data in (("services", SERVICES), ("industries", INDUSTRIES), ("", LOCAL)):
         for slug, d in data.items():
             out = os.path.join(ROOT, kind, slug)
             os.makedirs(out, exist_ok=True)
             open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(page(slug, kind, d))
-            urls.append(f"{SITE}/{kind}/{slug}/")
+            urls.append(f"{SITE}/{slug}/" if kind == "" else f"{SITE}/{kind}/{slug}/")
     # sitemap: append any missing generated urls
     sm_path = os.path.join(ROOT, "sitemap.xml"); sm = open(sm_path, encoding="utf-8").read()
     add = "".join(f"  <url><loc>{u}</loc><lastmod>2026-08-22</lastmod></url>\n" for u in urls if u not in sm)
